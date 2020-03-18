@@ -54,8 +54,8 @@
     </div>
 
     <div class="list" v-if="filterItems.length">
-      <div class="box" v-if="!filtering.tableType">
-        <div class="item" v-for="(item, index) in filterItems" :key="index" :class="chkWatching(item.date)">
+      <transition-group tag="div" name="list" class="box" v-if="!filtering.tableType">
+        <div class="item" v-for="item in filterItems" :key="item.id" :class="chkWatching(item.date)">
           <router-link :to="`/view/${ item.id }`">
             <img src="@/assets/noimage.png" alt="" v-if="item.img === ''">
             <img :src="item.img" :alt="item.title" v-if="item.img !== ''">
@@ -68,38 +68,40 @@
             </dl>
           </router-link>
         </div>
-      </div>
+      </transition-group>
 
-      <table class="table" v-else>
-        <colgroup>
-          <col class="table-cell-1of8">
-          <col class="table-cell-1of4">
-          <col class="table-cell-1of10">
-          <col>
-          <col class="table-cell-1of8">
-          <col class="table-cell-1of10">
-        </colgroup>
-        <thead>
-          <tr>
-            <th>분류</th>
-            <th>제목</th>
-            <th>관람</th>
-            <th>출연</th>
-            <th>장소</th>
-            <th>금액</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="item" v-for="(item, index) in filterItems" :key="index">
-            <td>{{ item.cate }}</td>
-            <td> <router-link :to="`/view/${ item.id }`">{{ item.title }}</router-link></td>
-            <td>{{ item.date }} {{ item.time }}</td>
-            <td>{{ item.actor }}</td>
-            <td>{{ item.place }}</td>
-            <td>{{ priceComma(item.price) }}</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table-wrap" v-else>
+        <table class="table">
+          <colgroup>
+            <col class="table-cell-1of8">
+            <col class="table-cell-1of4">
+            <col class="table-cell-1of10">
+            <col>
+            <col class="table-cell-1of8">
+            <col class="table-cell-1of10">
+          </colgroup>
+          <thead>
+            <tr>
+              <th>분류</th>
+              <th>제목</th>
+              <th>관람</th>
+              <th>출연</th>
+              <th>장소</th>
+              <th>금액</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="item" v-for="item in filterItems" :key="item.id">
+              <td>{{ item.cate }}</td>
+              <td> <router-link :to="`/view/${ item.id }`">{{ item.title }}</router-link></td>
+              <td>{{ item.date }} {{ item.time }}</td>
+              <td>{{ item.actor }}</td>
+              <td>{{ item.place }}</td>
+              <td>{{ priceComma(item.price) }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </template>

@@ -67,10 +67,12 @@
 
   .list {
     padding-top: $header-height + 20px;
-    overflow-x: scroll;
 
     .table {
       min-width: $w-medium;
+      &-wrap {
+        overflow-x: scroll;
+      }
     }
   }
 

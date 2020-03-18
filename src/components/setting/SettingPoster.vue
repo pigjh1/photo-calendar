@@ -1,7 +1,10 @@
 <template>
   <div>
     <span class="item" v-for="(item, index) in type" :key="index" >
-      <input type="radio" name="s-poster" :id="'s-poster' + index" :value="item.value" v-model="currentPosterType" @change="changePost(item.value)">
+      <input type="radio" name="s-poster"
+        :id="'s-poster' + index" :value="item.value"
+        v-model="currentPosterType"
+        @change="changePost(item.value)">
       <label :for="'s-poster' + index">{{ item.text }}</label>
     </span>
   </div>
