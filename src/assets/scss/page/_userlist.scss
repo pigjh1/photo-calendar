@@ -1,0 +1,227 @@
+// -----------------------------------------------------------------------------
+// List
+// -----------------------------------------------------------------------------
+
+.userlist {
+  @include scrollbars('.filter', 10px, $gray3, translate);
+
+  .filter {
+    position: fixed;
+    height: calc(100vh - #{$header-height});
+    left: 0;
+    right: 0;
+    overflow-y: scroll;
+    background: $gray1;
+    z-index: 10;
+
+    .item {
+      padding: 10px 5px;
+      box-sizing: border-box;
+
+      .t {
+        display: inline-block;
+        vertical-align: top;
+        padding: 0 5px;
+        font-weight: bold;
+      }
+
+      .btn {
+        margin: 2px;
+      }
+
+      select,
+      input[type=text] {
+        margin: 2px;
+        width: 100%;
+      }
+    }
+
+    &-toggle {
+      position: fixed;
+      display: block;
+      top: $header-height;
+      right: 0;
+
+      img {
+        padding: 15px 20px;
+        height: 20px;
+      }
+    }
+  }
+
+  .nodata {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+    height: 90vh;
+
+    img {
+      width: 50px;
+      margin-bottom: 20px;
+    }
+  }
+
+  .list {
+    padding-top: $header-height + 20px;
+    overflow-x: scroll;
+
+    .table {
+      min-width: $w-medium;
+    }
+  }
+
+  .box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .item {
+      position: relative;
+      width: 320px;
+      border: 1px solid $base-border-color;
+      margin: 10px;
+      padding: 20px;
+      box-sizing: border-box;
+      border-radius: $base-radius;
+
+      .h {
+        position: absolute;
+        top: 25px;
+        left: 120px;
+        right: 20px;
+        font-size: 1.1em;
+        @include ellipsis(1);
+      }
+
+      a {
+        display: flex;
+        align-items: center;
+        height: 100%;
+      }
+
+      img {
+        width: 80px;
+        object-fit: cover;
+      }
+
+      dl {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 30px 20px 0;
+      }
+
+      dt {
+        width: 40px;
+        font-weight: bold;
+      }
+
+      dd {
+        width: calc(100% - 40px);
+      }
+
+      &--watching {
+        border: 1px solid $gray3;
+
+        &::before {
+          content: '관람예정';
+          position: absolute;
+          top: 0;
+          right: 0;
+          font-size: 11px;
+          padding: 2px 5px;
+          color: $black;
+          background: rgba($color-primary, 0.1);
+          border-radius: $base-radius;
+        }
+      }
+    }
+  }
+
+  &.is-collapsed {
+    .filter {
+      height: $header-height;
+      overflow: hidden;
+
+      .item {
+        display: none;
+
+        &:first-child {
+          display: block;
+        }
+      }
+    }
+  }
+
+  &.is-imgtype {
+    .box {
+      .item {
+        width: auto;
+        border: 0;
+        bottom: 0;
+        padding: 0;
+
+        &::before {
+          display: none;
+        }
+
+        img {
+          width: 120px;
+          border-radius: $base-radius;
+        }
+      }
+
+      .h,
+      dl {
+        display: none;
+      }
+    }
+  }
+
+  @media (min-width: $mq-md) {
+    .filter {
+      width: 240px;
+      background: $base-bg-color;
+      padding: $gutter-md;
+      box-sizing: border-box;
+
+      &-toggle {
+        left: 0;
+        top: auto;
+        bottom: 0;
+        width: 240px;
+        z-index: 100;
+        text-align: right;
+      }
+    }
+
+    .list {
+      margin-left: 240px;
+      padding: $gutter-md;
+    }
+
+    &.is-collapsed {
+      .filter {
+        width: 0;
+        height: calc(100vh - #{$header-height});
+
+        .item {
+          &:first-child {
+            display: none;
+          }
+        }
+
+        .filter-toggle {
+          width: $gutter-md * 2;
+        }
+      }
+
+      .list {
+        margin-left: $gutter-md * 2;
+      }
+    }
+  }
+}

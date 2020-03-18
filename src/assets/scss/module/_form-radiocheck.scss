@@ -1,0 +1,72 @@
+// -----------------------------------------------------------------------------
+// Form > toggle
+// -----------------------------------------------------------------------------
+
+input[type=checkbox],
+input[type=radio] {
+  position: absolute;
+  opacity: 0;
+
+  +label {
+    position: relative;
+    display: inline-block;
+    padding-left: 28px;
+    cursor: pointer;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      transition: border-color .2s ease-in;
+      transform: translateY(-50%);
+      vertical-align: middle;
+      border: 2px solid $silver;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 5px;
+      display: inline-block;
+      width: 9px;
+      height: 9px;
+      transition: background-color .2s ease-in;
+      transform: translateY(-50%);
+      vertical-align: middle;
+      background-color: transparent;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    &::after {
+      background-color: $silver;
+    }
+  }
+
+  &:checked {
+    +label {
+      &::after {
+        background: $gray7;
+      }
+
+      &::before {
+        border-color: $gray7;
+      }
+    }
+  }
+}
+
+input[type=radio] {
+  +label {
+    &::before,
+    &::after {
+      border-radius: 50%;
+    }
+  }
+}

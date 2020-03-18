@@ -1,0 +1,123 @@
+// -----------------------------------------------------------------------------
+// Theme
+// -----------------------------------------------------------------------------
+
+// font
+// -----------------------------------------------------------------------------
+@import url('https://fonts.googleapis.com/css?family=Nanum+Myeongjo:400');
+@import url('https://fonts.googleapis.com/css?family=Nanum+Pen+Script:400');
+@import url('https://fonts.googleapis.com/css?family=Cute+Font:400');
+@import url('https://fonts.googleapis.com/css?family=Poor+Story:400');
+@import url('https://fonts.googleapis.com/css?family=Hi+Melody:400');
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400');
+
+#app.ff-nanum-gothic {
+  font-family: 'Nanum Gothic';
+}
+
+#app.ff-nanum-myeongjo {
+  font-family: 'Nanum Myeongjo';
+}
+
+#app.ff-nanum-pen-script {
+  font-family: 'Nanum Pen Script';
+  font-size: 1.8rem;
+}
+
+#app.ff-cute-font {
+  font-family: 'Cute Font';
+  font-size: 1.8rem;
+}
+
+#app.ff-poor-story {
+  font-family: 'Poor Story';
+  font-size: 1.8rem;
+}
+
+#app.ff-hi-melody {
+  font-family: 'Hi Melody';
+  font-size: 1.8rem;
+}
+
+// color Set
+// -----------------------------------------------------------------------------
+
+@mixin colorSet($color) {
+  $root-color: $color;
+
+  .header {
+    background: $root-color;
+  }
+
+  .btn {
+    &:hover,
+    &:focus {
+      border-color: $root-color;
+      color: $root-color;
+    }
+
+    &--em {
+      &:hover,
+      &:focus {
+        border-color: $root-color;
+        background-color: $root-color;
+      }
+    }
+  }
+
+  .em,
+  .wordcloud .word-big {
+    color: $root-color;
+  }
+
+  .userlist .box .item--watching::before {
+    background: rgba($root-color, 0.1);
+  }
+}
+
+#app {
+  &.cset-1 { @include colorSet($color1); }
+  &.cset-2 { @include colorSet($color2); }
+  &.cset-3 { @include colorSet($color3); }
+  &.cset-4 { @include colorSet($color4); }
+  &.cset-5 { @include colorSet($color5); }
+  &.cset-6 { @include colorSet($color6); }
+  &.cset-7 { @include colorSet($color7); }
+  &.cset-8 { @include colorSet($color8); }
+  &.cset-9 { @include colorSet($color9); }
+  &.cset-10 { @include colorSet($color10); }
+  &.cset-11 { @include colorSet($color11); }
+  &.cset-12 { @include colorSet($color12); }
+  &.cset-13 { @include colorSet($color13); }
+  &.cset-14 { @include colorSet($color14); }
+}
+
+// dark mode
+// -----------------------------------------------------------------------------
+#app.theme-dark {
+  $base-color: $gray3;
+  $base-background: $gray9;
+  color: $base-color;
+
+  a,
+  button,
+  input,
+  select,
+  textarea {
+    color: $base-color;
+  }
+
+  .footer,
+  .main {
+    background: $base-background;
+  }
+
+  .calendar-week,
+  .userlist .filter,
+  .userlist-items .item,
+  input,
+  select,
+  textarea {
+    border-color: $base-border-dark-color;
+  }
+}

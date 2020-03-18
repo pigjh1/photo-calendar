@@ -1,0 +1,48 @@
+// -----------------------------------------------------------------------------
+// Layout
+// -----------------------------------------------------------------------------
+
+#app {
+  font-size: 1.5rem;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 5px $offset-sm;
+  color: $gray2;
+  text-align: center;
+  display: flex;
+  font-size: 1.8rem;
+  justify-content: space-between;
+  height: $header-height;
+  background-color: $white;
+  box-sizing: border-box;
+  z-index: 10;
+  background-color: $color-primary;
+
+  a {
+    padding: 5px;
+  }
+  img {
+    width: 25px;
+  }
+
+  .router-link-exact-active {
+    font-weight: bold;
+  }
+}
+
+.footer {
+  padding: 10px 0;
+  text-align: center;
+  font-size: 1rem;
+  color: $gray5;
+}
+
+.main {
+  margin-top: $header-height;
+  min-height: calc(100vh - 90px);
+}

@@ -1,0 +1,83 @@
+// -----------------------------------------------------------------------------
+// Button
+// -----------------------------------------------------------------------------
+
+// button component style
+// -----------------------------------------------------------------------------
+.btn {
+  box-sizing: border-box;
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  padding: $base-tb $base-lr;
+  border: 1px solid $base-border-color;
+  background-color: transparent;
+  color: $gray8;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  transition: all .2s ease-out;
+  border-radius: $base-radius;
+
+  & + & {
+    margin-left: $base-lr;
+  }
+
+  &[disabled] {
+    border-color: $silver-light !important;
+    color: $silver-dark !important;
+    cursor: not-allowed;
+  }
+
+  span {
+    position: relative;
+    z-index: 1;
+  }
+
+  &:hover,
+  &:focus {
+    border-color: $color-primary;
+    color: $color-primary;
+    text-decoration: none;
+  }
+
+  &:active:enabled {
+    transform: scale(0.97);
+  }
+
+  // size variation
+  &--lg {
+    padding: 16px 40px;
+    font-size: 1.8em;
+  }
+
+  &--sm {
+    padding: 5px 12px;
+    font-size: 1.3rem;
+  }
+
+  &--block {
+    display: block;
+    width: 100%;
+  }
+
+  // color variation
+  &--em {
+    background-color: $gray8;
+    color: $white;
+
+    &:hover,
+    &:focus {
+      border-color: $color-primary;
+      background-color: $color-primary;
+      color: $white !important;
+    }
+
+    &[disabled] {
+      border-color: transparent !important;
+      background-color: $silver-light !important;
+      color: $silver-dark !important;
+      cursor: not-allowed;
+    }
+  }
+}

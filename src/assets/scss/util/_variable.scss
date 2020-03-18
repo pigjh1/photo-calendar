@@ -1,0 +1,99 @@
+// -----------------------------------------------------------------------------
+// Variable
+// -----------------------------------------------------------------------------
+
+// breakpoints
+$mq-sm: 560px;
+$mq-md: 768px;
+$mq-lg: 960px;
+
+// grid
+// -----------------------------------------------------------------------------
+$grid-columns: 12;
+$gutter-sm: 10px;
+$gutter-md: 30px;
+$gutter-lg: 50px;
+
+// layout
+// -----------------------------------------------------------------------------
+$w-small: 360px;
+$w-medium: 768px;
+$w-wrap: 1180px;
+
+$offset-sm: 20px;
+$offset-md: 64px;
+$offset-lg: 130px;
+
+$header-height: 50px; // header 높이
+
+$base-tb: 12px;
+$base-lr: 15px;
+$base-radius: 5px;
+
+// fonts
+// -----------------------------------------------------------------------------
+
+// 'Malgun Gothic', '맑은 고딕',
+// '돋움', dotum
+$font-main: 'Nanum Gothic', '나눔 고딕', 'Malgun Gothic', '맑은 고딕', '돋움', dotum, sans-serif;
+$font-sub: 'Open Sans', serif;
+$en: $font-sub;
+
+$font-icon: 'icon';
+$icons: ();
+
+
+// color
+// -----------------------------------------------------------------------------
+$white: #fff;
+$black: #000;
+
+$gray0: #f7f7f7;
+$gray1: #f0f0f0;
+$gray2: #e5e5e5;
+$gray3: #cccccc;
+$gray4: #999999;
+$gray5: #737373;
+$gray6: #666666;
+$gray7: #404040;
+$gray8: #333333;
+$gray9: #191919;
+
+$fog:           $gray0;
+$ash:           $gray1;
+$silver-light:  $gray2;
+$silver:        $gray3;
+$silver-dark:   $gray4;
+$gray-light:    $gray5;
+$gray:          $gray6;
+$gray-dark:     $gray7;
+$dark:          $gray8;
+$ink:           $gray9;
+
+$color-alpha: 0.7;
+$color1: rgba(#D50000, $color-alpha);
+$color2: rgba(#C51162, $color-alpha);
+$color3: rgba(#AA00FF, $color-alpha);
+$color4: rgba(#6200EA, $color-alpha);
+$color5: rgba(#304FFE, $color-alpha);
+$color6: rgba(#2962FF, $color-alpha);
+$color7: rgba(#0091EA, $color-alpha);
+$color8: rgba(#00B8D4, $color-alpha);
+$color9: rgba(#00BFA5, $color-alpha);
+$color10: rgba(#00C853, $color-alpha);
+$color11: rgba(#64DD17, $color-alpha);
+$color12: rgba(#AEEA00, $color-alpha);
+$color13: rgba(#FFD600, $color-alpha);
+$color14: rgba(#FFAB00, $color-alpha);
+
+$color-primary: $color1;
+
+$base-bg-color: rgba($gray3, 0.2);
+$base-border-color: $gray2;
+$base-border-dark-color: $gray7;
+
+
+// 애니메이션
+// -----------------------------------------------------------------------------
+$dur: .4s;
+$ease: cubic-bezier(0.645, 0.045, 0.355, 1.000);

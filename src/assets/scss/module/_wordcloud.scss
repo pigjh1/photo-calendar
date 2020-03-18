@@ -1,0 +1,26 @@
+// -----------------------------------------------------------------------------
+// Wordcloud
+// -----------------------------------------------------------------------------
+
+.wordcloud {
+  position: relative;
+  margin: 0 auto;
+
+  > span {
+    display: inline-block;
+    margin: 2px 5px;
+  }
+
+  .word-big {
+    color: $color-primary;
+    font-size: 2.8rem;
+  }
+
+  $fzArr: ('1.7', '1.8', '2.0''2.2', '2.4', '2.6', '2.8');
+
+  @for $i from 1 to length($fzArr)+1 {
+    .word-#{$i} {
+      font-size: unquote(nth($fzArr, $i)) + 'rem';
+    }
+  }
+}

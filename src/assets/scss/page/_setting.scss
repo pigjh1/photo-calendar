@@ -1,0 +1,55 @@
+// -----------------------------------------------------------------------------
+// setting
+// -----------------------------------------------------------------------------
+
+.setting {
+  margin: 0 auto;
+  max-width: $w-wrap;
+  padding: $gutter-sm;
+
+  .row {
+    margin-bottom: 10px;
+  }
+
+  .colorset {
+    .item {
+      background: $color1;
+      color: $white;
+      width: 120px;
+      padding: 5px 0;
+      margin: 0 10px 10px 0;
+      text-align: center;
+      display: inline-block;
+      border-radius: $base-radius;
+
+      &.is-active {
+        font-weight: bold;
+        outline: 1px solid #fff;
+        outline-offset: -4px;
+      }
+
+      &:nth-child(1) { background: $color1; }
+      &:nth-child(2) { background: $color2; }
+      &:nth-child(3) { background: $color3; }
+      &:nth-child(4) { background: $color4; }
+      &:nth-child(5) { background: $color5; }
+      &:nth-child(6) { background: $color6; }
+      &:nth-child(7) { background: $color7; }
+      &:nth-child(8) { background: $color8; }
+      &:nth-child(9) { background: $color9; }
+      &:nth-child(10) { background: $color10; }
+      &:nth-child(11) { background: $color11; }
+      &:nth-child(12) { background: $color12; }
+      &:nth-child(13) { background: $color13; }
+      &:nth-child(14) { background: $color14; }
+    }
+  }
+
+  @media (min-width: $mq-md) {
+    padding: $gutter-md;
+  }
+
+  @media (min-width: $mq-lg) {
+    padding: $gutter-lg;
+  }
+}
