@@ -79,7 +79,7 @@ export default {
       }, {});
 
       // 2개 이하인 경우 제거
-      for (var key in newdata) {
+      for (const key in newdata) {
         if (newdata[key] < 2) {
           delete newdata[key];
         }

@@ -29,7 +29,10 @@ export default {
     labels() {
       let temp = [];
       this.userdata.forEach(({ cate }) => {
-        temp.push(cate);
+        cate.split('/').forEach(el => {
+          el = el.replace(/^\s+|\s+$/g, '');
+          temp.push(el);
+        });
       });
       temp = temp.reduce((a, b) => {
         if (a.indexOf(b) < 0) a.push(b);
@@ -45,7 +48,8 @@ export default {
         let result = 0;
 
         for (let k = 0; k < userdata.length; k++) {
-          if (this.labels[i] === userdata[k].cate) {
+          if (userdata[k].cate.includes(this.labels[i])) {
+          // if (this.labels[i] === userdata[k].cate) {
             result++;
           }
         }

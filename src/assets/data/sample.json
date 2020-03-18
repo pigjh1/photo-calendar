@@ -747,7 +747,7 @@
   },
   {
     "id": 69,
-    "cate": "범죄",
+    "cate": "범죄 / 드라마 / 스릴러",
     "img": "https://movie-phinf.pstatic.net/20191227_205/1577437075244ojpJv_JPEG/movie_image.jpg",
     "title": "21 브릿지: 테러 셧다운",
     "date": "2020-12-25",
@@ -1183,6 +1183,28 @@
     "title": "페인 앤 글로리",
     "date": "2018-02-10",
     "actor": "페넬로페 크루즈/ 안토니오 반데라스",
+    "place": "CGV 명동",
+    "price": "9000",
+    "office": "CGV"
+  },
+  {
+    "id": 110,
+    "cate": "로맨스",
+    "img": "https://movie-phinf.pstatic.net/20191203_217/1575347950420leqmB_JPEG/movie_image.jpg?type=m99_141_2",
+    "title": "윤희에게",
+    "date": "2020-08-25",
+    "actor": "김희애/ 김소혜/ 성유빈/ 나카무라 유코/ 키노 하나",
+    "place": "CGV 명동",
+    "price": "9000",
+    "office": "CGV"
+  },
+  {
+    "id": 111,
+    "cate": "멜로",
+    "img": "https://movie-phinf.pstatic.net/20191203_217/1575347950420leqmB_JPEG/movie_image.jpg?type=m99_141_2",
+    "title": "윤희에게",
+    "date": "2020-08-25",
+    "actor": "김희애/ 김소혜/ 성유빈/ 나카무라 유코/ 키노 하나",
     "place": "CGV 명동",
     "price": "9000",
     "office": "CGV"

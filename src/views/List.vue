@@ -8,6 +8,12 @@
           <span class="toggle-slider"></span>
         </label>
       </div>
+      <div class="item">
+        <span class="t">정렬</span>
+        <select v-model="filtering.sortType">
+          <option v-for="item in filtering.sorts" :value="item.value" :key="item.value">{{ item.text }}</option>
+        </select>
+      </div>
       <div class="item" v-for="(active, menu, index) in filtering.menus" :key="menu">
         <span class="t" v-if="index === 0">분류</span>
         <span class="t" v-if="index === 1">연도</span>
@@ -18,12 +24,6 @@
               @click="setFilter(filter, option)">{{ option }}</button>
           </span>
         </div>
-      </div>
-      <div class="item">
-        <span class="t">정렬</span>
-        <select v-model="filtering.sortType">
-          <option v-for="item in filtering.sorts" :value="item.value" :key="item.value">{{ item.text }}</option>
-        </select>
       </div>
       <div class="item">
         <span class="t">검색</span>
@@ -115,8 +115,6 @@ export default {
         imgType: false,
         tableType: false,
         watchingType: false,
-        filterCollapsed: false,
-        search: { title: '', actor: '', place: '' },
         sortType: 'date',
         sorts: [
           { text: '관람일', value: 'date' },
@@ -124,8 +122,10 @@ export default {
           { text: '장소', value: 'place' },
           { text: '가격', value: 'price' }
         ],
+        search: { title: '', actor: '', place: '' },
         filters: { category: {}, year: {} },
-        menus: { category: false, year: false }
+        menus: { category: false, year: false },
+        filterCollapsed: false
       }
     };
   },
@@ -138,7 +138,10 @@ export default {
   },
   beforeMount() {
     this.newItems.forEach(({ cate, datayear }, index) => {
-      this.$set(this.filtering.filters.category, cate, false);
+      cate.split('/').forEach(el => {
+        el = el.replace(/^\s+|\s+$/g, '');
+        this.$set(this.filtering.filters.category, el, false);
+      });
       this.$set(this.filtering.filters.year, datayear, false);
     });
   },
@@ -166,14 +169,6 @@ export default {
       const { category, year } = this.activeFilters;
       let items = this.newItems;
 
-      // 분류 필터 적용
-      items = items.filter(({ cate, datayear }) => {
-        if (category.length && !~category.indexOf(cate)) return false;
-        return (
-          !year.length || year.every(cat => ~datayear.indexOf(cat))
-        );
-      });
-
       // 정렬
       items = items.sort((a, b) => {
         switch (this.filtering.sortType) {
@@ -192,10 +187,30 @@ export default {
         }
       });
 
+      // 분류
+      items = items.filter(({ cate, datayear }) => {
+        if (category.length) {
+          if (cate.includes('/')) {
+            let st = true;
+            for (const key in category) {
+              if (st) {
+                st = !~cate.indexOf(category[key]);
+              }
+              return !st;
+            }
+          } else {
+            if (!~category.indexOf(cate)) return false;
+          }
+        }
+        return (
+          !year.length || year.every(cat => ~datayear.indexOf(cat))
+        );
+      });
+
       // 검색어
       if (this.filtering.search.title) {
-        items = items.filter(post => {
-          return post.title.toLowerCase().includes(this.filtering.search.title.toLowerCase());
+        items = items.filter(obj => {
+          return obj.title.toLowerCase().includes(this.filtering.search.title.toLowerCase());
         });
       }
 
@@ -223,7 +238,7 @@ export default {
         });
       }
 
-      // 이미지타입 : 제목 중복 제거
+      // 이미지 타입 : 제목 중복 제거
       if (this.filtering.imgType) {
         items = items.reduce((prev, now) => {
           if (!prev.some(obj => obj.title === now.title)) {
@@ -235,8 +250,8 @@ export default {
 
       // 관람 예정작만 보기
       if (this.filtering.watchingType) {
-        items = items.filter(post => {
-          return new Date(post.date) >= this.today;
+        items = items.filter(obj => {
+          return new Date(obj.date) >= this.today;
         });
       }
 
