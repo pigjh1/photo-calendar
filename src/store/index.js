@@ -6,8 +6,25 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    today: new Date(),
     username: '나덕후',
     userdata: dataJson,
+    newItems: '',
+    filtering: {
+      filterCollapsed: false,
+      imgType: false,
+      tableType: false,
+      watchingType: false,
+      sortType: 'date',
+      sorts: [
+        { text: '관람일', value: 'date' },
+        { text: '제목', value: 'title' },
+        { text: '장소', value: 'place' },
+        { text: '가격', value: 'price' }
+      ],
+      search: { title: '', actor: '', place: '' },
+      filters: { category: {}, year: {} }
+    },
     darkmode: false,
     currentColor: 0,
     currentFontFamily: 'Nanum Gothic',
@@ -27,6 +44,104 @@ export default new Vuex.Store({
     ]
   },
   getters: {
+    // list
+    filterItems: state => {
+      const activeCategory = state.filtering.filters.category,
+        activeYaer = state.filtering.filters.year,
+        category = Object.keys(activeCategory).filter(c => activeCategory[c]),
+        year = Object.keys(activeYaer).filter(c => activeYaer[c]);
+      let items = state.newItems;
+
+      // 정렬
+      items = items.sort((a, b) => {
+        switch (state.filtering.sortType) {
+        case 'title':
+          return a.title > b.title ? 1 : -1;
+        case 'place':
+          return a.place > b.place ? 1 : -1;
+        case 'price':
+          if (b.price) {
+            return b.price - a.price;
+          } else {
+            return -1;
+          }
+        default:
+          return a.date > b.date ? -1 : 1;
+        }
+      });
+
+      // 분류
+      items = items.filter(({ cate, datayear }) => {
+        if (category.length) {
+          if (cate.includes('/')) {
+            let st = true;
+            for (const key in category) {
+              if (st) {
+                st = !~cate.indexOf(category[key]);
+              }
+              return !st;
+            }
+          } else {
+            if (!~category.indexOf(cate)) return false;
+          }
+        }
+        return (
+          !year.length || year.every(cat => ~datayear.indexOf(cat))
+        );
+      });
+
+      // 검색어
+      if (state.filtering.search.title) {
+        items = items.filter(obj => {
+          return obj.title.toLowerCase().includes(state.filtering.search.title.toLowerCase());
+        });
+      }
+
+      if (state.filtering.search.actor) {
+        items = items.filter(obj => {
+          const item = obj.actor;
+
+          if (typeof item !== 'undefined' && item !== null && item !== '') {
+            return item.toLowerCase().includes(state.filtering.search.actor.toLowerCase());
+          } else {
+            return false;
+          }
+        });
+      }
+
+      if (state.filtering.search.place) {
+        items = items.filter(obj => {
+          const item = obj.place;
+
+          if (typeof item !== 'undefined' && item !== null && item !== '') {
+            return item.toLowerCase().includes(state.filtering.search.place.toLowerCase());
+          } else {
+            return false;
+          }
+        });
+      }
+
+      // 이미지 타입 : 제목 중복 제거
+      if (state.filtering.imgType) {
+        items = items.reduce((prev, now) => {
+          if (!prev.some(obj => obj.title === now.title)) {
+            prev.push(now);
+          }
+          return prev;
+        }, []);
+      }
+
+      // 관람 예정작만 보기
+      if (state.filtering.watchingType) {
+        items = items.filter(obj => {
+          return new Date(obj.date) >= state.today;
+        });
+      }
+
+      return items;
+    },
+
+    // setting
     chartOptions1: state => {
       return {
         responsive: true,
@@ -93,9 +208,62 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-    editData: (state) => {
-      console.log(state);
+    // list
+    setupItem: (state, payload) => {
+      state.newItems = payload;
     },
+    setupFilters: (state, payload) => {
+      if (Object.values(state.filtering.filters.category).length === 0) {
+        state.filtering.filters = payload;
+      }
+    },
+    resetFilters: (state) => {
+      state.filtering.category = {};
+      state.filtering.year = {};
+    },
+
+    changeFilterCollapsed: (state, payload) => {
+      if (payload) payload = !state.filtering.filterCollapsed;
+      state.filtering.filterCollapsed = payload;
+    },
+    changeImgType: (state, payload) => {
+      state.filtering.imgType = payload;
+    },
+    changeTableType: (state, payload) => {
+      state.filtering.tableType = payload;
+    },
+    changeWatchingType: (state, payload) => {
+      state.filtering.watchingType = payload;
+    },
+    changeSortType: (state, payload) => {
+      state.filtering.sortType = payload;
+    },
+    changeSorts: (state, payload) => {
+      state.filtering.sorts = payload;
+    },
+    changeFilters: (state, payload) => {
+      state.filtering.filters = payload;
+    },
+    changeSearchTitle: (state, payload) => {
+      state.filtering.search.title = payload;
+    },
+    changeSearchActor: (state, payload) => {
+      state.filtering.search.actor = payload;
+    },
+    changeSearchPlace: (state, payload) => {
+      state.filtering.search.place = payload;
+    },
+    clearAllFilters: (state) => {
+      state.filtering.imgType = false;
+      state.filtering.tableType = false;
+      state.filtering.watchingType = false;
+      state.filtering.sortType = 'date';
+      state.filtering.search.title = '';
+      state.filtering.search.actor = '';
+      state.filtering.search.place = '';
+    },
+
+    // setting
     changeUserName: (state, payload) => {
       state.username = payload;
     },

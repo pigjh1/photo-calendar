@@ -2,13 +2,12 @@
   <div>
     <!-- <p><a href="/assets/data/sample.xlsx" download="sample.xlsx" class="btn">샘플 xlsx 파일 다운로드</a></p> -->
     <input type="file" @change="readFile" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
-    <button type="button" name="button" @click="changeUserdata(userData)" class="btn btn--em"><span>불러오기</span></button>
+    <button type="button" name="button" @click="changeUserdata()" class="btn btn--em"><span>불러오기</span></button>
   </div>
 </template>
 
 <script>
 import XLSX from 'xlsx';
-import { mapMutations } from 'vuex';
 
 export default {
   data() {
@@ -47,11 +46,6 @@ export default {
     }
   },
   methods: {
-    ...mapMutations(['editData', 'changeUserdata']),
-    ...mapMutations({
-      editData: 'editData',
-      changeUserdata: 'changeUserdata'
-    }),
     readFile(event) {
       const file = event.target.files[0],
         reader = new FileReader(),
@@ -81,6 +75,10 @@ export default {
       };
 
       reader.readAsArrayBuffer(file);
+    },
+    changeUserdata() {
+      this.$store.commit('changeUserdata', this.userData);
+      this.$store.commit('resetFilters');
     },
     getFormatDate(date) {
       const ndate = new Date(date);

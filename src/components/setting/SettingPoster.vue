@@ -19,7 +19,6 @@ export default {
       type: [
         { text: '전체보기 (Defult)', value: '' },
         { text: '세로', value: 'vertical' },
-
         { text: '가로', value: 'horizontal' }
       ]
     };
