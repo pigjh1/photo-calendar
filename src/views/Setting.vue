@@ -51,7 +51,7 @@
     </div>
 
     <div class="row">
-      <div class="col-2">이미지 보기 방식</div>
+      <div class="col-2">캘린더 이미지</div>
       <div class="col-10">
         <setting-poster />
       </div>

@@ -12,7 +12,7 @@ export default {
   computed: {
     darkmode: {
       get() {
-        return this.$store.state.darkmode;
+        return this.$store.state.design.darkmode;
       },
       set(value) {
         this.$store.commit('changeTheme', value);

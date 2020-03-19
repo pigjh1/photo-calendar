@@ -1,8 +1,8 @@
 <template>
   <div class="colorset">
     <button class="item" v-for="(item, index) in type" :key="index"
-      :class="{ 'is-active': index === currentColor }"
-      @click="changeColor(index)">
+      :class="{ 'is-active': index === color }"
+      @click="changePrimaryColor(index)">
       {{ item.text }}
     </button>
   </div>
@@ -33,14 +33,14 @@ export default {
     };
   },
   computed: {
-    currentColor() {
-      return this.$store.state.currentColor;
+    color() {
+      return this.$store.state.design.primaryColor;
     }
   },
   methods: {
-    ...mapMutations(['changeColor']),
+    ...mapMutations(['changePrimaryColor']),
     ...mapMutations({
-      changeColor: 'changeColor'
+      changePrimaryColor: 'changePrimaryColor'
     })
   }
 };

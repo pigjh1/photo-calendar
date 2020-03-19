@@ -1,7 +1,10 @@
 export default {
-  // list
+  // List
+  // -----------------------------------------------------------------------------
+
+  // List > Data Setup
   setupItem: (state, payload) => {
-    state.newItems = payload;
+    state.userItems = payload;
   },
   setupFilters: (state, payload) => {
     if (Object.values(state.filtering.filters.category).length === 0) {
@@ -13,19 +16,21 @@ export default {
     state.filtering.year = {};
   },
 
-  changeFilterCollapsed: (state, payload) => {
-    if (payload) payload = !state.filtering.filterCollapsed;
-    state.filtering.filterCollapsed = payload;
+  // List > Data Change
+  changeTableType: (state, payload) => {
+    state.listType.table = payload;
   },
   changeImgType: (state, payload) => {
-    state.filtering.imgType = payload;
-  },
-  changeTableType: (state, payload) => {
-    state.filtering.tableType = payload;
+    state.listType.img = payload;
   },
   changeWatchingType: (state, payload) => {
-    state.filtering.watchingType = payload;
+    state.listType.watching = payload;
   },
+  changeCollapsed: (state, payload) => {
+    if (payload) payload = !state.listType.collapsed;
+    state.listType.collapsed = payload;
+  },
+
   changeSortType: (state, payload) => {
     state.filtering.sortType = payload;
   },
@@ -45,16 +50,19 @@ export default {
     state.filtering.search.place = payload;
   },
   clearAllFilters: (state) => {
-    state.filtering.imgType = false;
-    state.filtering.tableType = false;
-    state.filtering.watchingType = false;
+    state.listType.img = false;
+    state.listType.table = false;
+    state.listType.watching = false;
     state.filtering.sortType = 'date';
     state.filtering.search.title = '';
     state.filtering.search.actor = '';
     state.filtering.search.place = '';
   },
 
-  // setting
+  // Setting
+  // -----------------------------------------------------------------------------
+
+  // Setting > Data
   changeUserName: (state, payload) => {
     state.username = payload;
   },
@@ -64,19 +72,21 @@ export default {
       alert('데이터가 변경되었습니다.');
     }
   },
+
+  // Setting > esign
   changeTheme: (state, payload) => {
-    state.darkmode = payload;
+    state.design.darkmode = payload;
   },
-  changeColor: (state, payload) => {
-    state.currentColor = payload;
+  changePrimaryColor: (state, payload) => {
+    state.design.primaryColor = payload;
   },
   changeFontFamily: (state, payload) => {
-    state.currentFontFamily = payload;
+    state.design.fontFamily = payload;
   },
   changePost: (state, payload) => {
-    state.currentPosterType = payload;
+    state.design.posterType = payload;
   },
   changeChartColor: (state, payload) => {
-    state.currentChartColor = payload;
+    state.design.chartIndex = payload;
   }
 };

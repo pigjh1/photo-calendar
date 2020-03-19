@@ -25,8 +25,7 @@ export default {
   },
   methods: {
     chkWatching(val) {
-      const valData = new Date(val);
-      return valData > this.$store.state.today ? 'item--watching' : '';
+      return new Date(val) > new Date() ? 'item--watching' : '';
     }
   }
 };

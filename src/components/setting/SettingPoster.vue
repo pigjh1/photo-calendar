@@ -3,7 +3,7 @@
     <span class="item" v-for="(item, index) in type" :key="index" >
       <input type="radio" name="s-poster"
         :id="'s-poster' + index" :value="item.value"
-        v-model="currentPosterType"
+        v-model="posterType"
         @change="changePost(item.value)">
       <label :for="'s-poster' + index">{{ item.text }}</label>
     </span>
@@ -18,15 +18,15 @@ export default {
     return {
       type: [
         { text: '전체보기 (Defult)', value: '' },
-        { text: '세로', value: 'vertical' },
-        { text: '가로', value: 'horizontal' }
+        { text: '세로보기', value: 'vertical' },
+        { text: '가로보기', value: 'horizontal' }
       ]
     };
   },
   computed: {
-    currentPosterType: {
+    posterType: {
       get() {
-        return this.$store.state.currentPosterType;
+        return this.$store.state.design.posterType;
       },
       set(value) {
         this.$store.commit('changePost', value);

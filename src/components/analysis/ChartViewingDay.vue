@@ -51,7 +51,7 @@ export default {
       return data;
     },
     chartColor() {
-      return this.$store.state.chartColor[this.$store.state.currentChartColor];
+      return this.$store.state.design.chartColor[this.$store.state.design.chartIndex];
     }
   }
 };

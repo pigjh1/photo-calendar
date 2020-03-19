@@ -42,7 +42,7 @@
     <div class="item">
       <button class="btn btn--em btn--block" @click="clearAllFilters">검색 초기화</button>
     </div>
-    <button class="filter-toggle" @click="changeFilterCollapsed">
+    <button class="filter-toggle" @click="changeCollapsed">
       <img src="@/assets/icon/left-arrow.svg" alt="">
     </button>
   </aside>
@@ -54,13 +54,13 @@ import { mapMutations } from 'vuex';
 export default {
   data() {
     return {
-      newItems: this.$store.state.newItems,
+      userItems: this.$store.state.userItems,
       menus: { category: false, year: false },
       pageFilters: { category: {}, year: {} }
     };
   },
   beforeMount() {
-    this.newItems.forEach(({ cate, datayear }, index) => {
+    this.userItems.forEach(({ cate, datayear }, index) => {
       cate.split('/').forEach(el => {
         el = el.replace(/^\s+|\s+$/g, '');
         this.$set(this.pageFilters.category, el, false);
@@ -76,7 +76,7 @@ export default {
     },
     imgType: {
       get() {
-        return this.$store.state.filtering.imgType;
+        return this.$store.state.listType.img;
       },
       set(value) {
         this.$store.commit('changeImgType', value);
@@ -84,7 +84,7 @@ export default {
     },
     tableType: {
       get() {
-        return this.$store.state.filtering.tableType;
+        return this.$store.state.listType.table;
       },
       set(value) {
         this.$store.commit('changeTableType', value);
@@ -92,7 +92,7 @@ export default {
     },
     watchingType: {
       get() {
-        return this.$store.state.filtering.watchingType;
+        return this.$store.state.listType.watching;
       },
       set(value) {
         this.$store.commit('changeWatchingType', value);
@@ -140,9 +140,9 @@ export default {
     }
   },
   methods: {
-    ...mapMutations(['changeFilterCollapsed']),
+    ...mapMutations(['changeCollapsed']),
     ...mapMutations({
-      changeFilterCollapsed: 'changeFilterCollapsed'
+      changeCollapsed: 'changeCollapsed'
     }),
     setFilter(filter, option) {
       if (filter === 'category') {

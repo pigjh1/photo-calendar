@@ -1,11 +1,13 @@
 export default {
-  // list
+  // List
+  // -----------------------------------------------------------------------------
+
   filterItems: state => {
     const activeCategory = state.filtering.filters.category,
       activeYaer = state.filtering.filters.year,
       category = Object.keys(activeCategory).filter(c => activeCategory[c]),
       year = Object.keys(activeYaer).filter(c => activeYaer[c]);
-    let items = state.newItems;
+    let items = state.userItems;
 
     // 정렬
     items = items.sort((a, b) => {
@@ -77,7 +79,7 @@ export default {
     }
 
     // 이미지 타입 : 제목 중복 제거
-    if (state.filtering.imgType) {
+    if (state.listType.img) {
       items = items.reduce((prev, now) => {
         if (!prev.some(obj => obj.title === now.title)) {
           prev.push(now);
@@ -87,7 +89,7 @@ export default {
     }
 
     // 관람 예정작만 보기
-    if (state.filtering.watchingType) {
+    if (state.listType.watching) {
       items = items.filter(obj => {
         return new Date(obj.date) >= state.today;
       });
@@ -96,26 +98,30 @@ export default {
     return items;
   },
 
-  // setting
+  // Setting
+  // -----------------------------------------------------------------------------
+
   chartOptions1: state => {
+    const font = state.design.fontFamily;
+
     return {
       responsive: true,
       maintainAspectRatio: false,
       legend: {
-        fontFamily: state.currentFontFamily,
+        fontFamily: font,
         labels: {
-          fontFamily: state.currentFontFamily
+          fontFamily: font
         }
       },
       label: {
-        fontFamily: state.currentFontFamily
+        fontFamily: font
       },
       title: {
-        fontFamily: state.currentFontFamily
+        fontFamily: font
       },
       tooltips: {
-        titleFontFamily: state.currentFontFamily,
-        bodyFontFamily: state.currentFontFamily,
+        titleFontFamily: font,
+        bodyFontFamily: font,
         callbacks: {
           label: function(tooltipItem) {
             return tooltipItem.yLabel.toLocaleString();
@@ -125,7 +131,7 @@ export default {
       scales: {
         yAxes: [{
           ticks: {
-            fontFamily: state.currentFontFamily,
+            fontFamily: font,
             userCallback: function(value) {
               return value.toLocaleString(); // , 콤마처리
             }
@@ -133,31 +139,33 @@ export default {
         }],
         xAxes: [{
           ticks: {
-            fontFamily: state.currentFontFamily
+            fontFamily: font
           }
         }]
       }
     };
   },
   chartOptions2: state => {
+    const font = state.design.fontFamily;
+
     return {
       responsive: true,
       maintainAspectRatio: false,
       legend: {
-        fontFamily: state.currentFontFamily,
+        fontFamily: font,
         labels: {
-          fontFamily: state.currentFontFamily
+          fontFamily: font
         }
       },
       label: {
-        fontFamily: state.currentFontFamily
+        fontFamily: font
       },
       title: {
-        fontFamily: state.currentFontFamily
+        fontFamily: font
       },
       tooltips: {
-        titleFontFamily: state.currentFontFamily,
-        bodyFontFamily: state.currentFontFamily
+        titleFontFamily: font,
+        bodyFontFamily: font
       }
     };
   }

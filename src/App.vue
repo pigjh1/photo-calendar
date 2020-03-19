@@ -36,13 +36,13 @@
 export default {
   computed: {
     darkmode() {
-      return this.$store.state.darkmode;
+      return this.$store.state.design.darkmode;
     },
     colorClass() {
-      return 'cset-' + (this.$store.state.currentColor + 1);
+      return 'cset-' + (this.$store.state.design.primaryColor + 1);
     },
     fontClass() {
-      return 'ff-' + this.$store.state.currentFontFamily.toLowerCase().replace(/ /gi, '-');
+      return 'ff-' + this.$store.state.design.fontFamily.toLowerCase().replace(/ /gi, '-');
     },
     className() {
       let temp = this.colorClass + ' ' + this.fontClass;

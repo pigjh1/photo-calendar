@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="item" v-for="(item, index) in chartColor" :key="index" >
-      <input type="radio" :id="'s-color' + index" :value="index" v-model="currentChartColor" @change="changeChartColor(index)">
+      <input type="radio" :id="'s-color' + index" :value="index" v-model="chartIndex" @change="changeChartColor(index)">
       <label :for="'s-color' + index">{{ index + 1}}</label>
       <span v-for="(options, filter) in item" :key="filter" :style="setStyle(options)">
         {{options}}
@@ -16,8 +16,8 @@ import { mapMutations } from 'vuex';
 export default {
   data() {
     return {
-      currentChartColor: this.$store.state.currentChartColor,
-      chartColor: this.$store.state.chartColor
+      chartIndex: this.$store.state.design.chartIndex,
+      chartColor: this.$store.state.design.chartColor
     };
   },
   methods: {

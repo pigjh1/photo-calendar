@@ -74,7 +74,7 @@ export default {
       date.setDate(this.currentDay);
       return date;
     },
-    newItems() {
+    userItems() {
       const userdata = this.userdata,
         diffMonth = parseInt(this.currentMonth) < 10 ? '0' + this.currentMonth : this.currentMonth,
         diffCurrent = `${this.currentYear}-${diffMonth}`,
@@ -86,14 +86,14 @@ export default {
       return searchData;
     },
     posterTypeClass() {
-      let type = this.$store.state.currentPosterType;
+      let type = this.$store.state.design.posterType;
       type = type ? `calendar-body--${type}` : '';
       return type;
     }
   },
   methods: {
     userdataDay(day) {
-      const userdata = this.newItems,
+      const userdata = this.userItems,
         diffday = parseInt(day) < 10 ? '0' + day : day,
         searchData = userdata.filter(post => {
           return post.date.substr(7, 9).includes(diffday);

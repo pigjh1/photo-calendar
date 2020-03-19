@@ -38,7 +38,7 @@ export default {
       return this.$store.getters.chartOptions1;
     },
     chartColor() {
-      return this.$store.state.chartColor[this.$store.state.currentChartColor];
+      return this.$store.state.design.chartColor[this.$store.state.design.chartIndex];
     }
   },
   methods: {

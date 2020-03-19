@@ -32,7 +32,7 @@ export default {
     };
   },
   beforeMount() {
-    this.$store.commit('setupItem', this.newItems);
+    this.$store.commit('setupItem', this.userItems);
   },
   created() {
     window.addEventListener('resize', this.handleResize);
@@ -46,21 +46,21 @@ export default {
       return this.$store.getters.filterItems;
     },
     imgType() {
-      return this.$store.state.filtering.imgType;
+      return this.$store.state.listType.img;
     },
     tableType() {
-      return this.$store.state.filtering.tableType;
+      return this.$store.state.listType.table;
     },
-    filterCollapsed() {
-      return this.$store.state.filtering.filterCollapsed;
+    collapsed() {
+      return this.$store.state.listType.collapsed;
     },
     listClassName() {
       let className = '';
       if (this.imgType) className = className + 'is-imgtype';
-      if (this.filterCollapsed) className = className + 'is-collapsed';
+      if (this.collapsed) className = className + 'is-collapsed';
       return className;
     },
-    newItems() {
+    userItems() {
       return this.userdata.map((obj) => {
         const newObj = {};
 
@@ -85,7 +85,7 @@ export default {
       this.window.width = window.innerWidth;
       this.window.height = window.innerHeight;
 
-      this.$store.commit('changeFilterCollapsed', this.window.width < 769);
+      this.$store.commit('changeCollapsed', this.window.width < 769);
     }
   }
 };

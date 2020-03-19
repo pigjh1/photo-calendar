@@ -23,7 +23,7 @@ export default {
   computed: {
     selectedFont: {
       get() {
-        return this.$store.state.currentFontFamily;
+        return this.$store.state.design.fontFamily;
       },
       set(value) {
         this.$store.commit('changeFontFamily', value);
