@@ -2,6 +2,7 @@
   <transition-group tag="div" name="list" class="box">
     <div class="item" v-for="item in filterItems" :key="item.id" :class="chkWatching(item.date)">
       <router-link :to="`/view/${ item.id }`">
+        <span class="turning" v-if="item.turning > 1">#{{ item.turning }}</span>
         <img src="@/assets/noimage.png" alt="" v-if="item.img === ''">
         <img :src="item.img" :alt="item.title" v-if="item.img !== ''">
         <p class="h">{{ item.title }}</p>

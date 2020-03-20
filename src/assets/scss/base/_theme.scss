@@ -70,6 +70,10 @@
     color: $root-color;
   }
 
+  .calendar-body .item-txt.is-today {
+    box-shadow: 0 0 0 2px $root-color inset;
+  }
+
   .userlist .box .item--watching::before {
     background: rgba($root-color, 0.1);
   }

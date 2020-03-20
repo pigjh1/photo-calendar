@@ -27,7 +27,6 @@ export default {
   },
   data() {
     return {
-      userdata: this.$store.state.userdata,
       window: { width: 0, height: 0 }
     };
   },
@@ -42,6 +41,9 @@ export default {
     window.removeEventListener('resize', this.handleResize);
   },
   computed: {
+    sortItems() {
+      return this.$store.getters.sortItems;
+    },
     filterItems() {
       return this.$store.getters.filterItems;
     },
@@ -61,7 +63,9 @@ export default {
       return className;
     },
     userItems() {
-      return this.userdata.map((obj) => {
+      const turning = this.turningItems;
+
+      return this.sortItems.map((obj) => {
         const newObj = {};
 
         newObj.id = obj.id;
@@ -76,8 +80,36 @@ export default {
         newObj.office = obj.office;
         newObj.datayear = obj.date.replace('-', '').substr(0, 4);
 
+        for (const key in turning) {
+          if (key === obj.title) {
+            newObj.turning = turning[key];
+            turning[key]--;
+          }
+        }
         return newObj;
       });
+    },
+    turningItems() {
+      const sortItems = this.sortItems;
+      let data = [], newdata = [];
+
+      for (let i = 0; i < sortItems.length; i++) {
+        const title = sortItems[i].title;
+
+        data = data.concat(title);
+      }
+
+      data.forEach(el => {
+        el = el.replace(/^\s+|\s+$/g, '');
+        newdata.push(el);
+      });
+
+      newdata = newdata.sort().reduce((x, y) => {
+        x[y] = ++x[y] || 1;
+        return x;
+      }, {});
+
+      return newdata;
     }
   },
   methods: {

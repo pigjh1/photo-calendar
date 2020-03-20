@@ -2,6 +2,17 @@ export default {
   // List
   // -----------------------------------------------------------------------------
 
+  sortItems: state => {
+    const userdata = state.userdata,
+      data = userdata.sort((a, b) => a.date > b.date ? -1 : 1);
+
+    return data.sort((a, b) => {
+      if (a.date === b.date) {
+        return a.time > b.time ? -1 : 1;
+      }
+    });
+  },
+
   filterItems: state => {
     const activeCategory = state.filtering.filters.category,
       activeYaer = state.filtering.filters.year,

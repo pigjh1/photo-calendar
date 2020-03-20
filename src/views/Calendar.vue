@@ -40,7 +40,7 @@
 export default {
   data() {
     return {
-      userdata: this.$store.state.userdata,
+      userdata: this.$store.getters.sortItems,
       weekNames: ['월', '화', '수', '목', '금', '토', '일'],
       rootYear: 1904,
       rootDayOfWeekIndex: 4, // 2000년 1월 1일은 토요일
