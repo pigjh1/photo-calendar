@@ -12,9 +12,10 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-2">엑셀 목록</div>
+      <div class="col-2">목록</div>
       <div class="col-10">
         <setting-user-data />
+        <p><a href="/sample.xlsx" download="sample.xlsx" class="btn btn--sm">엑셀 샘플 파일 다운로드</a></p>
         <ul>
           <li>양식에 맞게 입력하세요</li>
           <li>'List' 시트명을 변경하지 마세요</li>
@@ -98,7 +99,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-p { margin-bottom: 20px; }
+p { margin: 10px 0; }
 ul { margin: 20px; }
 li { font-size: 11px; list-style: disc; margin-bottom: 2px; }
 </style>
