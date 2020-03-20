@@ -5,30 +5,14 @@ export default {
   extends: Bar,
   data() {
     return {
-      userdata: this.$store.state.userdata
+      userdata: this.$store.getters.sortItems
     };
   },
   mounted() {
     this.renderChart(
       {
         labels: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-        datasets: [
-          {
-            label: '2018년',
-            data: this.mVisits(2018),
-            backgroundColor: this.chartColor[4]
-          },
-          {
-            label: '2019년',
-            data: this.mVisits(2019),
-            backgroundColor: this.chartColor[2]
-          },
-          {
-            label: '2020년',
-            data: this.mVisits(2020),
-            backgroundColor: this.chartColor[0]
-          }
-        ]
+        datasets: this.datasets
       },
       this.chartOptions
     );
@@ -39,6 +23,33 @@ export default {
     },
     chartColor() {
       return this.$store.state.design.chartColor[this.$store.state.design.chartIndex];
+    },
+    datasets() {
+      const userdata = this.userdata,
+        newdata = [];
+      let data = [], idx = 0;
+
+      for (let i = 0; i < userdata.length; i++) {
+        const date = userdata[i].date.substr(0, 4);
+        data = data.concat(date);
+      }
+
+      data = data.reduce((x, y) => {
+        x[y] = ++x[y] || 1;
+        return x;
+      }, {});
+
+      for (const key in data) {
+        const obj = {
+          label: `${key}년`,
+          data: this.mVisits(key),
+          backgroundColor: this.chartColor[idx]
+        };
+        newdata[idx] = obj;
+        idx++;
+      }
+
+      return newdata;
     }
   },
   methods: {
