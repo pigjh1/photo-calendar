@@ -13,6 +13,28 @@ export default {
     });
   },
 
+  turningItems: state => {
+    const userdata = state.userdata,
+      newdata = [];
+    let data = [];
+
+    for (let i = 0; i < userdata.length; i++) {
+      const title = userdata[i].title;
+
+      data = data.concat(title);
+    }
+
+    data.forEach(el => {
+      el = el.replace(/^\s+|\s+$/g, '');
+      newdata.push(el);
+    });
+
+    return newdata.sort().reduce((x, y) => {
+      x[y] = ++x[y] || 1;
+      return x;
+    }, {});
+  },
+
   filterItems: state => {
     const activeCategory = state.filtering.filters.category,
       activeYaer = state.filtering.filters.year,

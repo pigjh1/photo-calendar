@@ -22,6 +22,9 @@ export default {
     Header,
     Footer
   },
+  beforeMount() {
+    this.$store.commit('setupItem', this.userItems);
+  },
   computed: {
     darkmode() {
       return this.$store.state.design.darkmode;
@@ -36,6 +39,39 @@ export default {
       let temp = this.colorClass + ' ' + this.fontClass;
       temp = this.darkmode ? temp + ' theme-dark' : temp;
       return temp;
+    },
+    sortItems() {
+      return this.$store.getters.sortItems;
+    },
+    turningItems() {
+      return this.$store.getters.turningItems;
+    },
+    userItems() {
+      const turning = this.turningItems;
+
+      return this.sortItems.map((obj) => {
+        const newObj = {};
+
+        newObj.id = obj.id;
+        newObj.img = obj.img;
+        newObj.cate = obj.cate;
+        newObj.title = obj.title;
+        newObj.date = obj.date;
+        newObj.time = obj.time;
+        newObj.actor = obj.actor;
+        newObj.place = obj.place;
+        newObj.price = obj.price;
+        newObj.office = obj.office;
+        newObj.datayear = obj.date.replace('-', '').substr(0, 4);
+
+        for (const key in this.turningItems) {
+          if (key === obj.title) {
+            newObj.turning = turning[key];
+            turning[key]--;
+          }
+        }
+        return newObj;
+      });
     }
   }
 };
