@@ -15,9 +15,9 @@
 </template>
 
 <script>
-import FilterItem from '@/components/FilterItem';
-import ListBox from '@/components/ListBox';
-import Table from '@/components/Table';
+import FilterItem from '@/components/list/FilterItem';
+import ListBox from '@/components/list/ListBox';
+import Table from '@/components/list/Table';
 
 export default {
   components: {
