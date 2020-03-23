@@ -23,6 +23,10 @@ export default new VueRouter({
       }),
       component: () => import('@/views/View.vue')
     }, {
+      path: '/turning',
+      name: 'turning',
+      component: () => import('@/views/Turning.vue')
+    }, {
       path: '/analysis',
       name: 'analysis',
       component: () => import('@/views/Analysis.vue')

@@ -2,18 +2,7 @@ export default {
   // List
   // -----------------------------------------------------------------------------
 
-  sortItems: state => {
-    const userdata = state.userdata,
-      data = userdata.sort((a, b) => a.date > b.date ? -1 : 1);
-
-    return data.sort((a, b) => {
-      if (a.date === b.date) {
-        return a.time > b.time ? -1 : 1;
-      }
-    });
-  },
-
-  turningItems: state => {
+  turningCate: state => {
     const userdata = state.userdata,
       newdata = [];
     let data = [];
@@ -33,6 +22,17 @@ export default {
       x[y] = ++x[y] || 1;
       return x;
     }, {});
+  },
+
+  sortItems: state => {
+    const userdata = state.userdata,
+      data = userdata.sort((a, b) => a.date > b.date ? -1 : 1);
+
+    return data.sort((a, b) => {
+      if (a.date === b.date) {
+        return a.time > b.time ? -1 : 1;
+      }
+    });
   },
 
   filterItems: state => {
@@ -125,6 +125,19 @@ export default {
     if (state.listType.watching) {
       items = items.filter(obj => {
         return new Date(obj.date) >= state.today;
+      });
+    }
+
+    return items;
+  },
+
+  turningItems: state => {
+    let items = state.userItems;
+
+    // 검색어
+    if (state.turning.title) {
+      items = items.filter(obj => {
+        return obj.title.toLowerCase() === state.turning.title.toLowerCase();
       });
     }
 

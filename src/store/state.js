@@ -1,6 +1,7 @@
 import dataJson from '@/assets/data/sample.json';
 
 export default {
+  today: new Date(),
   username: '나덕후',
   userdata: dataJson,
   userItems: '',
@@ -27,6 +28,10 @@ export default {
       category: {},
       year: {}
     }
+  },
+  turning: {
+    least: 3,
+    title: ''
   },
   design: {
     darkmode: false,

@@ -59,6 +59,15 @@ export default {
     state.filtering.search.place = '';
   },
 
+  // Turning
+  // -----------------------------------------------------------------------------
+  changeTurningLeast: (state, payload) => {
+    state.turning.least = payload;
+  },
+  changeTurningTitle: (state, payload) => {
+    state.turning.title = payload;
+  },
+
   // Setting
   // -----------------------------------------------------------------------------
 

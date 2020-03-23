@@ -8,6 +8,10 @@
       <img src="@/assets/icon/header/list.svg" alt="">
       <span class="a11y">목록</span>
     </router-link>
+    <router-link to="/turning">
+      <img src="@/assets/icon/header/carousel.svg" alt="">
+      <span class="a11y">회전작품</span>
+    </router-link>
     <router-link to="/analysis">
       <img src="@/assets/icon/header/analysis.svg" alt="">
       <span class="a11y">통계</span>

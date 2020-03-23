@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!-- <p><a href="/assets/data/sample.xlsx" download="sample.xlsx" class="btn">샘플 xlsx 파일 다운로드</a></p> -->
     <input type="file" @change="readFile" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
     <button type="button" name="button" @click="changeUserdata()" class="btn btn--em"><span>불러오기</span></button>
   </div>
@@ -17,6 +16,39 @@ export default {
     };
   },
   computed: {
+    sortItems() {
+      return this.$store.getters.sortItems;
+    },
+    turningCate() {
+      return this.$store.getters.turningCate;
+    },
+    userItems() {
+      const turning = this.turningCate;
+
+      return this.sortItems.map((obj) => {
+        const newObj = {};
+
+        newObj.id = obj.id;
+        newObj.img = obj.img;
+        newObj.cate = obj.cate;
+        newObj.title = obj.title;
+        newObj.date = obj.date;
+        newObj.time = obj.time;
+        newObj.actor = obj.actor;
+        newObj.place = obj.place;
+        newObj.price = obj.price;
+        newObj.office = obj.office;
+        newObj.datayear = obj.date.replace('-', '').substr(0, 4);
+
+        for (const key in this.turningCate) {
+          if (key === obj.title) {
+            newObj.turning = turning[key];
+            turning[key]--;
+          }
+        }
+        return newObj;
+      });
+    },
     userData() {
       const data = [];
 
@@ -40,8 +72,11 @@ export default {
         });
 
         data.push(temp);
-      });
 
+        setTimeout(() => {
+          this.$store.commit('setupItem', this.userItems);
+        }, 100);
+      });
       return data;
     }
   },

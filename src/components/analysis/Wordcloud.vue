@@ -50,7 +50,7 @@ export default {
   },
   methods: {
     wordClass(val) {
-      let i = parseInt(val) * 0.1,
+      let i = parseInt(val) * 0.4,
         className = '';
 
       i = Math.floor(i);

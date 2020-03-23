@@ -43,11 +43,11 @@ export default {
     sortItems() {
       return this.$store.getters.sortItems;
     },
-    turningItems() {
-      return this.$store.getters.turningItems;
+    turningCate() {
+      return this.$store.getters.turningCate;
     },
     userItems() {
-      const turning = this.turningItems;
+      const turning = this.turningCate;
 
       return this.sortItems.map((obj) => {
         const newObj = {};
@@ -64,7 +64,7 @@ export default {
         newObj.office = obj.office;
         newObj.datayear = obj.date.replace('-', '').substr(0, 4);
 
-        for (const key in this.turningItems) {
+        for (const key in this.turningCate) {
           if (key === obj.title) {
             newObj.turning = turning[key];
             turning[key]--;
