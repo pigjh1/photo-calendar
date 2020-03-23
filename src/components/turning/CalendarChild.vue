@@ -1,15 +1,6 @@
 <template>
   <div class="calendar">
     <div class="calendar-header">
-      <button class="btn btn--sm" @click="onClickToday()"><span>오늘</span></button>
-      <button class="calendar-prev" @click="onClickPrev(currentMonth)">
-        <img src="@/assets/icon/left-arrow.svg" alt="">
-        <span class="a11y">이전 달</span>
-      </button>
-      <button class="calendar-next" @click="onClickNext(currentMonth)">
-        <img src="@/assets/icon/right-arrow.svg" alt="">
-        <span class="a11y">다음 달</span>
-      </button>
       <div class="calendar-label">
         {{ currentYear }}년 {{ currentMonth }}월
       </div>
@@ -21,15 +12,12 @@
       </span>
     </div>
 
-    <div class="calendar-body" :class="posterTypeClass">
+    <div class="calendar-body">
       <div v-for="(day, index) in currentCalendarMatrix" :key="index" class="item" :style="isFirst(day)">
-        <span class="item-txt" :class="{ 'is-today': isToday(currentYear, currentMonth, day) }">{{ day }}</span>
+        <span class="item-txt">{{ day }}</span>
 
-        <div class="item-img">
-          <router-link :to="`/view/${ item.id }`" v-for="(item, index) in userdataDay(day)" :key="index">
-            <img src="@/assets/noimage.png" alt="" v-if="item.img === ''">
-            <img :src="item.img" :alt="item.title" v-if="item.img !== ''">
-          </router-link>
+        <div class="item-dots">
+          <span v-for="(item, index) in userdataDay(day)" :key="index"></span>
         </div>
       </div>
     </div>
@@ -38,18 +26,22 @@
 
 <script>
 export default {
+  props: {
+    start: String
+  },
   data() {
     return {
       userdata: this.$store.getters.sortItems,
       weekNames: ['월', '화', '수', '목', '금', '토', '일'],
       rootYear: 1904,
       rootDayOfWeekIndex: 4, // 2000년 1월 1일은 토요일
-      currentYear: new Date().getFullYear(),
-      currentMonth: new Date().getMonth() + 1,
-      currentDay: new Date().getDate(),
+      currentYear: new Date(this.start).getFullYear(),
+      currentMonth: new Date(this.start).getMonth() + 1,
+      currentDay: new Date(this.start).getDate(),
       currentMonthStartWeekIndex: null,
       currentCalendarMatrix: [],
-      endOfDay: null
+      endOfDay: null,
+      memoDatas: []
     };
   },
   mounted() {
@@ -73,29 +65,22 @@ export default {
       date.setDate(this.currentDay);
       return date;
     },
-    userItems() {
-      const userdata = this.userdata,
-        diffMonth = parseInt(this.currentMonth) < 10 ? '0' + this.currentMonth : this.currentMonth,
-        diffCurrent = `${this.currentYear}-${diffMonth}`,
-        sortData = userdata.sort((a, b) => a.date > b.date ? -1 : 1),
-        searchData = sortData.filter(post => {
-          return post.date.substr(0, 7).includes(diffCurrent);
-        });
-
-      return searchData;
-    },
-    posterTypeClass() {
-      let type = this.$store.state.design.posterType;
-      type = type ? `calendar-body--${type}` : '';
-      return type;
+    turningItems() {
+      return this.$store.getters.turningItems;
     }
   },
   methods: {
     userdataDay(day) {
-      const userdata = this.userItems,
+      const userdata = this.turningItems,
+        diffYear = this.currentYear.toString(),
+        diffdMonth = parseInt(this.currentMonth) < 10 ? '0' + this.currentMonth : this.currentMonth,
         diffday = parseInt(day) < 10 ? '0' + day : day,
         searchData = userdata.filter(post => {
-          return post.date.substr(8, 2) === diffday;
+          const year = post.date.substr(0, 4),
+            month = post.date.substr(5, 2),
+            day = post.date.substr(8, 2);
+
+          return year === diffYear && month === diffdMonth && day === diffday;
         });
 
       return searchData;
@@ -146,33 +131,6 @@ export default {
           }
         }
       }
-    },
-    onClickToday() {
-      const date = new Date();
-      this.currentYear = date.getFullYear();
-      this.currentMonth = date.getMonth() + 1;
-    },
-    onClickPrev(month) {
-      month--;
-      if (month <= 0) {
-        this.currentMonth = 12;
-        this.currentYear -= 1;
-      } else {
-        this.currentMonth -= 1;
-      }
-    },
-    onClickNext(month) {
-      month++;
-      if (month > 12) {
-        this.currentMonth = 1;
-        this.currentYear += 1;
-      } else {
-        this.currentMonth += 1;
-      }
-    },
-    isToday(year, month, day) {
-      const date = new Date();
-      return year === date.getFullYear() && month === date.getMonth() + 1 && parseInt(day) === date.getDate();
     },
     isFirst(index) {
       const date = new Date(this.current);

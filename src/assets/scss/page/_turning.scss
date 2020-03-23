@@ -1,0 +1,43 @@
+// -----------------------------------------------------------------------------
+// turning
+// -----------------------------------------------------------------------------
+
+.turning {
+  .flex {
+    display: flex;
+  }
+
+  &-cal {
+    display: flex;
+
+    .calendar {
+      width: 300px;
+      margin: 0 20px;
+    }
+  }
+
+  &-poster {
+    margin: 20px 0 50px;
+
+    img {
+      max-width: 250px;
+      border-radius: $base-radius;
+      box-shadow: 3px 3px 20px 0px rgba($black, 0.2);
+    }
+  }
+
+  @media (min-width: $mq-md) {
+    padding: $gutter-md;
+  }
+
+  @media (min-width: $mq-lg) {
+    padding: $gutter-lg;
+  }
+}
+
+.turning-cal {
+  .calendar-body .item {
+    height: 50px !important;
+    min-height: 50px !important;
+  }
+}

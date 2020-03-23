@@ -67,6 +67,9 @@ export default {
   changeTurningTitle: (state, payload) => {
     state.turning.title = payload;
   },
+  changeCaldate: (state, payload) => {
+    state.turning.caldate = payload;
+  },
 
   // Setting
   // -----------------------------------------------------------------------------
