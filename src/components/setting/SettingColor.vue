@@ -1,6 +1,6 @@
 <template>
   <div class="colorset">
-    <button class="item" v-for="(item, index) in type" :key="index"
+    <button v-for="(item, index) in type" :key="index"
       :class="{ 'is-active': index === color }"
       @click="changePrimaryColor(index)">
       {{ item.text }}
@@ -15,20 +15,26 @@ export default {
   data() {
     return {
       type: [
-        { text: 'Red' },
-        { text: 'Pink' },
-        { text: 'Purple' },
-        { text: 'Deep Purple' },
-        { text: 'Indigo' },
-        { text: 'Blue' },
-        { text: 'Light Blue' },
-        { text: 'Cyan' },
-        { text: 'Teal' },
-        { text: 'Green' },
-        { text: 'Light Green' },
-        { text: 'Lime' },
-        { text: 'Yellow' },
-        { text: 'Amber' }
+        { text: 'Creamy Peach' },
+        { text: 'Rosy Highlight' },
+        { text: 'Soft Blue' },
+        { text: 'Brewed Mustard' },
+        { text: 'Old Geranium' },
+        { text: 'Sawtooth Aak' },
+        { text: 'Summertime' },
+        { text: 'Cornflower' },
+        { text: 'Tigerlily' },
+        { text: 'Deep Rose' },
+        { text: 'Purple Mountain Majesty' },
+        { text: 'Rogue Pink' },
+        { text: 'Squeaky' },
+        { text: 'Apple Valley' },
+        { text: 'Pencil Lead' },
+        { text: 'Purple Corallite' },
+        { text: 'Flamingo Pink' },
+        { text: 'Blue Curacao' },
+        { text: 'Porcelain Rose' },
+        { text: 'Biscay' }
       ]
     };
   },

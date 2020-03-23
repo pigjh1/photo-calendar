@@ -7,20 +7,29 @@
   max-width: $w-wrap;
   padding: $gutter-sm;
 
+  .tit {
+    text-align: center;
+    img {
+      width: 80px;
+    }
+  }
+
   .row {
     margin-bottom: 10px;
   }
 
   .colorset {
-    .item {
+    button {
       background: $color1;
       color: $white;
-      width: 120px;
-      padding: 5px 0;
+      width: 180px;
+      padding: 10px 0;
       margin: 0 10px 10px 0;
       text-align: center;
+      box-sizing: border-box;
       display: inline-block;
       border-radius: $base-radius;
+      font-size: 0.9em;
 
       &.is-active {
         font-weight: bold;
@@ -42,6 +51,12 @@
       &:nth-child(12) { background: $color12; }
       &:nth-child(13) { background: $color13; }
       &:nth-child(14) { background: $color14; }
+      &:nth-child(15) { background: $color15; }
+      &:nth-child(16) { background: $color16; }
+      &:nth-child(17) { background: $color17; }
+      &:nth-child(18) { background: $color18; }
+      &:nth-child(19) { background: $color19; }
+      &:nth-child(20) { background: $color20; }
     }
   }
 
