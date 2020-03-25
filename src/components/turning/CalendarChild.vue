@@ -35,9 +35,6 @@ export default {
       weekNames: ['월', '화', '수', '목', '금', '토', '일'],
       rootYear: 1904,
       rootDayOfWeekIndex: 4, // 2000년 1월 1일은 토요일
-      currentYear: new Date(this.start).getFullYear(),
-      currentMonth: new Date(this.start).getMonth() + 1,
-      currentDay: new Date(this.start).getDate(),
       currentMonthStartWeekIndex: null,
       currentCalendarMatrix: [],
       endOfDay: null,
@@ -67,6 +64,15 @@ export default {
     },
     turningItems() {
       return this.$store.getters.turningItems;
+    },
+    currentYear() {
+      return new Date(this.start).getFullYear();
+    },
+    currentMonth() {
+      return new Date(this.start).getMonth() + 1;
+    },
+    currentDay() {
+      return new Date(this.start).getDate();
     }
   },
   methods: {

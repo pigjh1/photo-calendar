@@ -14,9 +14,6 @@ export default {
     Calendar
   },
   computed: {
-    start() {
-      return this.$store.state.turning.caldate;
-    },
     turningItems() {
       return this.$store.getters.turningItems;
     },

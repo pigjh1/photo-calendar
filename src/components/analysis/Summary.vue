@@ -1,6 +1,11 @@
 <template>
   <div>
-    <p>{{ firstYear }}년 부터 {{ total }}개 작품을 {{ userdataLen }}번 관람하는데 {{ priceComma(totalPirce) }}원을 지출하였습니다.</p>
+    <p>
+      {{ firstYear }}년 부터
+      {{ total }}개 작품을
+      {{ userdataLen }}번 관람하는데
+      {{ priceComma(totalPirce) }}원을 지출하였습니다.
+    </p>
   </div>
 </template>
 

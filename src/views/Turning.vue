@@ -3,12 +3,13 @@
     <div class="turning-summary">
       <select v-model="selectedItem">
         <option v-for="(active, item, index) in turninglist" :value="item" :key="index">
-          {{ item }} ({{ active }})
+          {{ item }} ({{active}})
         </option>
       </select>
       {{ turningItemsFirst.date }}부터
       {{ turningItemsLast.date }}까지
-      {{ turningLen }}번 관람하였습니다.
+      {{ turningLen }}번 관람하는데
+      {{ priceComma(totalPirce) }}원을 지출하였습니다.
     </div>
 
     <div class="flex">
@@ -19,6 +20,14 @@
       <Calendar />
     </div>
 
+    <div class="actorlist">
+      <div v-if="!isDiffActor">
+        출연 : {{ turningItemsLast.actor}}
+      </div>
+
+      <actor-list v-if="isDiffActor" />
+    </div>
+
     <div class="userlist" >
       <div class="box">
         <div class="item" v-for="item in turningItems" :key="item.id" :class="chkWatching(item.date)">
@@ -27,8 +36,8 @@
             <dl>
               <dt>관람</dt>
               <dd>{{ item.date }} {{ item.time }}</dd>
-              <dt v-if="item.actor">출연</dt>
-              <dd v-if="item.actor">{{ item.actor }}</dd>
+              <dt v-if="item.actor && isDiffActor">출연</dt>
+              <dd v-if="item.actor && isDiffActor">{{ item.actor }}</dd>
               <dt v-if="item.price">가격</dt>
               <dd v-if="item.price">{{ priceComma(item.price) }}</dd>
               <dt v-if="item.seat">좌석</dt>
@@ -43,10 +52,12 @@
 
 <script>
 import Calendar from '@/components/turning/Calendar';
+import ActorList from '@/components/turning/ActorList';
 
 export default {
   components: {
-    Calendar
+    Calendar,
+    ActorList
   },
   beforeMount() {
     this.$store.commit('changeTurningTitle', Object.keys(this.turninglist)[0]);
@@ -91,6 +102,34 @@ export default {
         }
       }
       return data;
+    },
+    priceAll() {
+      const userdata = this.turningItems;
+      let data = [];
+
+      for (let i = 0; i < userdata.length; i++) {
+        const price = userdata[i].price;
+
+        if (typeof price !== 'undefined' && price !== null && price !== '' && price !== '-') {
+          data = data.concat(price);
+        }
+      }
+      return data;
+    },
+    totalPirce() {
+      return this.priceAll.reduce((a, b) => parseInt(a) + parseInt(b));
+    },
+    isDiffActor() {
+      let items = this.turningItems;
+
+      items = items.reduce((prev, now) => {
+        if (!prev.some(obj => obj.actor === now.actor)) {
+          prev.push(now);
+        }
+        return prev;
+      }, []);
+
+      return items.length > 1;
     }
   },
   methods: {
