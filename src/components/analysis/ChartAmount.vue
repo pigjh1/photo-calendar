@@ -24,12 +24,11 @@ export default {
       return this.$store.getters.chartOptions1;
     },
     chartColor() {
-      return this.$store.state.design.chartColor[this.$store.state.design.chartIndex];
+      return this.$store.getters.chartColor1;
     },
-    datasets() {
-      const userdata = this.userdata,
-        newdata = [];
-      let data = [], idx = 0;
+    datas() {
+      const userdata = this.userdata;
+      let data = [];
 
       for (let i = 0; i < userdata.length; i++) {
         const date = userdata[i].date.substr(0, 4);
@@ -41,14 +40,24 @@ export default {
         return x;
       }, {});
 
+      return data;
+    },
+    datasets() {
+      const data = this.datas,
+        dataLen = Object.keys(data).length,
+        newdata = [];
+      let idx = 0, colorIdx = 0;
+
       for (const key in data) {
+        if (idx > 10) return;
         const obj = {
           label: `${key}년`,
           data: this.mAmount(key),
-          backgroundColor: this.gradient[idx]
+          backgroundColor: this.gradient[colorIdx]
         };
         newdata[idx] = obj;
         idx++;
+        colorIdx = dataLen > 5 ? colorIdx + 1 : colorIdx + 2;
       }
 
       return newdata;

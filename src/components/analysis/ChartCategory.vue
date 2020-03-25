@@ -26,6 +26,9 @@ export default {
     chartOptions() {
       return this.$store.getters.chartOptions2;
     },
+    chartColor() {
+      return this.$store.getters.chartColor2;
+    },
     labels() {
       let temp = [];
       this.userdata.forEach(({ cate }) => {
@@ -49,7 +52,6 @@ export default {
 
         for (let k = 0; k < userdata.length; k++) {
           if (userdata[k].cate.includes(this.labels[i])) {
-          // if (this.labels[i] === userdata[k].cate) {
             result++;
           }
         }
@@ -58,9 +60,6 @@ export default {
       }
 
       return data;
-    },
-    chartColor() {
-      return this.$store.state.design.chartColor[this.$store.state.design.chartIndex];
     }
   }
 };

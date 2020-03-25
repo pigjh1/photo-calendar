@@ -1,7 +1,6 @@
 export default {
   // List
   // -----------------------------------------------------------------------------
-
   turningCate: state => {
     const userdata = state.userdata,
       newdata = [];
@@ -146,6 +145,55 @@ export default {
 
   // Setting
   // -----------------------------------------------------------------------------
+  chartColor1: state => {
+    const color = state.design.colorList[state.design.primaryColor],
+      colorRgb = hexToRgb(color).split(','),
+      arr = [];
+
+    for (let i = 1; i < 11; i++) {
+      const last = parseInt(colorRgb[1]) + (i * 8),
+        newColor = `${colorRgb[0]}, ${last},${colorRgb[2]}`,
+        idx = i - 1;
+
+      arr[idx] = rgbToHex(newColor);
+    }
+
+    function hexToRgb(hexType) {
+      let hex = hexType.replace('#', ''),
+        value = hex.match(/[a-f\d]/gi);
+
+      if (value.length === 3) hex = value[0] + value[0] + value[1] + value[1] + value[2] + value[2];
+
+      value = hex.match(/[a-f\d]{2}/gi);
+
+      return `rgb(${parseInt(value[0], 16)}, ${parseInt(value[1], 16)}, ${parseInt(value[2], 16)})`;
+    }
+
+    function rgbToHex(rgbType) {
+      let rgb = rgbType.replace(/[^%,.\d]/g, '');
+
+      rgb = rgb.split(',');
+
+      for (var x = 0; x < 3; x++) {
+        if (rgb[x].indexOf('%') > -1) rgb[x] = Math.round(parseFloat(rgb[x]) * 2.55);
+      }
+
+      const toHex = function(string) {
+        string = parseInt(string, 10).toString(16);
+        string = (string.length === 1) ? '0' + string : string;
+
+        return string;
+      };
+
+      return `#${toHex(rgb[0])}${toHex(rgb[1])}${toHex(rgb[2])}`;
+    }
+
+    return arr;
+  },
+
+  chartColor2: state => {
+    return state.design.chartColor[state.design.chartIndex];
+  },
 
   chartOptions1: state => {
     const font = state.design.fontFamily;

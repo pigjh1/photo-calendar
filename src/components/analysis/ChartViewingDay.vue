@@ -26,6 +26,9 @@ export default {
     chartOptions() {
       return this.$store.getters.chartOptions2;
     },
+    chartColor() {
+      return this.$store.getters.chartColor2;
+    },
     viewingDay() {
       const userdata = this.userdata,
         data = [];
@@ -49,9 +52,6 @@ export default {
         }
       }
       return data;
-    },
-    chartColor() {
-      return this.$store.state.design.chartColor[this.$store.state.design.chartIndex];
     }
   }
 };
