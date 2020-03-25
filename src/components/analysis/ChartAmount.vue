@@ -49,15 +49,14 @@ export default {
       let idx = 0, colorIdx = 0;
 
       for (const key in data) {
-        if (idx > 10) return;
-        const obj = {
+        newdata[idx] = {
           label: `${key}년`,
           data: this.mAmount(key),
           backgroundColor: this.gradient[colorIdx]
         };
-        newdata[idx] = obj;
         idx++;
         colorIdx = dataLen > 5 ? colorIdx + 1 : colorIdx + 2;
+        colorIdx = colorIdx > 9 ? colorIdx - 10 : colorIdx;
       }
 
       return newdata;

@@ -47,14 +47,14 @@ export default {
       let idx = 0, colorIdx = 0;
 
       for (const key in data) {
-        const obj = {
+        newdata[idx] = {
           label: `${key}년`,
           data: this.mVisits(key),
           backgroundColor: this.chartColor[colorIdx]
         };
-        newdata[idx] = obj;
         idx++;
         colorIdx = dataLen > 5 ? colorIdx + 1 : colorIdx + 2;
+        colorIdx = colorIdx > 9 ? colorIdx - 10 : colorIdx;
       }
 
       return newdata;
