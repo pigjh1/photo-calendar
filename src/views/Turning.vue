@@ -17,16 +17,16 @@
         <img :src="turningItemsLast.img" :alt="turningItemsLast.title">
       </div>
 
-      <Calendar />
-    </div>
+      <div class="actorlist">
+        <div v-if="!isDiffActor">
+          출연 : {{ turningItemsLast.actor}}
+        </div>
 
-    <div class="actorlist">
-      <div v-if="!isDiffActor">
-        출연 : {{ turningItemsLast.actor}}
+        <actor-list v-if="isDiffActor" />
       </div>
-
-      <actor-list v-if="isDiffActor" />
     </div>
+
+    <Calendar />
 
     <div class="userlist" >
       <div class="box">

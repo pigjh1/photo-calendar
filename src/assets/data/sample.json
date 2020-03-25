@@ -1,5 +1,4 @@
-[
-  {
+[{
     "id": 1,
     "cate": "드라마",
     "img": "https://movie-phinf.pstatic.net/20200117_184/15792425940380AqI2_JPEG/movie_image.jpg",
@@ -453,7 +452,7 @@
     "cate": "애니메이션",
     "img": "https://movie-phinf.pstatic.net/20191121_221/1574298335357mqgLk_JPEG/movie_image.jpg?type=m99_141_2",
     "title": "겨울왕국 2",
-    "date": "2019-03-12",
+    "date": "2019-11-12",
     "actor": " 크리스틴 벨/ 이디나 멘젤",
     "place": "CGV 명동",
     "price": "9000",
@@ -1401,7 +1400,7 @@
     "cate": "액션",
     "img": "https://movie-phinf.pstatic.net/20160823_114/1471936485192cjjcD_JPEG/movie_image.jpg?type=m203_290_2",
     "title": "밀정",
-    "date": "2019-05-20",
+    "date": "2020-01-01",
     "actor": "송강호 / 공유 /  한지민 /  엄태구 /  신성록 /  허성태",
     "place": "메가박스 신촌",
     "price": "11000",
@@ -1412,7 +1411,7 @@
     "cate": "액션",
     "img": "https://movie-phinf.pstatic.net/20160823_114/1471936485192cjjcD_JPEG/movie_image.jpg?type=m203_290_2",
     "title": "밀정",
-    "date": "2019-06-20",
+    "date": "2020-02-20",
     "actor": "송강호 / 공유 /  한지민 /  엄태구 /  신성록 /  허성태",
     "place": "메가박스 신촌",
     "price": "11000",
@@ -1515,6 +1514,64 @@
     "actor": "하정우/ 김남길/ 허율/ 김시아",
     "place": "CGV 명동",
     "price": "12000",
+    "office": "CGV"
+  }, {
+    "id": 140,
+    "cate": "범죄",
+    "img": "https://movie-phinf.pstatic.net/20191227_205/1577437075244ojpJv_JPEG/movie_image.jpg",
+    "title": "21 브릿지: 테러 셧다운",
+    "date": "2020-02-01",
+    "time": "10:00",
+    "actor": "채드윅 보스만/ J.K. 시몬스/ 시에나 밀러/ 테일러 키취",
+    "place": "CGV 명동 미래에셋건물",
+    "price": "9000",
+    "office": "CGV"
+  }, {
+    "id": 141,
+    "cate": "범죄",
+    "img": "https://movie-phinf.pstatic.net/20191227_205/1577437075244ojpJv_JPEG/movie_image.jpg",
+    "title": "21 브릿지: 테러 셧다운",
+    "date": "2020-02-02",
+    "time": "10:00",
+    "actor": "채드윅 보스만/ J.K. 시몬스/ 시에나 밀러/ 테일러 키취",
+    "place": "CGV 명동 미래에셋건물",
+    "price": "9000",
+    "office": "CGV"
+  },
+  {
+    "id": 142,
+    "cate": "범죄",
+    "img": "https://movie-phinf.pstatic.net/20191227_205/1577437075244ojpJv_JPEG/movie_image.jpg",
+    "title": "21 브릿지: 테러 셧다운",
+    "date": "2020-02-03",
+    "time": "10:00",
+    "actor": "채드윅 보스만/ J.K. 시몬스/ 시에나 밀러/ 테일러 키취",
+    "place": "CGV 명동 미래에셋건물",
+    "price": "9000",
+    "office": "CGV"
+  },
+  {
+    "id": 143,
+    "cate": "범죄",
+    "img": "https://movie-phinf.pstatic.net/20191227_205/1577437075244ojpJv_JPEG/movie_image.jpg",
+    "title": "21 브릿지: 테러 셧다운",
+    "date": "2020-02-04",
+    "time": "10:00",
+    "actor": "채드윅 보스만/ J.K. 시몬스/ 시에나 밀러/ 테일러 키취",
+    "place": "CGV 명동 미래에셋건물",
+    "price": "9000",
+    "office": "CGV"
+  },
+  {
+    "id": 144,
+    "cate": "범죄",
+    "img": "https://movie-phinf.pstatic.net/20191227_205/1577437075244ojpJv_JPEG/movie_image.jpg",
+    "title": "21 브릿지: 테러 셧다운",
+    "date": "2020-02-05",
+    "time": "10:00",
+    "actor": "채드윅 보스만/ J.K. 시몬스/ 시에나 밀러/ 테일러 키취",
+    "place": "CGV 명동 미래에셋건물",
+    "price": "9000",
     "office": "CGV"
   }
 ]

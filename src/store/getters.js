@@ -4,7 +4,7 @@ export default {
   turningCate: state => {
     const userdata = state.userdata,
       newdata = [];
-    let data = [];
+    let data = [], obj = {};
 
     for (let i = 0; i < userdata.length; i++) {
       const title = userdata[i].title;
@@ -17,10 +17,17 @@ export default {
       newdata.push(el);
     });
 
-    return newdata.sort().reduce((x, y) => {
+    obj = newdata.sort().reduce((x, y) => {
       x[y] = ++x[y] || 1;
       return x;
     }, {});
+
+    /// FIXME: 정렬, 엑셀로 데이텨 변경시 문제 됨
+    // return Object.fromEntries(
+    //   Object.entries(obj).sort((a, b) => b[1] - a[1])
+    // );
+
+    return obj;
   },
 
   sortItems: state => {

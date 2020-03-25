@@ -37,8 +37,7 @@ export default {
       rootDayOfWeekIndex: 4, // 2000년 1월 1일은 토요일
       currentMonthStartWeekIndex: null,
       currentCalendarMatrix: [],
-      endOfDay: null,
-      memoDatas: []
+      endOfDay: null
     };
   },
   mounted() {
@@ -55,13 +54,6 @@ export default {
     }
   },
   computed: {
-    current() {
-      const date = new Date();
-      date.setFullYear(this.currentYear);
-      date.setMonth(this.currentMonth - 1);
-      date.setDate(this.currentDay);
-      return date;
-    },
     turningItems() {
       return this.$store.getters.turningItems;
     },
@@ -73,23 +65,24 @@ export default {
     },
     currentDay() {
       return new Date(this.start).getDate();
+    },
+    currentLen() {
+      const data = this.turningItems,
+        diffdMonth = parseInt(this.currentMonth) < 10 ? '0' + this.currentMonth : this.currentMonth,
+        arr = data.filter(obj => {
+          return obj.date.includes(`${this.currentYear}-${diffdMonth}`);
+        });
+
+      return arr.length;
     }
   },
   methods: {
     userdataDay(day) {
-      const userdata = this.turningItems,
-        diffYear = this.currentYear.toString(),
-        diffdMonth = parseInt(this.currentMonth) < 10 ? '0' + this.currentMonth : this.currentMonth,
-        diffday = parseInt(day) < 10 ? '0' + day : day,
-        searchData = userdata.filter(post => {
-          const year = post.date.substr(0, 4),
-            month = post.date.substr(5, 2),
-            day = post.date.substr(8, 2);
+      const data = this.turningItems;
 
-          return year === diffYear && month === diffdMonth && day === diffday;
-        });
-
-      return searchData;
+      return data.filter(obj => {
+        return obj.date === this.getDateFormat(this.currentYear, this.currentMonth, day);
+      });
     },
     getEndOfDay(year, month) {
       switch (month) {
@@ -116,6 +109,12 @@ export default {
         console.log('unknown month ' + month);
         return 0;
       }
+    },
+    getDateFormat(year, month, day) {
+      const newMonth = parseInt(month) < 10 ? '0' + month : month,
+        newDay = parseInt(day) < 10 ? '0' + day : day;
+
+      return `${year}-${newMonth}-${newDay}`;
     },
     getStartWeek(targetYear, targetMonth) {
       let year = this.rootYear,
