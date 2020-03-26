@@ -1,18 +1,26 @@
 <template>
   <div class="calendar">
     <div class="calendar-header">
-      <button class="btn btn--sm" @click="onClickToday()"><span>오늘</span></button>
-      <button class="calendar-prev" @click="onClickPrev(currentMonth)">
+      <button class="calendar-btn" @click="onClickYearPrev()">
+        <img src="@/assets/icon/first-arrow.svg" alt="">
+        <span class="a11y">이전 연도</span>
+      </button>
+      <button class="calendar-btn" @click="onClickMonthPrev(currentMonth)">
         <img src="@/assets/icon/left-arrow.svg" alt="">
         <span class="a11y">이전 달</span>
-      </button>
-      <button class="calendar-next" @click="onClickNext(currentMonth)">
-        <img src="@/assets/icon/right-arrow.svg" alt="">
-        <span class="a11y">다음 달</span>
       </button>
       <div class="calendar-label">
         {{ currentYear }}년 {{ currentMonth }}월
       </div>
+      <button class="calendar-btn" @click="onClickMonthNext(currentMonth)">
+        <img src="@/assets/icon/right-arrow.svg" alt="">
+        <span class="a11y">다음 달</span>
+      </button>
+      <button class="calendar-btn" @click="onClickYearNext()">
+        <img src="@/assets/icon/last-arrow.svg" alt="">
+        <span class="a11y">다음 연도</span>
+      </button>
+      <button class="btn btn--sm" @click="onClickToday()"><span>오늘</span></button>
     </div>
 
     <div class="calendar-week">
@@ -95,7 +103,13 @@ export default {
       this.currentYear = date.getFullYear();
       this.currentMonth = date.getMonth() + 1;
     },
-    onClickPrev(month) {
+    onClickYearPrev() {
+      this.currentYear -= 1;
+    },
+    onClickYearNext() {
+      this.currentYear += 1;
+    },
+    onClickMonthPrev(month) {
       month--;
       if (month <= 0) {
         this.currentMonth = 12;
@@ -104,7 +118,7 @@ export default {
         this.currentMonth -= 1;
       }
     },
-    onClickNext(month) {
+    onClickMonthNext(month) {
       month++;
       if (month > 12) {
         this.currentMonth = 1;

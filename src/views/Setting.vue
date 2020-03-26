@@ -19,7 +19,7 @@
       <div class="col-2">목록</div>
       <div class="col-10">
         <SettingUserData />
-        <p><a href="/sample.xlsx" download="sample.xlsx" class="btn btn--sm">엑셀 샘플 파일 다운로드</a></p>
+        <p><a href="/sample.xlsx" download="sample.xlsx" class="btn btn--primary btn--sm">엑셀 샘플 파일 다운로드</a></p>
         <ul>
           <li>양식에 맞게 입력하세요</li>
           <li>'List' 시트명을 변경하지 마세요</li>

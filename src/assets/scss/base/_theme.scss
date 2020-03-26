@@ -43,47 +43,54 @@
 // -----------------------------------------------------------------------------
 
 @mixin colorSet($color) {
-  $root-color: $color;
+  $color-root: $color;
 
   .header {
-    background: $root-color;
+    background: $color-root;
   }
 
   .btn {
     &:hover,
     &:focus {
-      border-color: $root-color;
-      color: $root-color;
+      border-color: $color-root;
+      color: $color-root;
     }
 
     &--em {
       &:hover,
       &:focus {
-        border-color: $root-color;
-        background-color: $root-color;
+        border-color: $color-root;
+        background-color: $color-root;
+      }
+    }
+
+    &--primary {
+    color: $white;
+      border-color: $color-root;
+      background-color: $color-root;
+      &:hover,
+      &:focus {
+        background-color: transparent;
       }
     }
   }
 
   em,
   .wordcloud .word-big {
-    color: $root-color;
+    color: $color-root;
   }
 
   .calendar-body .item-txt.is-today {
-    box-shadow: 0 0 0 2px $root-color inset;
-  }
-  .calendar-body .item-dots span {
-    background: $root-color;
+    box-shadow: 0 0 0 2px $color-root inset;
   }
 
-  .userlist .box .item--watching::before {
-    background: rgba($root-color, 0.1);
+  .calendar-body .item-dots span {
+    background: $color-root;
   }
 
   .textbox {
-    background-image: linear-gradient(90deg, transparent 79px, $root-color 79px, $root-color 81px, transparent 81px),
-      linear-gradient($gray2 1px, transparent 1px);
+    background-image: linear-gradient(90deg, transparent 79px, $color-root 79px, $color-root 81px, transparent 81px),
+      linear-gradient(rgba($gray4, 0.2) 1px, transparent 1px);
   }
 }
 
@@ -112,30 +119,32 @@
 
 // dark mode
 // -----------------------------------------------------------------------------
-#app.theme-dark {
-  $base-color: $gray3;
-  $base-background: $gray9;
-  color: $base-color;
+.theme-dark {
+  color: $gray3;
+  background: $gray9;
 
   a,
   button,
   input,
   select,
   textarea {
-    color: $base-color;
+    color: $gray3;
   }
 
-  .footer,
-  .main {
-    background: $base-background;
+  .btn {
+    color: $white;
+    border-color: $gray4;
+  }
+
+  input,
+  select,
+  textarea {
+    border-color: $gray5;
   }
 
   .calendar-week,
   .userlist .filter,
-  .userlist-items .item,
-  input,
-  select,
-  textarea {
-    border-color: $base-border-dark-color;
+  .listbox .item {
+    border-color: $gray7;
   }
 }

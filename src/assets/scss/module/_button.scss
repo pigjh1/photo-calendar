@@ -80,4 +80,16 @@
       cursor: not-allowed;
     }
   }
+
+  &--primary {
+    border-color: $color-primary;
+    background-color: $color-primary;
+    color: $white;
+
+    &:hover,
+    &:focus {
+      color: $gray8;
+      background-color: transparent;
+    }
+  }
 }

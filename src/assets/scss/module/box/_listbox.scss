@@ -57,8 +57,6 @@
     }
 
     &--watching {
-      border: 1px solid $gray3;
-
       &::before {
         content: '관람예정';
         position: absolute;
@@ -66,8 +64,7 @@
         right: 0;
         font-size: 11px;
         padding: 2px 5px;
-        color: $black;
-        background: rgba($color-primary, 0.1);
+        background: $base-bg-color;
         border-radius: $base-radius;
       }
     }

@@ -88,8 +88,9 @@ export default {
     }
   },
 
-  // Setting > esign
+  // Setting > Design
   changeTheme: (state, payload) => {
+    document.body.classList.toggle('theme-dark');
     state.design.darkmode = payload;
   },
   changePrimaryColor: (state, payload) => {

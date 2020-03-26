@@ -23,6 +23,9 @@ export default {
     Footer
   },
   beforeMount() {
+    if (this.darkmode) {
+      document.body.classList.add('theme-dark');
+    }
     this.$store.commit('setupItem', this.userItems);
   },
   computed: {
@@ -36,9 +39,7 @@ export default {
       return 'ff-' + this.$store.state.design.fontFamily.toLowerCase().replace(/ /gi, '-');
     },
     className() {
-      let val = this.colorClass + ' ' + this.fontClass;
-      val = this.darkmode ? val + ' theme-dark' : val;
-      return val;
+      return this.colorClass + ' ' + this.fontClass;
     },
     sortItems() {
       return this.$store.getters.sortItems;

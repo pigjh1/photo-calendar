@@ -17,7 +17,7 @@ textarea {
   box-sizing: border-box;
   padding: $base-tb $base-lr;
   border: 1px solid $base-border-color;
-  color: $base-border-dark-color;
+  color: $gray7;
   line-height: 1.25;
   outline: none;
   vertical-align: middle;
@@ -28,7 +28,7 @@ textarea {
 
   &:hover,
   &:focus {
-    border-color: $base-border-dark-color;
+    border-color: $gray7;
   }
 
   &[readonly] {
