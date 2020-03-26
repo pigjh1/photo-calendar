@@ -24,11 +24,6 @@ export default {
       return x;
     }, {});
 
-    /// FIXME: 정렬, 엑셀로 데이텨 변경시 문제 됨
-    // return Object.fromEntries(
-    //   Object.entries(obj).sort((a, b) => b[1] - a[1])
-    // );
-
     return obj;
   },
 
@@ -142,7 +137,6 @@ export default {
   turningItems: state => {
     let items = state.userItems;
 
-    // 검색어
     if (state.turning.title) {
       items = items.filter(obj => {
         return obj.title === state.turning.title;
@@ -181,6 +175,7 @@ export default {
       responsive: true,
       maintainAspectRatio: false,
       legend: {
+        position: 'right',
         fontFamily: font,
         labels: {
           fontFamily: font
@@ -225,6 +220,7 @@ export default {
       responsive: true,
       maintainAspectRatio: false,
       legend: {
+        position: 'right',
         fontFamily: font,
         labels: {
           fontFamily: font

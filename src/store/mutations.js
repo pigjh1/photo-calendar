@@ -70,6 +70,9 @@ export default {
   changeCaldate: (state, payload) => {
     state.turning.caldate = payload;
   },
+  changeTurningBlackmode: (state, payload) => {
+    state.turning.blackmode = payload;
+  },
 
   // Setting
   // -----------------------------------------------------------------------------

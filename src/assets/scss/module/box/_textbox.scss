@@ -1,0 +1,18 @@
+// -----------------------------------------------------------------------------
+// Wordcloud
+// -----------------------------------------------------------------------------
+
+.textbox {
+  width: 100%;
+  font-weight: normal;
+  resize: none;
+  line-height: 35px;
+  margin: 40px 0;
+  padding: 35px 100px 70px;
+  background-image: linear-gradient(90deg, transparent 79px, $color-primary 79px, $color-primary 81px, transparent 81px),
+    linear-gradient($gray2 1px, transparent 1px);
+  background-size: 100% 35px;
+  border-radius: $base-radius;
+  box-shadow: 3px 3px 20px 0px rgba($black, 0.2);
+  box-sizing: border-box;
+}

@@ -26,9 +26,11 @@
         <dd v-if="item.seat">{{ item.seat }} {{ item.seatgrade }}</dd>
         <dt v-if="item.office">예매처</dt>
         <dd v-if="item.office">{{ item.office }}</dd>
-        <dt v-if="item.memo">리뷰/메모</dt>
-        <dd v-if="item.memo"><div v-html="memoHtml"></div></dd>
       </dl>
+
+      <div v-if="item.memo" class="textbox">
+        <div v-html="memoHtml"></div>
+      </div>
     </article>
   </div>
 </template>

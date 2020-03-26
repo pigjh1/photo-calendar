@@ -1,70 +1,111 @@
 <template>
-  <div class="turning-cal">
-    <div v-for="(value, index) in calDate" :key="index" >
-      <Calendar :start="calDate[index]" />
+  <div class="calendar calendar--sm" v-if="isShow">
+    <div class="calendar-header">
+      <div class="calendar-label">
+        {{ currentYear }}년 {{ currentMonth }}월
+      </div>
+    </div>
+
+    <div class="calendar-week">
+      <span v-for="(weekName, index) in weekNames" v-bind:key="index">
+      {{ weekName }}
+      </span>
+    </div>
+
+    <div class="calendar-body">
+      <div v-for="(day, index) in calendarMatrix" :key="index" class="item" :style="isFirst(day)">
+        <span class="item-txt">{{ day }}</span>
+
+        <div class="item-dots">
+          <span v-for="(item, index) in userdataDay(day)" :key="index"></span>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import UtilDate from '@/assets/js/utilDate.js';
-import Calendar from '@/components/turning/CalendarChild';
 
 export default {
-  components: {
-    Calendar
+  props: {
+    start: String
+  },
+  data() {
+    return {
+      userdata: this.$store.getters.sortItems,
+      weekNames: this.$store.state.weekNames,
+      calendarMatrix: [],
+      endOfDay: null
+    };
+  },
+  mounted() {
+    this.endOfDay = UtilDate.getEndOfDay(this.currentYear, this.currentMonth);
+    this.calendarMatrix = [];
+    for (let i = 1; i < 32; i++) {
+      let calendarRow = [];
+
+      if (i <= this.endOfDay) {
+        calendarRow = calendarRow + '' + i;
+        this.calendarMatrix.push(calendarRow);
+      }
+    }
   },
   computed: {
+    turningBlackmode() {
+      return this.$store.state.turning.blackmode;
+    },
     turningItems() {
       return this.$store.getters.turningItems;
     },
-    turningItemsFirst() {
-      return this.turningItems[this.turningLen - 1];
+    currentYear() {
+      return new Date(this.start).getFullYear();
     },
-    turningItemsLast() {
-      return this.turningItems[0];
+    currentMonth() {
+      return new Date(this.start).getMonth() + 1;
     },
-    turningLen() {
-      return this.turningItems.length;
+    currentDay() {
+      return new Date(this.start).getDate();
     },
-    turningGap() {
-      const a = this.turningItemsFirst.date.split('-'),
-        b = this.turningItemsLast.date.split('-'),
-        aYear = parseInt(a[0]),
-        bYear = parseInt(b[0]),
-        aMonth = parseInt(a[1]),
-        bMonth = parseInt(b[1]);
-      let diff = 5;
+    turningItemsLen() {
+      const data = this.turningItems,
+        diffdMonth = parseInt(this.currentMonth) < 10 ? '0' + this.currentMonth : this.currentMonth,
+        arr = data.filter(obj => {
+          return obj.date.includes(`${this.currentYear}-${diffdMonth}`);
+        });
 
-      if (aYear < bYear) {
-        diff = ((bYear - aYear) * 12) + bMonth - aMonth;
+      return arr.length;
+    },
+    isShow() {
+      return this.turningBlackmode ? this.turningItemsLen > 0 : true;
+    }
+  },
+  methods: {
+    userdataDay(day) {
+      const data = this.turningItems;
+
+      return data.filter(obj => {
+        return obj.date === UtilDate.getDateFormat(this.currentYear, this.currentMonth, day);
+      });
+    },
+    isFirst(index) {
+      const date = new Date();
+      let firstDate, margin;
+
+      date.setFullYear(this.currentYear);
+      date.setMonth(this.currentMonth - 1);
+      date.setDate(this.currentDay);
+
+      firstDate = new Date(date.setDate(1)).getDay() - 1;
+      firstDate = firstDate === -1 ? 6 : firstDate;
+
+      if (firstDate === 1) {
+        margin = '0%';
       } else {
-        diff = bMonth - aMonth;
+        margin = (firstDate * 14.28) + '%';
       }
 
-      return diff + 1;
-    },
-    calDate() {
-      const date = this.turningItemsFirst.date,
-        newDate = [];
-
-      for (let i = 0; i < this.turningGap; i++) {
-        const year = date.substr(0, 4),
-          month = date.substr(5, 2),
-          day = date.substr(8, 2),
-          newDateMonth = parseInt(month) + i;
-        let newYear = parseInt(year),
-          newMonth = newDateMonth > 0 ? newDateMonth : 12 - newDateMonth;
-
-        if (newMonth > 12) {
-          newMonth = newMonth - 12;
-          newYear = newYear + 1;
-        }
-
-        newDate[i] = UtilDate.getDateFormat(newYear, newMonth, day);
-      }
-
-      return newDate;
+      return index === '1' ? `margin-left: ${margin}` : '';
     }
   }
 };

@@ -34,7 +34,8 @@ export default {
   turning: {
     least: 5,
     title: '',
-    caldate: ''
+    caldate: '',
+    blackmode: true
   },
   design: {
     darkmode: false,

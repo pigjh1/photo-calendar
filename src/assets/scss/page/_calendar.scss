@@ -27,7 +27,7 @@
 
   &-week {
     box-sizing: border-box;
-    padding: 8px 10px;
+    padding: 8px 0;
     border-top: 1px solid $base-border-color;
     border-bottom: 1px solid $base-border-color;
 
@@ -103,10 +103,10 @@
         position: absolute;
         left: 50%;
         top: 50%;
-        margin-left: -15px;
-        margin-top: -15px;
-        width: 30px;
-        height: 30px;
+        width: 24px;
+        height: 24px;
+        margin-top: -12px;
+        margin-left: -12px;
 
         span {
           position: absolute;
@@ -180,6 +180,19 @@
             padding-top: 0;
           }
         }
+      }
+    }
+  }
+
+  &--sm {
+    font-size: 13px;
+
+    .calendar-body {
+      height: auto;
+
+      .item {
+        height: 36px !important;
+        min-height: 36px !important;
       }
     }
   }

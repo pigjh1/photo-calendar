@@ -17,7 +17,7 @@
 
     <div class="calendar-week">
       <span v-for="(weekName, index) in weekNames" v-bind:key="index">
-      {{ weekName }}
+        {{ weekName }}
       </span>
     </div>
 

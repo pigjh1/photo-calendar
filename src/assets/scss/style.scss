@@ -7,8 +7,11 @@
 @import 'base/reset';
 @import 'base/helper';
 
+@import 'layout/component';
+@import 'layout/header';
+@import 'layout/footer';
+
 @import 'module/vue-transition';
-@import 'module/layout';
 @import 'module/grid';
 @import 'module/button';
 @import 'module/typography';
@@ -16,7 +19,10 @@
 @import 'module/form-radiocheck';
 @import 'module/form-toggle';
 @import 'module/table';
-@import 'module/wordcloud';
+@import 'module/box/nodata';
+@import 'module/box/textbox';
+@import 'module/box/listbox';
+@import 'module/box/wordcloud';
 
 @import 'page/calendar';
 @import 'page/userlist';

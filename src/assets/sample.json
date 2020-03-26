@@ -1,7 +1,8 @@
-[{
+[
+  {
     "id": 1,
     "cate": "드라마",
-    "img": "https://movie-phinf.pstatic.net/20200117_184/15792425940380AqI2_JPEG/movie_image.jpgg?type=m99_141_2",
+    "img": "https://movie-phinf.pstatic.net/20200117_184/15792425940380AqI2_JPEG/movie_image.jpg?type=m99_141_2",
     "title": "작은 아씨들",
     "date": "2020-02-17",
     "actor": "시얼샤 로넌/ 엠마 왓슨/ 플로렌스 퓨/ 엘리자 스캔런/ 티모시 샬라메",
@@ -11,7 +12,7 @@
   {
     "id": 2,
     "cate": "코미디",
-    "img": "https://movie-phinf.pstatic.net/20200121_186/1579570188386BXMMG_JPEG/movie_image.jpgg?type=m99_141_2",
+    "img": "https://movie-phinf.pstatic.net/20200121_186/1579570188386BXMMG_JPEG/movie_image.jpg?type=m99_141_2",
     "title": "정직한 후보",
     "date": "2020-03-17",
     "actor": "라미란/ 김무열/ 나문희/ 윤경호",
@@ -22,7 +23,7 @@
   {
     "id": 3,
     "cate": "코미디",
-    "img": "https://movie-phinf.pstatic.net/20200122_181/15796574636309Fux2_JPEG/movie_image.jpgg?type=m99_141_2",
+    "img": "https://movie-phinf.pstatic.net/20200122_181/15796574636309Fux2_JPEG/movie_image.jpg?type=m99_141_2",
     "title": "히트맨",
     "date": "2018-02-28",
     "actor": "권상우/ 정준호/ 황우슬혜/ 이이경/ 이지원",
@@ -55,7 +56,7 @@
   {
     "id": 6,
     "cate": "드라마",
-    "img": "https://movie-phinf.pstatic.net/20190528_36/1559024198386YVTEw_JPEG/movie_image.jpgg?type=m99_141_2",
+    "img": "https://movie-phinf.pstatic.net/20190528_36/1559024198386YVTEw_JPEG/movie_image.jpg?type=m99_141_2",
     "title": "기생충",
     "date": "2020-03-20",
     "actor": "송강호/ 이선균/ 조여정/ 최우식/ 박소담/ 이정은/ 장혜진",
@@ -66,7 +67,7 @@
   {
     "id": 7,
     "cate": "드라마",
-    "img": "https://movie-phinf.pstatic.net/20190528_36/1559024198386YVTEw_JPEG/movie_image.jpgg?type=m99_141_2",
+    "img": "https://movie-phinf.pstatic.net/20190528_36/1559024198386YVTEw_JPEG/movie_image.jpg?type=m99_141_2",
     "title": "기생충",
     "date": "2020-01-20",
     "actor": "송강호/ 이선균/ 조여정/ 최우식/ 박소담/ 이정은/ 장혜진",
@@ -77,7 +78,7 @@
   {
     "id": 8,
     "cate": "드라마",
-    "img": "https://movie-phinf.pstatic.net/20190528_36/1559024198386YVTEw_JPEG/movie_image.jpgg?type=m99_141_2",
+    "img": "https://movie-phinf.pstatic.net/20190528_36/1559024198386YVTEw_JPEG/movie_image.jpg?type=m99_141_2",
     "title": "기생충",
     "date": "2020-01-20",
     "actor": "송강호/ 이선균/ 조여정/ 최우식/ 박소담/ 이정은/ 장혜진",
@@ -88,7 +89,7 @@
   {
     "id": 9,
     "cate": "애니메이션",
-    "img": "https://movie-phinf.pstatic.net/20200113_152/1578896572228Edueo_JPEG/movie_image.jpgg?type=m99_141_2",
+    "img": "https://movie-phinf.pstatic.net/20200113_152/1578896572228Edueo_JPEG/movie_image.jpg?type=m99_141_2",
     "title": "수퍼 소닉",
     "date": "2020-03-22",
     "actor": "짐 캐리/ 제임스 마스던/ 벤 슈와츠/ 티카 섬터",
@@ -99,7 +100,7 @@
   {
     "id": 10,
     "cate": "드라마",
-    "img": "https://movie-phinf.pstatic.net/20200103_41/1578032244761ejKMX_JPEG/movie_image.jpgg?type=m99_141_2",
+    "img": "https://movie-phinf.pstatic.net/20200103_41/1578032244761ejKMX_JPEG/movie_image.jpg?type=m99_141_2",
     "title": "남산의 부장들",
     "date": "2020-02-09",
     "actor": "이병헌/ 이성민/ 곽도원/ 이희준/ 김소진",
@@ -110,7 +111,7 @@
   {
     "id": 11,
     "cate": "액션",
-    "img": "https://movie-phinf.pstatic.net/20200121_188/1579574685635qE9iF_JPEG/movie_image.jpgg?type=m99_141_2",
+    "img": "https://movie-phinf.pstatic.net/20200121_188/1579574685635qE9iF_JPEG/movie_image.jpg?type=m99_141_2",
     "title": "버즈 오브 프레이(할리 퀸의 황홀한 해방)",
     "date": "2020-02-24",
     "actor": "마고 로비",
@@ -121,7 +122,7 @@
   {
     "id": 12,
     "cate": "코미디",
-    "img": "https://movie-phinf.pstatic.net/20200212_4/1581471622059r6lmJ_JPEG/movie_image.jpgg?type=m99_141_2",
+    "img": "https://movie-phinf.pstatic.net/20200212_4/1581471622059r6lmJ_JPEG/movie_image.jpg?type=m99_141_2",
     "title": "조조 래빗",
     "date": "2020-02-16",
     "actor": "스칼렛 요한슨/ 로만 그리핀 데이비스/ 타이카 와이티티/ 토마신 맥켄지",
@@ -132,7 +133,7 @@
   {
     "id": 13,
     "cate": "드라마",
-    "img": "https://movie-phinf.pstatic.net/20191220_49/1576828214038i4ukE_JPEG/movie_image.jpgg?type=m99_141_2",
+    "img": "https://movie-phinf.pstatic.net/20191220_49/1576828214038i4ukE_JPEG/movie_image.jpg?type=m99_141_2",
     "title": "타오르는 여인의 초상",
     "date": "2020-02-16",
     "actor": "아델 하에넬/ 노에미 메를랑/ 루아나 바야미/ 발레리아 골리노",
@@ -143,7 +144,7 @@
   {
     "id": 14,
     "cate": "애니메이션",
-    "img": "https://movie-phinf.pstatic.net/20200115_201/1579055961204pU2PH_JPEG/movie_image.jpgg?type=m99_141_2",
+    "img": "https://movie-phinf.pstatic.net/20200115_201/1579055961204pU2PH_JPEG/movie_image.jpg?type=m99_141_2",
     "title": "극장판 미니특공대: 공룡왕 디노",
     "date": "2020-02-12",
     "actor": "신용우/ 엄상현/ 이소영/ 전태열/ 양정화",
@@ -154,7 +155,7 @@
   {
     "id": 15,
     "cate": "코미디",
-    "img": "https://movie-phinf.pstatic.net/20200122_181/15796574636309Fux2_JPEG/movie_image.jpgg?type=m99_141_2",
+    "img": "https://movie-phinf.pstatic.net/20200122_181/15796574636309Fux2_JPEG/movie_image.jpg?type=m99_141_2",
     "title": "히트맨",
     "date": "2019-12-28",
     "actor": "권상우/ 정준호/ 황우슬혜/ 이이경/ 이지원",
@@ -165,7 +166,7 @@
   {
     "id": 16,
     "cate": "드라마",
-    "img": "https://movie-phinf.pstatic.net/20200204_176/1580793082037tcbt7_JPEG/movie_image.jpgg?type=m99_141_2",
+    "img": "https://movie-phinf.pstatic.net/20200204_176/1580793082037tcbt7_JPEG/movie_image.jpg?type=m99_141_2",
     "title": "페인 앤 글로리",
     "date": "2018-05-10",
     "actor": "페넬로페 크루즈/ 안토니오 반데라스",
@@ -187,7 +188,7 @@
   {
     "id": 18,
     "cate": "애니메이션",
-    "img": "https://movie-phinf.pstatic.net/20200106_218/15782846353183YnK8_JPEG/movie_image.jpgg?type=m99_141_2",
+    "img": "https://movie-phinf.pstatic.net/20200106_218/15782846353183YnK8_JPEG/movie_image.jpg?type=m99_141_2",
     "title": "이 멋진 세계에 축복을! 붉은 전설",
     "date": "2020-02-23",
     "actor": "후쿠시마 준/ 아마미야 소라/ 타카하시 리에/ 카야노 아이/ 토요사키 아키",
@@ -198,7 +199,7 @@
   {
     "id": 19,
     "cate": "다큐멘터리",
-    "img": "https://movie-phinf.pstatic.net/20191224_60/1577155153773iLYXG_JPEG/movie_image.jpgg?type=m99_141_2",
+    "img": "https://movie-phinf.pstatic.net/20191224_60/1577155153773iLYXG_JPEG/movie_image.jpg?type=m99_141_2",
     "title": "사마에게",
     "date": "2020-03-11",
     "actor": "와드 알-카팁/ 사마 알-카팁/ 함자 알-카팁",
@@ -209,7 +210,7 @@
   {
     "id": 20,
     "cate": "애니메이션",
-    "img": "https://movie-phinf.pstatic.net/20200117_26/1579249737548VjD7N_JPEG/movie_image.jpgg?type=m99_141_2",
+    "img": "https://movie-phinf.pstatic.net/20200117_26/1579249737548VjD7N_JPEG/movie_image.jpg?type=m99_141_2",
     "title": "하이큐!! 땅 VS 하늘",
     "date": "2020-02-25",
     "actor": "나카무라 유이치/ 카지 유우키",
@@ -220,7 +221,7 @@
   {
     "id": 21,
     "cate": "애니메이션",
-    "img": "https://movie-phinf.pstatic.net/20200120_187/157948230962440pnt_JPEG/movie_image.jpgg?type=m99_141_2",
+    "img": "https://movie-phinf.pstatic.net/20200120_187/157948230962440pnt_JPEG/movie_image.jpg?type=m99_141_2",
     "title": "스파이 지니어스",
     "date": "2020-02-01",
     "actor": "윌 스미스/ 톰 홀랜드",
@@ -231,7 +232,7 @@
   {
     "id": 22,
     "cate": "다큐멘터리",
-    "img": "https://movie-phinf.pstatic.net/20191113_116/1573626338955Ea70e_JPEG/movie_image.jpgg?type=m99_141_2",
+    "img": "https://movie-phinf.pstatic.net/20191113_116/1573626338955Ea70e_JPEG/movie_image.jpg?type=m99_141_2",
     "title": "이태원",
     "date": "2020-02-14",
     "actor": "삼숙/ 나키/ 영화",
@@ -242,7 +243,7 @@
   {
     "id": 23,
     "cate": "드라마",
-    "img": "https://movie-phinf.pstatic.net/20190805_121/1564969695835Iq9Qc_JPEG/movie_image.jpgg?type=m99_141_2",
+    "img": "https://movie-phinf.pstatic.net/20190805_121/1564969695835Iq9Qc_JPEG/movie_image.jpg?type=m99_141_2",
     "title": "벌새",
     "date": "2020-02-07",
     "actor": "박지후/ 김새벽",
@@ -253,7 +254,7 @@
   {
     "id": 24,
     "cate": "드라마",
-    "img": "https://movie-phinf.pstatic.net/20191016_196/1571192574061jEBrH_JPEG/movie_image.jpgg?type=m99_141_2",
+    "img": "https://movie-phinf.pstatic.net/20191016_196/1571192574061jEBrH_JPEG/movie_image.jpg?type=m99_141_2",
     "title": "두 교황",
     "date": "2020-03-31",
     "actor": "안소니 홉킨스/ 조나단 프라이스",
@@ -264,7 +265,7 @@
   {
     "id": 25,
     "cate": "미스터리",
-    "img": "https://movie-phinf.pstatic.net/20191119_163/1574125979767APJb7_JPEG/movie_image.jpgg?type=m99_141_2",
+    "img": "https://movie-phinf.pstatic.net/20191119_163/1574125979767APJb7_JPEG/movie_image.jpg?type=m99_141_2",
     "title": "나이브스 아웃",
     "date": "2020-03-31",
     "actor": "다니엘 크레이그/ 크리스 에반스/ 아나 디 아르마스/ 제이미 리 커티스/ 토니 콜렛/ 마이클 섀넌/ 돈 존슨/ 키스 스탠필드/ 캐서린 랭포드/ 제이든 마텔/ 크리스토퍼 플러머",
@@ -275,7 +276,7 @@
   {
     "id": 26,
     "cate": "드라마",
-    "img": "https://movie-phinf.pstatic.net/20190903_89/1567472276429VUl4Y_JPEG/movie_image.jpgg?type=m99_141_2",
+    "img": "https://movie-phinf.pstatic.net/20190903_89/1567472276429VUl4Y_JPEG/movie_image.jpg?type=m99_141_2",
     "title": "메기",
     "date": "2020-03-17",
     "actor": "이주영/ 문소리/ 구교환/ 천우희",
@@ -286,7 +287,7 @@
   {
     "id": 27,
     "cate": "코미디",
-    "img": "https://movie-phinf.pstatic.net/20200122_11/15796766202282GrU2_JPEG/movie_image.jpgg?type=m99_141_2",
+    "img": "https://movie-phinf.pstatic.net/20200122_11/15796766202282GrU2_JPEG/movie_image.jpg?type=m99_141_2",
     "title": "미스터 주: 사라진 VIP",
     "date": "2020-02-21",
     "actor": "이성민/ 김서형/ 배정남/ 신하균",
@@ -308,7 +309,7 @@
   {
     "id": 29,
     "cate": "미스터리 / 액션",
-    "img": "https://movie-phinf.pstatic.net/20190906_128/1567761736426S6Fje_JPEG/movie_image.jpgg?type=m99_141_2",
+    "img": "https://movie-phinf.pstatic.net/20190906_128/1567761736426S6Fje_JPEG/movie_image.jpg?type=m99_141_2",
     "title": "조커",
     "date": "2020-02-02",
     "actor": "호아킨 피닉스",
@@ -319,7 +320,7 @@
   {
     "id": 30,
     "cate": "액션",
-    "img": "https://movie-phinf.pstatic.net/20191204_91/15754257752042kHvB_JPEG/movie_image.jpgg?type=m99_141_2",
+    "img": "https://movie-phinf.pstatic.net/20191204_91/15754257752042kHvB_JPEG/movie_image.jpg?type=m99_141_2",
     "title": "포드 V 페라리",
     "date": "2020-02-28",
     "actor": "맷 데이먼/ 크리스찬 베일",
@@ -341,7 +342,7 @@
   {
     "id": 32,
     "cate": "범죄",
-    "img": "https://movie-phinf.pstatic.net/20191230_129/1577682525473H2GK5_JPEG/movie_image.jpgg?type=m99_141_2",
+    "img": "https://movie-phinf.pstatic.net/20191230_129/1577682525473H2GK5_JPEG/movie_image.jpg?type=m99_141_2",
     "title": "카잔자키스",
     "date": "2020-03-06",
     "actor": "오디세즈 파파스필리오풀로스/ 마리나 칼로기루/ 토도리스 아테리디스",
@@ -373,7 +374,7 @@
   {
     "id": 35,
     "cate": "드라마",
-    "img": "https://movie-phinf.pstatic.net/20191220_107/1576822068106AEJns_JPEG/movie_image.jpgg?type=m99_141_2",
+    "img": "https://movie-phinf.pstatic.net/20191220_107/1576822068106AEJns_JPEG/movie_image.jpg?type=m99_141_2",
     "title": "피아니스트의 전설",
     "date": "2020-02-06",
     "actor": "팀 로스/ 프루이트 테일러 빈스",
@@ -703,7 +704,7 @@
   {
     "id": 65,
     "cate": "드라마",
-    "img": "https://movie-phinf.pstatic.net/20200117_245/1579242819933PKRT4_JPEG/movie_image.jpgg?type=m99_141_2",
+    "img": "https://movie-phinf.pstatic.net/20200117_245/1579242819933PKRT4_JPEG/movie_image.jpg?type=m99_141_2",
     "title": "공기인형",
     "date": "2020-10-10",
     "actor": "배두나/ 이우라 아라타/ 오다기리 죠/ 이타오 이츠지",
@@ -736,7 +737,7 @@
   {
     "id": 68,
     "cate": "다큐멘터리",
-    "img": "https://movie-phinf.pstatic.net/20191216_106/1576460790934vQhLj_JPEG/movie_image.jpgg?type=m99_141_2",
+    "img": "https://movie-phinf.pstatic.net/20191216_106/1576460790934vQhLj_JPEG/movie_image.jpg?type=m99_141_2",
     "title": "백두 번째 구름",
     "date": "2020-03-11",
     "actor": "임권택",
@@ -747,7 +748,7 @@
   {
     "id": 69,
     "cate": "범죄",
-    "img": "https://movie-phinf.pstatic.net/20191227_205/1577437075244ojpJv_JPEG/movie_image.jpgg",
+    "img": "https://movie-phinf.pstatic.net/20191227_205/1577437075244ojpJv_JPEG/movie_image.jpg",
     "title": "21 브릿지: 테러 셧다운",
     "date": "2020-12-25",
     "time": "10:00",
@@ -760,7 +761,7 @@
   {
     "id": 70,
     "cate": "드라마",
-    "img": "https://movie-phinf.pstatic.net/20191024_215/1571900079078PNazL_JPEG/movie_image.jpgg?type=m99_141_2",
+    "img": "https://movie-phinf.pstatic.net/20191024_215/1571900079078PNazL_JPEG/movie_image.jpg?type=m99_141_2",
     "title": "82년생 김지영",
     "date": "2020-02-01",
     "actor": "정유미/ 공유",
@@ -771,7 +772,7 @@
   {
     "id": 71,
     "cate": "액션",
-    "img": "https://movie-phinf.pstatic.net/20191018_257/1571374588609LO8ck_JPEG/movie_image.jpgg?type=m99_141_2",
+    "img": "https://movie-phinf.pstatic.net/20191018_257/1571374588609LO8ck_JPEG/movie_image.jpg?type=m99_141_2",
     "title": "경계선",
     "date": "2020-02-14",
     "actor": "에바 멜란데르/ 에로 밀로노프",
@@ -782,7 +783,7 @@
   {
     "id": 72,
     "cate": "드라마",
-    "img": "https://movie-phinf.pstatic.net/20121128_8/1354091092606Bwq6B_JPEG/movie_image.jpgg?type=m99_141_2",
+    "img": "https://movie-phinf.pstatic.net/20121128_8/1354091092606Bwq6B_JPEG/movie_image.jpg?type=m99_141_2",
     "title": "고양이를 빌려드립니다",
     "date": "2020-02-07",
     "actor": "이치카와 미카코/ 쿠사무라 레이코/ 미츠이시 켄",
@@ -811,7 +812,7 @@
   {
     "id": 75,
     "cate": "드라마",
-    "img": "https://movie-phinf.pstatic.net/20171018_85/1508304854744s1oL7_JPEG/movie_image.jpgg?type=m99_141_2",
+    "img": "https://movie-phinf.pstatic.net/20171018_85/1508304854744s1oL7_JPEG/movie_image.jpg?type=m99_141_2",
     "title": "그들이 진심으로 엮을 때",
     "date": "2020-03-17",
     "actor": "키리타니 켄타/ 카키하라 린카/ 이쿠타 토마",
@@ -833,7 +834,7 @@
   {
     "id": 77,
     "cate": "드라마",
-    "img": "https://movie-phinf.pstatic.net/20151023_124/1445567669389AUnbs_JPEG/movie_image.jpgg?type=m99_141_2",
+    "img": "https://movie-phinf.pstatic.net/20151023_124/1445567669389AUnbs_JPEG/movie_image.jpg?type=m99_141_2",
     "title": "늙은 자전거",
     "date": "2020-02-25",
     "actor": "최종원/ 박민상/ 박상면/ 조안/ 춘자",
@@ -844,7 +845,7 @@
   {
     "id": 78,
     "cate": "다큐멘터리",
-    "img": "https://movie-phinf.pstatic.net/20191101_140/15725985713955YYvh_JPEG/movie_image.jpgg?type=m99_141_2",
+    "img": "https://movie-phinf.pstatic.net/20191101_140/15725985713955YYvh_JPEG/movie_image.jpg?type=m99_141_2",
     "title": "대통령의 7시간",
     "date": "2020-02-02",
     "place": "CGV 명동",
@@ -865,7 +866,7 @@
   {
     "id": 80,
     "cate": "드라마",
-    "img": "https://movie-phinf.pstatic.net/20190409_75/1554785653122aBYcI_JPEG/movie_image.jpgg?type=m99_141_2",
+    "img": "https://movie-phinf.pstatic.net/20190409_75/1554785653122aBYcI_JPEG/movie_image.jpg?type=m99_141_2",
     "title": "동명이인 프로젝트 시즌2",
     "date": "2019-02-10",
     "actor": "황인철/ 홍지우/ 윤세현/ 김진희/ 김세정/ 홍지석/ 박현/ 강희우/ 이중현/ 신범철/ 최선은/ 장유상",
@@ -876,7 +877,7 @@
   {
     "id": 81,
     "cate": "드라마",
-    "img": "https://movie-phinf.pstatic.net/20130917_299/13794016568639P15X_JPEG/movie_image.jpgg?type=m99_141_2",
+    "img": "https://movie-phinf.pstatic.net/20130917_299/13794016568639P15X_JPEG/movie_image.jpg?type=m99_141_2",
     "title": "라붐",
     "date": "2019-03-06",
     "actor": "소피 마르소/ 클로드 브라소/ 브리지트 포시",
@@ -887,7 +888,7 @@
   {
     "id": 82,
     "cate": "다큐멘터리",
-    "img": "https://movie-phinf.pstatic.net/20191122_67/1574389873512V1xgX_JPEG/movie_image.jpgg?type=m99_141_2",
+    "img": "https://movie-phinf.pstatic.net/20191122_67/1574389873512V1xgX_JPEG/movie_image.jpg?type=m99_141_2",
     "title": "라스트 씬",
     "date": "2020-02-23",
     "place": "CGV 명동",
@@ -908,7 +909,7 @@
   {
     "id": 84,
     "cate": "다큐멘터리",
-    "img": "https://movie-phinf.pstatic.net/20130925_76/1380075036312pKG0B_JPEG/movie_image.jpgg?type=m99_141_2",
+    "img": "https://movie-phinf.pstatic.net/20130925_76/1380075036312pKG0B_JPEG/movie_image.jpg?type=m99_141_2",
     "title": "말하는 건축 시티:홀",
     "date": "2020-02-06",
     "actor": "유걸",
@@ -1156,7 +1157,7 @@
   {
     "id": 107,
     "cate": "애니메이션",
-    "img": "https://movie-phinf.pstatic.net/20200115_201/1579055961204pU2PH_JPEG/movie_image.jpgg?type=m99_141_2",
+    "img": "https://movie-phinf.pstatic.net/20200115_201/1579055961204pU2PH_JPEG/movie_image.jpg?type=m99_141_2",
     "title": "극장판 미니특공대: 공룡왕 디노",
     "date": "2018-12-12",
     "actor": "신용우/ 엄상현/ 이소영/ 전태열/ 양정화",
@@ -1167,7 +1168,7 @@
   {
     "id": 108,
     "cate": "드라마",
-    "img": "https://movie-phinf.pstatic.net/20200204_176/1580793082037tcbt7_JPEG/movie_image.jpgg?type=m99_141_2",
+    "img": "https://movie-phinf.pstatic.net/20200204_176/1580793082037tcbt7_JPEG/movie_image.jpg?type=m99_141_2",
     "title": "페인 앤 글로리",
     "date": "2019-02-10",
     "actor": "페넬로페 크루즈/ 안토니오 반데라스",
@@ -1178,7 +1179,7 @@
   {
     "id": 109,
     "cate": "드라마",
-    "img": "https://movie-phinf.pstatic.net/20200204_176/1580793082037tcbt7_JPEG/movie_image.jpgg?type=m99_141_2",
+    "img": "https://movie-phinf.pstatic.net/20200204_176/1580793082037tcbt7_JPEG/movie_image.jpg?type=m99_141_2",
     "title": "페인 앤 글로리",
     "date": "2018-02-10",
     "actor": "페넬로페 크루즈/ 안토니오 반데라스",
@@ -1189,7 +1190,7 @@
   {
     "id": 110,
     "cate": "코미디",
-    "img": "https://movie-phinf.pstatic.net/20200122_181/15796574636309Fux2_JPEG/movie_image.jpgg?type=m99_141_2",
+    "img": "https://movie-phinf.pstatic.net/20200122_181/15796574636309Fux2_JPEG/movie_image.jpg?type=m99_141_2",
     "title": "히트맨",
     "date": "2019-06-28",
     "actor": "권상우/ 정준호/ 황우슬혜/ 이이경/ 이지원",
@@ -1233,13 +1234,14 @@
   {
     "id": 114,
     "cate": "애니메이션",
-    "img": "https://movie-phinf.pstatic.net/20191121_221/1574298335357mqgLk_JPEG/movie_image.jpgg?type=m99_141_2",
+    "img": "https://movie-phinf.pstatic.net/20191121_221/1574298335357mqgLk_JPEG/movie_image.jpg",
     "title": "겨울왕국 2",
     "date": "2020-04-28",
     "actor": "크리스틴 벨/ 이디나 멘젤 ",
     "place": "CGV 명동",
     "price": "9000",
-    "office": "CGV"
+    "office": "CGV",
+    "memo": "내 마법의 힘은 어디서 왔을까 ? \n나를 부르는 저 목소리는 누구지 ? \n어느 날 부턴가 의문의 목소리가 엘사를 부르고, 평화로운 아렌델 왕국을 위협한다.\n트롤은 모든 것은 과거에서 시작되었음을 알려주며 엘사의 힘의 비밀과 진실을 찾아 떠나야한다고 조언한다.\n\n위험에 빠진 아렌델 왕국을 구해야만 하는 엘사와 안나는 숨겨진 과거의 진실을 찾아 크리스토프, 올라프 그리고 스벤과 함께 위험천만한 놀라운 모험을 떠나게 된다.\n자신의 힘을 두려워했던 엘사는 이제 이 모험을 헤쳐나가기에 자신의 힘이 충분하다고 믿어야만 하는데…\n\n두려움을 깨고 새로운 운명을 만나다!"
   },
   {
     "id": 115,
@@ -1508,7 +1510,7 @@
   {
     "id": 139,
     "cate": "미스터리",
-    "img": "https://movie-phinf.pstatic.net/20200116_23/1579154974413LvtIf_JPEG/movie_image.jpgg?type=m99_141_2",
+    "img": "https://movie-phinf.pstatic.net/20200116_23/1579154974413LvtIf_JPEG/movie_image.jpg?type=m99_141_2",
     "title": "클로젯",
     "date": "2020-01-19",
     "actor": "하정우/ 김남길/ 허율/ 김시아",
@@ -1518,7 +1520,7 @@
   }, {
     "id": 140,
     "cate": "범죄",
-    "img": "https://movie-phinf.pstatic.net/20191227_205/1577437075244ojpJv_JPEG/movie_image.jpgg?type=m99_141_2",
+    "img": "https://movie-phinf.pstatic.net/20191227_205/1577437075244ojpJv_JPEG/movie_image.jpg?type=m99_141_2",
     "title": "21 브릿지: 테러 셧다운",
     "date": "2020-02-01",
     "time": "10:00",
@@ -1529,7 +1531,7 @@
   }, {
     "id": 141,
     "cate": "범죄",
-    "img": "https://movie-phinf.pstatic.net/20191227_205/1577437075244ojpJv_JPEG/movie_image.jpgg?type=m99_141_2",
+    "img": "https://movie-phinf.pstatic.net/20191227_205/1577437075244ojpJv_JPEG/movie_image.jpg?type=m99_141_2",
     "title": "21 브릿지: 테러 셧다운",
     "date": "2020-02-02",
     "time": "10:00",
@@ -1541,7 +1543,7 @@
   {
     "id": 142,
     "cate": "범죄",
-    "img": "https://movie-phinf.pstatic.net/20191227_205/1577437075244ojpJv_JPEG/movie_image.jpgg?type=m99_141_2",
+    "img": "https://movie-phinf.pstatic.net/20191227_205/1577437075244ojpJv_JPEG/movie_image.jpg?type=m99_141_2",
     "title": "21 브릿지: 테러 셧다운",
     "date": "2020-02-03",
     "time": "10:00",
@@ -1553,7 +1555,7 @@
   {
     "id": 143,
     "cate": "범죄",
-    "img": "https://movie-phinf.pstatic.net/20191227_205/1577437075244ojpJv_JPEG/movie_image.jpgg?type=m99_141_2",
+    "img": "https://movie-phinf.pstatic.net/20191227_205/1577437075244ojpJv_JPEG/movie_image.jpg?type=m99_141_2",
     "title": "21 브릿지: 테러 셧다운",
     "date": "2020-02-04",
     "time": "10:00",
@@ -1565,7 +1567,7 @@
   {
     "id": 144,
     "cate": "범죄",
-    "img": "https://movie-phinf.pstatic.net/20191227_205/1577437075244ojpJv_JPEG/movie_image.jpgg?type=m99_141_2",
+    "img": "https://movie-phinf.pstatic.net/20191227_205/1577437075244ojpJv_JPEG/movie_image.jpg?type=m99_141_2",
     "title": "21 브릿지: 테러 셧다운",
     "date": "2020-02-05",
     "time": "10:00",

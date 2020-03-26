@@ -65,7 +65,7 @@
     }
   }
 
-  .em,
+  em,
   .wordcloud .word-big {
     color: $root-color;
   }
@@ -73,13 +73,17 @@
   .calendar-body .item-txt.is-today {
     box-shadow: 0 0 0 2px $root-color inset;
   }
+  .calendar-body .item-dots span {
+    background: $root-color;
+  }
 
   .userlist .box .item--watching::before {
     background: rgba($root-color, 0.1);
   }
 
-  .calendar-body .item-dots span {
-    background: $root-color;
+  .textbox {
+    background-image: linear-gradient(90deg, transparent 79px, $root-color 79px, $root-color 81px, transparent 81px),
+      linear-gradient($gray2 1px, transparent 1px);
   }
 }
 

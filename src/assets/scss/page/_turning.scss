@@ -3,42 +3,113 @@
 // -----------------------------------------------------------------------------
 
 .turning {
-  .flex {
-    display: flex;
-  }
+  padding: $gutter-sm;
+  @include scrollbars('.turning-cal', 10px, $gray3, translate);
 
-  &-cal {
-    display: flex;
-    flex-wrap: wrap;
-
-    .calendar {
-      width: 300px;
-      margin: 0 20px;
-    }
+  .filter {
+    select {width: 100%;}
+    .item {display: none;}
   }
 
   &-poster {
-    margin: 20px 0 50px;
+    margin: 20px 0 30px;
+    width: 100px;
 
     img {
-      max-width: 200px;
       border-radius: $base-radius;
       box-shadow: 3px 3px 20px 0px rgba($black, 0.2);
     }
   }
 
+  &-desc {
+    .actorlist {
+      margin-top: 20px;
+
+      span {
+        margin-right: 5px;
+
+        &::after {
+          content: ',';
+        }
+
+        &:last-child {
+          &::after {
+            content: '';
+          }
+        }
+      }
+    }
+
+    .textbox {
+      display: none;
+    }
+  }
+
+  &-cal {
+    display: flex;
+    overflow-x: auto;
+
+    .calendar {
+      width: 220px;
+      margin: 0 $gutter-sm 30px;
+    }
+  }
+
+  &-list {
+  }
+
   @media (min-width: $mq-md) {
     padding: $gutter-md;
+
+    .filter {
+      display: flex;
+      align-items: center;
+
+      select {
+        width: auto;
+      }
+
+      .item {
+        display: block;
+      }
+
+      .t {
+        vertical-align: top;
+        margin: 0 10px 0 30px;
+      }
+    }
+
+    &-poster {
+      flex: 0 0 200px;
+    }
+
+    &-desc {
+      .textbox {
+        display: block;
+      }
+    }
+
+    &-cal {
+      margin: 30px 0;
+    }
   }
 
   @media (min-width: $mq-lg) {
     padding: $gutter-lg;
-  }
-}
 
-.turning-cal {
-  .calendar-body .item {
-    height: 50px !important;
-    min-height: 50px !important;
+    .l-flex {
+      display: flex;
+    }
+
+    &-cal {
+      margin: 0;
+      flex: 0 0 580px;
+      flex-wrap: wrap;
+      align-content: flex-start;
+    }
+
+    &-desc {
+      margin: 20px;
+    }
   }
 }

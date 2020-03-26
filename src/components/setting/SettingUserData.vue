@@ -40,6 +40,7 @@ export default {
         newObj.price = obj.price;
         newObj.office = obj.office;
         newObj.datayear = obj.date.replace('-', '').substr(0, 4);
+        newObj.memo = obj.memo;
 
         for (const key in this.turningCate) {
           if (key === obj.title) {
