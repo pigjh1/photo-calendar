@@ -51,15 +51,18 @@ export default {
       for (let i = 0; i < this.turningGap; i++) {
         const year = date.substr(0, 4),
           month = date.substr(5, 2),
-          day = date.substr(8, 2),
-          newDateMonth = parseInt(month) + i;
+          day = date.substr(8, 2);
         let newYear = parseInt(year),
-          newMonth = newDateMonth > 0 ? newDateMonth : 12 - newDateMonth;
+          newMonth = parseInt(month) + i;
+
+        newMonth = newMonth > 0 ? newMonth : 12 - newMonth;
 
         if (newMonth > 12) {
-          newMonth = newMonth - 12;
-          newYear = newYear + 1;
+          newYear = newYear + Math.ceil(newMonth / 12) - 1;
         }
+
+        newMonth = newMonth % 12;
+        newMonth = newMonth === 0 ? 12 : newMonth;
 
         newDate[i] = UtilDate.getDateFormat(newYear, newMonth, day);
       }
