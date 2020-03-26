@@ -11,7 +11,7 @@ export default {
   mounted() {
     this.renderChart(
       {
-        labels: ['월', '화', '수', '목', '금', '토', '일'],
+        labels: this.$store.state.weekNames,
         datasets: [
           {
             data: this.viewingDay,

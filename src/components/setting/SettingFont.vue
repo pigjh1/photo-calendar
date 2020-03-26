@@ -1,7 +1,10 @@
 <template>
   <div>
     <select v-model="selectedFont">
-      <option v-for="(item, index) in fontList" :value="item.text" :key="index">{{ item.text }}</option>
+      <option v-for="(item, index) in fontList"
+        :value="item.text" :key="index">
+        {{ item.text }}
+      </option>
     </select>
   </div>
 </template>

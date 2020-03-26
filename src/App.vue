@@ -36,9 +36,9 @@ export default {
       return 'ff-' + this.$store.state.design.fontFamily.toLowerCase().replace(/ /gi, '-');
     },
     className() {
-      let temp = this.colorClass + ' ' + this.fontClass;
-      temp = this.darkmode ? temp + ' theme-dark' : temp;
-      return temp;
+      let val = this.colorClass + ' ' + this.fontClass;
+      val = this.darkmode ? val + ' theme-dark' : val;
+      return val;
     },
     sortItems() {
       return this.$store.getters.sortItems;

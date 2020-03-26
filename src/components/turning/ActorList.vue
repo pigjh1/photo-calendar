@@ -14,12 +14,12 @@ export default {
     };
   },
   computed: {
-    turningLeast() {
+    turningTitle() {
       return this.$store.state.turning.title;
     },
     item() {
       const userdata = this.userdata.filter(obj => {
-        return obj.title.toLowerCase().includes(this.turningLeast);
+        return obj.title.includes(this.turningTitle);
       });
       let data = [];
 
@@ -51,12 +51,6 @@ export default {
         return x;
       }, {});
 
-      // 2개 이하인 경우 제거
-      for (const key in newdata) {
-        if (newdata[key] < 2) {
-          delete newdata[key];
-        }
-      }
       return newdata;
     }
   }

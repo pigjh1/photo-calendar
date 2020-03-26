@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import UtilDate from '@/assets/js/utilDate.js';
 import XLSX from 'xlsx';
 
 export default {
@@ -56,7 +57,7 @@ export default {
 
       this.result.forEach((el, i) => {
         const dataArr = el.toString().split(','),
-          temp = {};
+          obj = {};
 
         if (i < 2) return; // 제목줄인 2개 제외
 
@@ -68,10 +69,10 @@ export default {
             a = this.getFormatTime(a);
           }
 
-          temp[this.keyArr[index]] = a;
+          obj[this.keyArr[index]] = a;
         });
 
-        data.push(temp);
+        data.push(obj);
 
         setTimeout(() => {
           this.$store.commit('setupItem', this.userItems);
@@ -117,29 +118,17 @@ export default {
     },
     getFormatDate(date) {
       const ndate = new Date(date);
-      let month, day;
 
       ndate.setMinutes(ndate.getMinutes() + 1); // 시간변환시 오차 발생 조정
 
-      month = (1 + ndate.getMonth());
-      day = ndate.getDate();
-
-      month = month < 10 ? '0' + month : month;
-      day = day < 10 ? '0' + day : day;
-      return `${ndate.getFullYear()}-${month}-${day}`;
+      return UtilDate.getDateFormat(ndate.getFullYear(), ndate.getMonth() + 1, ndate.getDate());
     },
     getFormatTime(date) {
       const ndate = new Date(date);
-      let hours, minutes;
 
       ndate.setMinutes(ndate.getMinutes() - 27); // 시간변환시 오차 발생 조정
 
-      hours = (1 + ndate.getHours());
-      minutes = ndate.getMinutes();
-
-      hours = hours < 10 ? '0' + hours : hours;
-      minutes = minutes < 10 ? '0' + minutes : minutes;
-      return `${hours}:${minutes}`;
+      return UtilDate.getTimeFormat(ndate.getHours() + 1, ndate.getMinutes());
     }
   }
 };

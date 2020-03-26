@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import UtilDate from '@/assets/js/utilDate.js';
 import Calendar from '@/components/turning/CalendarChild';
 
 export default {
@@ -60,18 +61,10 @@ export default {
           newYear = newYear + 1;
         }
 
-        newDate[i] = this.getDateFormat(newYear, newMonth, day);
+        newDate[i] = UtilDate.getDateFormat(newYear, newMonth, day);
       }
 
       return newDate;
-    }
-  },
-  methods: {
-    getDateFormat(year, month, day) {
-      const newMonth = parseInt(month) < 10 ? '0' + month : month,
-        newDay = parseInt(day) < 10 ? '0' + day : day;
-
-      return `${year}-${newMonth}-${newDay}`;
     }
   }
 };

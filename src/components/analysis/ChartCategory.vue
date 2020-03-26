@@ -30,18 +30,18 @@ export default {
       return this.$store.getters.chartColor2;
     },
     labels() {
-      let temp = [];
+      let arr = [];
       this.userdata.forEach(({ cate }) => {
         cate.split('/').forEach(el => {
           el = el.replace(/^\s+|\s+$/g, '');
-          temp.push(el);
+          arr.push(el);
         });
       });
-      temp = temp.reduce((a, b) => {
+      arr = arr.reduce((a, b) => {
         if (a.indexOf(b) < 0) a.push(b);
         return a;
       }, []);
-      return temp;
+      return arr;
     },
     datasets() {
       const userdata = this.userdata,

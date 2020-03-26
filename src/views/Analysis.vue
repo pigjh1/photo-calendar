@@ -7,19 +7,19 @@
     <div class="analysis-wrap">
       <div class="item">
         <h3>월별 관람 수</h3>
-        <chart-visits />
+        <ChartVisits />
       </div>
       <div class="item">
         <h3>월별 관람금액</h3>
-        <chart-amount />
+        <ChartAmount />
       </div>
       <div class="item">
         <h3>요일별 관람 수</h3>
-        <chart-viewingDay />
+        <ChartViewingDay />
       </div>
       <div class="item">
         <h3>유형별 선호도</h3>
-        <chart-category />
+        <ChartCategory />
       </div>
     </div>
 

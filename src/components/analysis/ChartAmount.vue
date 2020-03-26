@@ -1,4 +1,5 @@
 <script>
+import UtilColor from '@/assets/js/utilColor.js';
 import { Line } from 'vue-chartjs';
 
 export default {
@@ -13,7 +14,7 @@ export default {
     this.setupGradient();
     this.renderChart(
       {
-        labels: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+        labels: this.$store.state.monthNames,
         datasets: this.datasets
       },
       this.chartOptions
@@ -90,22 +91,12 @@ export default {
     },
     setupGradient() {
       for (let i = 0; i < 10; i++) {
-        const color = this.hexToRgb(this.chartColor[i]);
+        const color = UtilColor.hexToRgb(this.chartColor[i]);
         this.gradient[i] = this.$refs.canvas.getContext('2d').createLinearGradient(0, 0, 0, 450);
         this.gradient[i].addColorStop(0, `rgba(${color}, 0.8)`);
         this.gradient[i].addColorStop(0.5, `rgba(${color}, 0.5)`);
         this.gradient[i].addColorStop(1, `rgba(${color}, 0)`);
       }
-    },
-    hexToRgb(hexType) {
-      let hex = hexType.replace('#', ''),
-        value = hex.match(/[a-f\d]/gi);
-
-      if (value.length === 3) hex = value[0] + value[0] + value[1] + value[1] + value[2] + value[2];
-
-      value = hex.match(/[a-f\d]{2}/gi);
-
-      return parseInt(value[0], 16) + ', ' + parseInt(value[1], 16) + ', ' + parseInt(value[2], 16);
     }
   }
 };

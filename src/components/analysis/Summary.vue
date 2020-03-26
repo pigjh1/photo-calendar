@@ -4,18 +4,21 @@
       {{ firstYear }}년 부터
       {{ total }}개 작품을
       {{ userdataLen }}번 관람하는데
-      {{ priceComma(totalPirce) }}원을 지출하였습니다.
+      {{ totalPirce | formatNumberComma }}원을 지출하였습니다.
     </p>
   </div>
 </template>
 
 <script>
+import formatNumberComma from '@/assets/js/formatNumberComma.js';
+
 export default {
   data() {
     return {
       userdata: this.$store.state.userdata
     };
   },
+  filters: { formatNumberComma },
   computed: {
     userdataLen() {
       return this.$store.state.userdata.length;
@@ -68,13 +71,6 @@ export default {
       }
 
       return data;
-    }
-  },
-  methods: {
-    priceComma(val) {
-      if (val) {
-        return parseInt(val).toLocaleString();
-      }
     }
   }
 };

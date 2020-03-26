@@ -1,6 +1,6 @@
 <template>
   <div class="userlist" :class="listClassName">
-    <filter-item />
+    <FilterItem />
 
     <div class="nodata" v-if="!filterItems.length">
       <img src="@/assets/icon/smileys/expressions.svg" alt="" >
@@ -8,7 +8,7 @@
     </div>
 
     <div class="list" v-if="filterItems.length">
-      <list-box v-if="!tableType" />
+      <ListBox v-if="!tableType" />
       <Table v-if="tableType" />
     </div>
   </div>
@@ -38,9 +38,6 @@ export default {
     window.removeEventListener('resize', this.handleResize);
   },
   computed: {
-    filterItems() {
-      return this.$store.getters.filterItems;
-    },
     imgType() {
       return this.$store.state.listType.img;
     },
@@ -49,6 +46,9 @@ export default {
     },
     collapsed() {
       return this.$store.state.listType.collapsed;
+    },
+    filterItems() {
+      return this.$store.getters.filterItems;
     },
     listClassName() {
       let className = '';

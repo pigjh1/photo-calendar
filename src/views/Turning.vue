@@ -9,7 +9,7 @@
       {{ turningItemsFirst.date }}부터
       {{ turningItemsLast.date }}까지
       {{ turningLen }}번 관람하는데
-      {{ priceComma(totalPirce) }}원을 지출하였습니다.
+      {{ totalPirce | formatNumberComma }}원을 지출하였습니다.
     </div>
 
     <div class="flex">
@@ -22,7 +22,7 @@
           출연 : {{ turningItemsLast.actor}}
         </div>
 
-        <actor-list v-if="isDiffActor" />
+        <ActorList v-if="isDiffActor" />
       </div>
     </div>
 
@@ -39,7 +39,7 @@
               <dt v-if="item.actor && isDiffActor">출연</dt>
               <dd v-if="item.actor && isDiffActor">{{ item.actor }}</dd>
               <dt v-if="item.price">가격</dt>
-              <dd v-if="item.price">{{ priceComma(item.price) }}</dd>
+              <dd v-if="item.price">{{ item.price | formatNumberComma }}</dd>
               <dt v-if="item.seat">좌석</dt>
               <dd v-if="item.seat">{{ item.seat }} {{ item.seatgrade }}</dd>
             </dl>
@@ -51,6 +51,7 @@
 </template>
 
 <script>
+import formatNumberComma from '@/assets/js/formatNumberComma.js';
 import Calendar from '@/components/turning/Calendar';
 import ActorList from '@/components/turning/ActorList';
 
@@ -59,6 +60,7 @@ export default {
     Calendar,
     ActorList
   },
+  filters: { formatNumberComma },
   beforeMount() {
     this.$store.commit('changeTurningTitle', Object.keys(this.turninglist)[0]);
     this.$store.commit('changeCaldate', this.turningItemsLast.date);
@@ -73,23 +75,23 @@ export default {
         this.$store.commit('changeCaldate', this.turningItemsLast.date);
       }
     },
-    turningItems() {
-      return this.$store.getters.turningItems;
-    },
-    turningItemsFirst() {
-      return this.turningItems[this.turningLen - 1];
-    },
-    turningItemsLast() {
-      return this.turningItems[0];
-    },
     turningLeast() {
       return this.$store.state.turning.least;
     },
     turningCate() {
       return this.$store.getters.turningCate;
     },
+    turningItems() {
+      return this.$store.getters.turningItems;
+    },
     turningLen() {
       return this.turningItems.length;
+    },
+    turningItemsFirst() {
+      return this.turningItems[this.turningLen - 1];
+    },
+    turningItemsLast() {
+      return this.turningItems[0];
     },
     turninglist() {
       const data = this.turningCate;
@@ -135,11 +137,6 @@ export default {
   methods: {
     chkWatching(val) {
       return new Date(val) > new Date() ? 'item--watching' : '';
-    },
-    priceComma(val) {
-      if (val) {
-        return parseInt(val).toLocaleString();
-      }
     }
   }
 };

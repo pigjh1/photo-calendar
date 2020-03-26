@@ -26,7 +26,7 @@
           <td>{{ item.date }} {{ item.time }}</td>
           <td>{{ item.actor }}</td>
           <td>{{ item.place }}</td>
-          <td>{{ priceComma(item.price) }}</td>
+          <td>{{ item.price | formatNumberComma }}</td>
         </tr>
       </tbody>
     </table>
@@ -34,17 +34,13 @@
 </template>
 
 <script>
+import formatNumberComma from '@/assets/js/formatNumberComma.js';
+
 export default {
+  filters: { formatNumberComma },
   computed: {
     filterItems() {
       return this.$store.getters.filterItems;
-    }
-  },
-  methods: {
-    priceComma(val) {
-      if (val) {
-        return parseInt(val).toLocaleString();
-      }
     }
   }
 };

@@ -21,7 +21,7 @@
         <dt v-if="item.place">장소</dt>
         <dd v-if="item.place">{{ item.place }}</dd>
         <dt v-if="item.price">가격</dt>
-        <dd v-if="item.price">{{ priceComma }}</dd>
+        <dd v-if="item.price">{{ item.price | formatNumberComma }}</dd>
         <dt v-if="item.seat">좌석</dt>
         <dd v-if="item.seat">{{ item.seat }} {{ item.seatgrade }}</dd>
         <dt v-if="item.office">예매처</dt>
@@ -34,10 +34,13 @@
 </template>
 
 <script>
+import formatNumberComma from '@/assets/js/formatNumberComma.js';
+
 export default {
   props: {
     id: Number
   },
+  filters: { formatNumberComma },
   data() {
     return {
       userdata: this.$store.state.userdata
@@ -48,9 +51,6 @@ export default {
       const arr = this.userdata.filter(a => parseInt(a.id) === parseInt(this.id));
       if (arr.length === 1) return arr[0];
       else return {};
-    },
-    priceComma() {
-      return parseInt(this.item.price).toLocaleString();
     },
     memoHtml() {
       return this.item.memo.split('\n').join('<br />');

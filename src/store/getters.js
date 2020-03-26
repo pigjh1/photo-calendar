@@ -1,3 +1,5 @@
+import UtilColor from '@/assets/js/utilColor.js';
+
 export default {
   // List
   // -----------------------------------------------------------------------------
@@ -89,7 +91,7 @@ export default {
     // 검색어
     if (state.filtering.search.title) {
       items = items.filter(obj => {
-        return obj.title.toLowerCase().includes(state.filtering.search.title.toLowerCase());
+        return obj.title.includes(state.filtering.search.title);
       });
     }
 
@@ -98,7 +100,7 @@ export default {
         const item = obj.actor;
 
         if (typeof item !== 'undefined' && item !== null && item !== '') {
-          return item.toLowerCase().includes(state.filtering.search.actor.toLowerCase());
+          return item.includes(state.filtering.search.actor);
         } else {
           return false;
         }
@@ -110,7 +112,7 @@ export default {
         const item = obj.place;
 
         if (typeof item !== 'undefined' && item !== null && item !== '') {
-          return item.toLowerCase().includes(state.filtering.search.place.toLowerCase());
+          return item.includes(state.filtering.search.place);
         } else {
           return false;
         }
@@ -143,7 +145,7 @@ export default {
     // 검색어
     if (state.turning.title) {
       items = items.filter(obj => {
-        return obj.title.toLowerCase() === state.turning.title.toLowerCase();
+        return obj.title === state.turning.title;
       });
     }
 
@@ -154,7 +156,7 @@ export default {
   // -----------------------------------------------------------------------------
   chartColor1: state => {
     const color = state.design.colorList[state.design.primaryColor],
-      colorRgb = hexToRgb(color).split(','),
+      colorRgb = UtilColor.hexToRgb(color).split(','),
       arr = [];
 
     for (let i = 1; i < 11; i++) {
@@ -162,37 +164,7 @@ export default {
         newColor = `${colorRgb[0]}, ${last},${colorRgb[2]}`,
         idx = i - 1;
 
-      arr[idx] = rgbToHex(newColor);
-    }
-
-    function hexToRgb(hexType) {
-      let hex = hexType.replace('#', ''),
-        value = hex.match(/[a-f\d]/gi);
-
-      if (value.length === 3) hex = value[0] + value[0] + value[1] + value[1] + value[2] + value[2];
-
-      value = hex.match(/[a-f\d]{2}/gi);
-
-      return `rgb(${parseInt(value[0], 16)}, ${parseInt(value[1], 16)}, ${parseInt(value[2], 16)})`;
-    }
-
-    function rgbToHex(rgbType) {
-      let rgb = rgbType.replace(/[^%,.\d]/g, '');
-
-      rgb = rgb.split(',');
-
-      for (var x = 0; x < 3; x++) {
-        if (rgb[x].indexOf('%') > -1) rgb[x] = Math.round(parseFloat(rgb[x]) * 2.55);
-      }
-
-      const toHex = function(string) {
-        string = parseInt(string, 10).toString(16);
-        string = (string.length === 1) ? '0' + string : string;
-
-        return string;
-      };
-
-      return `#${toHex(rgb[0])}${toHex(rgb[1])}${toHex(rgb[2])}`;
+      arr[idx] = UtilColor.rgbToHex(newColor);
     }
 
     return arr;

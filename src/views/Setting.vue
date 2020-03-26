@@ -18,7 +18,7 @@
     <div class="row">
       <div class="col-2">목록</div>
       <div class="col-10">
-        <setting-user-data />
+        <SettingUserData />
         <p><a href="/sample.xlsx" download="sample.xlsx" class="btn btn--sm">엑셀 샘플 파일 다운로드</a></p>
         <ul>
           <li>양식에 맞게 입력하세요</li>
@@ -43,31 +43,31 @@
     <div class="row">
       <div class="col-2">어두운 테마</div>
       <div class="col-10">
-        <setting-theme />
+        <SettingTheme />
       </div>
     </div>
     <div class="row">
       <div class="col-2">대표 색상</div>
       <div class="col-10">
-        <setting-color />
+        <SettingColor />
       </div>
     </div>
     <div class="row">
       <div class="col-2">글꼴</div>
       <div class="col-10">
-        <setting-font />
+        <SettingFont />
       </div>
     </div>
     <div class="row">
       <div class="col-2">캘린더 이미지</div>
       <div class="col-10">
-        <setting-poster />
+        <SettingPoster />
       </div>
     </div>
     <div class="row">
       <div class="col-2">차트 색상</div>
       <div class="col-10">
-        <setting-chart-color />
+        <SettingChartColor />
       </div>
     </div>
   </div>
