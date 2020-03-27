@@ -39,12 +39,12 @@
 </template>
 
 <script>
-import Summary from '@/components/analysis/Summary';
-import ChartVisits from '@/components/analysis/ChartVisits';
-import ChartAmount from '@/components/analysis/ChartAmount';
-import ChartViewingDay from '@/components/analysis/ChartViewingDay';
-import ChartCategory from '@/components/analysis/ChartCategory';
-import Wordcloud from '@/components/analysis/Wordcloud';
+import Summary from '@/components/Summary';
+import ChartVisits from '@/components/ChartVisits';
+import ChartAmount from '@/components/ChartAmount';
+import ChartViewingDay from '@/components/ChartViewingDay';
+import ChartCategory from '@/components/ChartCategory';
+import Wordcloud from '@/components/Wordcloud';
 
 export default {
   components: {

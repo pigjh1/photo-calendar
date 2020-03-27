@@ -74,13 +74,12 @@
 </template>
 
 <script>
-import SettingUserData from '@/components/setting/SettingUserData';
-
-import SettingTheme from '@/components/setting/SettingTheme';
-import SettingColor from '@/components/setting/SettingColor';
-import SettingFont from '@/components/setting/SettingFont';
-import SettingPoster from '@/components/setting/SettingPoster';
-import SettingChartColor from '@/components/setting/SettingChartColor';
+import SettingUserData from '@/components/SettingUserData';
+import SettingTheme from '@/components/SettingTheme';
+import SettingColor from '@/components/SettingColor';
+import SettingFont from '@/components/SettingFont';
+import SettingPoster from '@/components/SettingPoster';
+import SettingChartColor from '@/components/SettingChartColor';
 
 export default {
   components: {

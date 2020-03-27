@@ -50,7 +50,7 @@
     </div>
 
     <div class="l-flex">
-      <CalendarList />
+      <TurningCalendar />
 
       <div class="turning-list" >
         <transition-group tag="div" name="list" class="listbox">
@@ -75,11 +75,11 @@
 
 <script>
 import formatNumberComma from '@/assets/js/formatNumberComma.js';
-import CalendarList from '@/components/turning/CalendarList';
+import TurningCalendar from '@/components/TurningCalendar';
 
 export default {
   components: {
-    CalendarList
+    TurningCalendar
   },
   filters: { formatNumberComma },
   beforeMount() {

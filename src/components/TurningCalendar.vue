@@ -8,7 +8,7 @@
 
 <script>
 import UtilDate from '@/assets/js/utilDate.js';
-import Calendar from '@/components/turning/Calendar';
+import Calendar from '@/components/Calendar';
 
 export default {
   components: {

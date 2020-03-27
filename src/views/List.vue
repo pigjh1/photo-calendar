@@ -9,21 +9,21 @@
 
     <div class="list" v-if="filterItems.length">
       <ListBox v-if="!tableType" />
-      <Table v-if="tableType" />
+      <ListTable v-if="tableType" />
     </div>
   </div>
 </template>
 
 <script>
-import FilterItem from '@/components/list/FilterItem';
-import ListBox from '@/components/list/ListBox';
-import Table from '@/components/list/Table';
+import FilterItem from '@/components/FilterItem';
+import ListBox from '@/components/ListBox';
+import ListTable from '@/components/ListTable';
 
 export default {
   components: {
     FilterItem,
     ListBox,
-    Table
+    ListTable
   },
   data() {
     return {
