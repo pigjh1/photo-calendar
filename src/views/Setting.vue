@@ -20,14 +20,6 @@
       <div class="col-10">
         <SettingUserData />
         <p><a href="/sample.xlsx" download="sample.xlsx" class="btn btn--primary btn--sm">엑셀 샘플 파일 다운로드</a></p>
-        <ul>
-          <li>양식에 맞게 입력하세요</li>
-          <li>'List' 시트명을 변경하지 마세요</li>
-          <li>id, 분류, 제목, 날짜 필수 입력</li>
-          <li>id값은 숫자로 중복되지 않게 입력해주세요</li>
-          <li>제목등에 쉼표(,) 가 있으면 안됩니다</li>
-          <li>분류, 출연진 구분은 '/' 로 해주세요</li>
-        </ul>
       </div>
     </div>
     <div class="row">
@@ -47,12 +39,6 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-2">대표 색상</div>
-      <div class="col-10">
-        <SettingColor />
-      </div>
-    </div>
-    <div class="row">
       <div class="col-2">글꼴</div>
       <div class="col-10">
         <SettingFont />
@@ -62,6 +48,12 @@
       <div class="col-2">캘린더 이미지</div>
       <div class="col-10">
         <SettingPoster />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2">대표 색상</div>
+      <div class="col-10">
+        <SettingColor />
       </div>
     </div>
     <div class="row">
@@ -75,19 +67,21 @@
 
 <script>
 import SettingUserData from '@/components/SettingUserData';
+
 import SettingTheme from '@/components/SettingTheme';
-import SettingColor from '@/components/SettingColor';
 import SettingFont from '@/components/SettingFont';
 import SettingPoster from '@/components/SettingPoster';
+import SettingColor from '@/components/SettingColor';
 import SettingChartColor from '@/components/SettingChartColor';
 
 export default {
   components: {
     SettingUserData,
+
     SettingTheme,
-    SettingColor,
     SettingFont,
     SettingPoster,
+    SettingColor,
     SettingChartColor
   },
   computed: {
@@ -110,9 +104,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped>
-p { margin: 10px 0; }
-ul { margin: 20px; }
-li { font-size: 11px; list-style: disc; margin-bottom: 2px; }
-</style>

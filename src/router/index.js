@@ -9,8 +9,8 @@ export default new VueRouter({
   routes: [
     {
       path: '/',
-      name: 'calendar',
-      component: () => import('@/views/Calendar.vue')
+      name: 'home',
+      component: () => import('@/views/Home.vue')
     }, {
       path: '/list',
       name: 'userlist',

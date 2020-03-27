@@ -1,0 +1,57 @@
+// -----------------------------------------------------------------------------
+// Home
+// -----------------------------------------------------------------------------
+
+.home {
+  position: relative;
+
+  &-type {
+    display: none;
+  }
+
+  &-btngroup {
+    display: flex;
+    position: relative;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 12px 0;
+
+    button:last-child {
+      position: absolute;
+      top: 10pxs;
+      right: 10px;
+    }
+  }
+
+  &-year {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  @media (min-width: $mq-md) {
+    &-type {
+      display: block;
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      z-index: 20;
+    }
+
+    &-year {
+      >div {
+        flex-basis: percentage(1/4);
+        flex: 1 1 auto;
+        width: 280px;
+        margin: 10px;
+      }
+    }
+
+    &-cal {
+      max-width: $w-medium;
+      margin: 0 auto;
+    }
+  }
+}

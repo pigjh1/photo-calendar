@@ -4,7 +4,7 @@
       <input type="radio" name="s-poster"
         :id="'s-poster' + index" :value="item.value"
         v-model="posterType"
-        @change="changePost(item.value)">
+        @change="changePoster(item.value)">
       <label :for="'s-poster' + index">{{ item.text }}</label>
     </span>
   </div>
@@ -17,7 +17,7 @@ export default {
   data() {
     return {
       type: [
-        { text: '전체보기 (Defult)', value: '' },
+        { text: '전체보기', value: '' },
         { text: '세로보기', value: 'vertical' },
         { text: '가로보기', value: 'horizontal' }
       ]
@@ -29,14 +29,14 @@ export default {
         return this.$store.state.design.posterType;
       },
       set(value) {
-        this.$store.commit('changePost', value);
+        this.$store.commit('changePoster', value);
       }
     }
   },
   methods: {
-    ...mapMutations(['changePost']),
+    ...mapMutations(['changePoster']),
     ...mapMutations({
-      changePost: 'changePost'
+      changePoster: 'changePoster'
     })
   }
 };

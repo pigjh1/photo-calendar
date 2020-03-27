@@ -50,7 +50,11 @@
     </div>
 
     <div class="l-flex">
-      <TurningCalendar />
+      <div class="turning-cal">
+        <div v-for="(value, index) in calDate" :key="index" >
+          <Calendar :start="calDate[index]" calType="dot" calSize="sm" />
+        </div>
+      </div>
 
       <div class="turning-list" >
         <transition-group tag="div" name="list" class="listbox">
@@ -74,12 +78,13 @@
 </template>
 
 <script>
+import UtilDate from '@/assets/js/utilDate.js';
 import formatNumberComma from '@/assets/js/formatNumberComma.js';
-import TurningCalendar from '@/components/TurningCalendar';
+import Calendar from '@/components/Calendar';
 
 export default {
   components: {
-    TurningCalendar
+    Calendar
   },
   filters: { formatNumberComma },
   beforeMount() {
@@ -127,6 +132,23 @@ export default {
     turningItemsLast() {
       return this.turningItems[0];
     },
+    turningGap() {
+      const a = this.turningItemsFirst.date.split('-'),
+        b = this.turningItemsLast.date.split('-'),
+        aYear = parseInt(a[0]),
+        bYear = parseInt(b[0]),
+        aMonth = parseInt(a[1]),
+        bMonth = parseInt(b[1]);
+      let diff = 5;
+
+      if (aYear < bYear) {
+        diff = ((bYear - aYear) * 12) + bMonth - aMonth;
+      } else {
+        diff = bMonth - aMonth;
+      }
+
+      return diff + 1;
+    },
     turninglist() {
       const data = this.turningCate;
 
@@ -151,6 +173,31 @@ export default {
       }
 
       return items;
+    },
+    calDate() {
+      const date = this.turningItemsFirst.date,
+        newDate = [];
+
+      for (let i = 0; i < this.turningGap; i++) {
+        const year = date.substr(0, 4),
+          month = date.substr(5, 2),
+          day = date.substr(8, 2);
+        let newYear = parseInt(year),
+          newMonth = parseInt(month) + i;
+
+        newMonth = newMonth > 0 ? newMonth : 12 - newMonth;
+
+        if (newMonth > 12) {
+          newYear = newYear + Math.ceil(newMonth / 12) - 1;
+        }
+
+        newMonth = newMonth % 12;
+        newMonth = newMonth === 0 ? 12 : newMonth;
+
+        newDate[i] = UtilDate.getDateFormat(newYear, newMonth, day);
+      }
+
+      return newDate;
     },
     priceAll() {
       const userdata = this.turningItems;

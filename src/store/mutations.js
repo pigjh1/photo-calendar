@@ -93,14 +93,14 @@ export default {
     document.body.classList.toggle('theme-dark');
     state.design.darkmode = payload;
   },
-  changePrimaryColor: (state, payload) => {
-    state.design.primaryColor = payload;
-  },
   changeFontFamily: (state, payload) => {
     state.design.fontFamily = payload;
   },
-  changePost: (state, payload) => {
+  changePoster: (state, payload) => {
     state.design.posterType = payload;
+  },
+  changePrimaryColor: (state, payload) => {
+    state.design.primaryColor = payload;
   },
   changeChartColor: (state, payload) => {
     state.design.chartIndex = payload;
