@@ -37,7 +37,7 @@
 
     <div class="calendar-body" :class="posterTypeClass">
       <div v-for="(day, index) in calendarMatrix" :key="index" class="item" :style="isFirst(day)">
-        <span class="item-txt" :class="{ 'is-today': isToday(nowYear, nowMonth, day) }">{{ day }}</span>
+        <span class="item-txt" :class="{ 'is-today': isToday(day) }">{{ day }}</span>
 
         <div class="item-img" v-if="calType === 'img'">
           <router-link :to="`/view/${ item.id }`" v-for="(item, index) in userdataDay(day)" :key="index">
@@ -61,7 +61,8 @@ export default {
   props: {
     start: String,
     calType: String,
-    calSize: String
+    calSize: String,
+    calStatic: String
   },
   data() {
     return {
@@ -163,27 +164,33 @@ export default {
       }
     },
     userdataDay(day) {
-      const data = this.calType === 'img' ? this.sortItems : this.turningItems;
+      const data = this.calType === 'img' ? this.sortItems : this.turningItems,
+        year = (this.calStatic) ? this.nowYear : this.currentYear,
+        month = (this.calStatic) ? this.nowMonth : this.currentMonth;
 
       return data.filter(obj => {
-        if (this.calType === 'img') {
-          return obj.date === UtilDate.getDateFormat(this.nowYear, this.nowMonth, day);
-        } else {
-          return obj.date === UtilDate.getDateFormat(this.currentYear, this.currentMonth, day);
-        }
+        return obj.date === UtilDate.getDateFormat(year, month, day);
       });
     },
-    isToday(year, month, day) {
-      const date = new Date();
-      return year === date.getFullYear() && month === date.getMonth() && parseInt(day) === date.getDate();
+    isToday(day) {
+      const date = new Date(),
+        year = (this.calStatic) ? this.nowYear : this.currentYear,
+        month = (this.calStatic) ? this.nowMonth : this.currentMonth;
+      return year === date.getFullYear() && month === date.getMonth() + 1 && parseInt(day) === date.getDate();
     },
     isFirst(index) {
       const date = new Date();
       let firstDate, margin;
 
-      date.setFullYear(this.currentYear);
-      date.setMonth(this.currentMonth - 1);
-      date.setDate(this.currentDay);
+      if (this.calStatic) {
+        date.setFullYear(this.nowYear);
+        date.setMonth(this.nowMonth - 1);
+        date.setDate(this.nowDay);
+      } else {
+        date.setFullYear(this.currentYear);
+        date.setMonth(this.currentMonth - 1);
+        date.setDate(this.currentDay);
+      }
 
       firstDate = new Date(date.setDate(1)).getDay() - 1;
       firstDate = firstDate === -1 ? 6 : firstDate;

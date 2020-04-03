@@ -27,7 +27,7 @@
     </div>
 
     <div class="home-cal" v-if="!yearType">
-      <Calendar :start="today" calType="img" />
+      <Calendar :start="today" calType="img" calStatic="true" />
     </div>
   </div>
 </template>
@@ -43,11 +43,18 @@ export default {
   data() {
     return {
       today: new Date().toString(),
-      nowYear: new Date().getFullYear(),
-      yearType: false
+      nowYear: new Date().getFullYear()
     };
   },
   computed: {
+    yearType: {
+      get() {
+        return this.$store.state.yearType;
+      },
+      set(value) {
+        this.$store.commit('changeYearType', value);
+      }
+    },
     posterType: {
       get() {
         return this.$store.state.design.posterType;

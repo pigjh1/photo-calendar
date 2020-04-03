@@ -7,6 +7,7 @@ export default {
   username: '나덕후',
   userdata: dataJson,
   userItems: '',
+  yearType: false,
   listType: {
     table: false,
     img: false,

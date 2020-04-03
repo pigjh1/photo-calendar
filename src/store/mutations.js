@@ -77,6 +77,10 @@ export default {
   // Setting
   // -----------------------------------------------------------------------------
 
+  changeYearType: (state, payload) => {
+    state.yearType = payload;
+  },
+
   // Setting > Data
   changeUserName: (state, payload) => {
     state.username = payload;
