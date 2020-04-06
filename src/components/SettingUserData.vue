@@ -2,6 +2,7 @@
   <div>
     <input type="file" @change="readFile" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
     <button type="button" name="button" @click="changeUserdata()" class="btn btn--em"><span>불러오기</span></button>
+    <p><a href="/sample.xlsx" download="sample.xlsx" class="btn btn--primary btn--sm">엑셀 샘플 파일 다운로드</a></p>
   </div>
 </template>
 
