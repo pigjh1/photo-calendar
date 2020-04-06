@@ -185,17 +185,16 @@ export default {
       if (this.calStatic) {
         date.setFullYear(this.nowYear);
         date.setMonth(this.nowMonth - 1);
-        date.setDate(this.nowDay);
       } else {
         date.setFullYear(this.currentYear);
         date.setMonth(this.currentMonth - 1);
-        date.setDate(this.currentDay);
       }
+      date.setDate(1);
 
-      firstDate = new Date(date.setDate(1)).getDay() - 1;
+      firstDate = new Date(date).getDay() - 1;
       firstDate = firstDate === -1 ? 6 : firstDate;
 
-      if (firstDate === 1) {
+      if (firstDate === 0) {
         margin = '0%';
       } else {
         margin = (firstDate * 14.28) + '%';
