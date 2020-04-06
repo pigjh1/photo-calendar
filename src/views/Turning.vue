@@ -1,77 +1,84 @@
 <template>
   <div class="turning">
-    <aside class="filter">
-      <select v-model="selectedItem" @change="turningChange()">
-        <option v-for="(active, item, index) in turninglist" :value="item" :key="index">
-          {{ item }}
-        </option>
-      </select>
-
-      <div class="item">
-        <span class="t">빈 캘린더 제외</span>
-        <label for="mode" class="toggle">
-          <input type="checkbox" id="mode" v-model="turningBlackmode">
-          <span class="toggle-slider"></span>
-        </label>
-      </div>
-    </aside>
-
-    <div class="l-flex">
-      <div class="turning-poster">
-        <img :src="turningItemsLast.img" :alt="turningItemsLast.title">
-      </div>
-
-      <div class="turning-desc">
-        <p>
-          <b><em>{{ turningItemsFirst.title }}</em></b>을
-          {{ turningItemsFirst.date }}부터
-          {{ turningItemsLast.date }}까지
-          {{ turningLen }}번 관람하는데
-          {{ totalPirce | formatNumberComma }}원을 지출하였습니다.
-        </p>
-
-        <div class="actorlist">
-          <div v-if="!isDiffActor">
-            <span v-for="(index, data) in actorAll" :key="data">{{ data }}</span>
-          </div>
-          <div v-if="isDiffActor">
-            <span v-for="(index, data) in actorAll" :key="data">
-              <button @click="setAactor(data)">
-                {{ data }} ({{ index }})
-              </button>
-            </span>
-          </div>
-        </div>
-
-        <div v-if="memoHtml" class="textbox">
-          <div v-html="memoHtml"></div>
-        </div>
-      </div>
+    <div class="nodata" v-if="turninglistLen === 0">
+      <img src="@/assets/icon/smileys/savoring.svg" alt="" >
+      {{ turningLeast }}번 이상 관람한 작품이 없습니다.
     </div>
 
-    <div class="l-flex">
-      <div class="turning-cal">
-        <div v-for="(value, index) in calDate" :key="index" >
-          <Calendar :start="calDate[index]" calType="dot" calSize="sm" />
+    <div v-if="turninglistLen > 0">
+      <aside class="filter">
+        <select v-model="selectedItem" @change="turningChange()">
+          <option v-for="(active, item, index) in turninglist" :value="item" :key="index">
+            {{ item }}
+          </option>
+        </select>
+
+        <div class="item">
+          <span class="t">빈 캘린더 제외</span>
+          <label for="mode" class="toggle">
+            <input type="checkbox" id="mode" v-model="turningBlackmode">
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+      </aside>
+
+      <div class="l-flex">
+        <div class="turning-poster">
+          <img :src="turningItemsLast.img" :alt="turningItemsLast.title">
+        </div>
+
+        <div class="turning-desc">
+          <p>
+            <b><em>{{ turningItemsFirst.title }}</em></b>을
+            {{ turningItemsFirst.date }}부터
+            {{ turningItemsLast.date }}까지
+            {{ turningLen }}번 관람하는데
+            {{ totalPirce | formatNumberComma }}원을 지출하였습니다.
+          </p>
+
+          <div class="actorlist">
+            <div v-if="!isDiffActor">
+              <span v-for="(index, data) in actorAll" :key="data">{{ data }}</span>
+            </div>
+            <div v-if="isDiffActor">
+              <span v-for="(index, data) in actorAll" :key="data">
+                <button @click="setAactor(data)">
+                  {{ data }} ({{ index }})
+                </button>
+              </span>
+            </div>
+          </div>
+
+          <div v-if="memoHtml" class="textbox">
+            <div v-html="memoHtml"></div>
+          </div>
         </div>
       </div>
 
-      <div class="turning-list" >
-        <transition-group tag="div" name="list" class="listbox">
-          <div class="item" v-for="item in filterItems" :key="item.id" :class="chkWatching(item.date)">
-            <router-link :to="`/view/${ item.id }`">
-              <span class="turn">#{{ item.turning }}</span>
-              <dl>
-                <dt class="a11y">관람</dt>
-                <dd>{{ item.date }} {{ item.time }}</dd>
-                <dt class="a11y" v-if="item.actor && isDiffActor">출연</dt>
-                <dd v-if="item.actor && isDiffActor">{{ item.actor }}</dd>
-                <dt class="a11y" v-if="item.seat">좌석</dt>
-                <dd v-if="item.seat">{{ item.seat }} {{ item.seatgrade }}</dd>
-              </dl>
-            </router-link>
+      <div class="l-flex">
+        <div class="turning-cal">
+          <div v-for="(value, index) in calDate" :key="index" >
+            <Calendar :start="calDate[index]" calType="dot" calSize="sm" />
           </div>
-        </transition-group>
+        </div>
+
+        <div class="turning-list" >
+          <transition-group tag="div" name="list" class="listbox">
+            <div class="item" v-for="item in filterItems" :key="item.id" :class="chkWatching(item.date)">
+              <router-link :to="`/view/${ item.id }`">
+                <span class="turn">#{{ item.turning }}</span>
+                <dl>
+                  <dt class="a11y">관람</dt>
+                  <dd>{{ item.date }} {{ item.time }}</dd>
+                  <dt class="a11y" v-if="item.actor && isDiffActor">출연</dt>
+                  <dd v-if="item.actor && isDiffActor">{{ item.actor }}</dd>
+                  <dt class="a11y" v-if="item.seat">좌석</dt>
+                  <dd v-if="item.seat">{{ item.seat }} {{ item.seatgrade }}</dd>
+                </dl>
+              </router-link>
+            </div>
+          </transition-group>
+        </div>
       </div>
     </div>
   </div>
@@ -123,6 +130,9 @@ export default {
     turningItems() {
       return this.$store.getters.turningItems;
     },
+    turninglistLen() {
+      return Object.keys(this.turninglist).length;
+    },
     turningLen() {
       return this.turningItems.length;
     },
@@ -139,7 +149,7 @@ export default {
         bYear = parseInt(b[0]),
         aMonth = parseInt(a[1]),
         bMonth = parseInt(b[1]);
-      let diff = 5;
+      let diff = this.turningLeast;
 
       if (aYear < bYear) {
         diff = ((bYear - aYear) * 12) + bMonth - aMonth;
