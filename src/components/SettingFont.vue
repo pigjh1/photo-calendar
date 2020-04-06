@@ -19,7 +19,9 @@ export default {
         { text: 'Nanum Pen Script', value: 'nanum-pen-script' },
         { text: 'Cute Font', value: 'cute-font' },
         { text: 'Poor Story', value: 'poor-story' },
-        { text: 'Hi Melody', value: 'hi-melody' }
+        { text: 'Hi Melody', value: 'hi-melody' },
+        { text: 'Yeon Sung', value: 'yeon-sung' },
+        { text: 'Gamja Flower', value: 'gamja-flower' }
       ]
     };
   },

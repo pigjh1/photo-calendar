@@ -4,38 +4,42 @@
 
 // font
 // -----------------------------------------------------------------------------
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400');
 @import url('https://fonts.googleapis.com/css?family=Nanum+Myeongjo:400');
 @import url('https://fonts.googleapis.com/css?family=Nanum+Pen+Script:400');
 @import url('https://fonts.googleapis.com/css?family=Cute+Font:400');
 @import url('https://fonts.googleapis.com/css?family=Poor+Story:400');
 @import url('https://fonts.googleapis.com/css?family=Hi+Melody:400');
-@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400');
+@import url('https://fonts.googleapis.com/css?family=Yeon+Sung:400');
+@import url('https://fonts.googleapis.com/css?family=Gamja+Flower:400');
 
 #app.ff-nanum-gothic {
   font-family: 'Nanum Gothic';
 }
-
 #app.ff-nanum-myeongjo {
   font-family: 'Nanum Myeongjo';
 }
-
 #app.ff-nanum-pen-script {
   font-family: 'Nanum Pen Script';
   font-size: 1.8rem;
 }
-
 #app.ff-cute-font {
   font-family: 'Cute Font';
   font-size: 1.8rem;
 }
-
 #app.ff-poor-story {
   font-family: 'Poor Story';
   font-size: 1.8rem;
 }
-
 #app.ff-hi-melody {
   font-family: 'Hi Melody';
+  font-size: 1.8rem;
+}
+#app.ff-yeon-sung {
+  font-family: 'Yeon Sung';
+}
+#app.ff-gamja-flower {
+  font-family: 'Gamja Flower';
   font-size: 1.8rem;
 }
 

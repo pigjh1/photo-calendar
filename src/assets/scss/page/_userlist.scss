@@ -3,6 +3,7 @@
 // -----------------------------------------------------------------------------
 
 .userlist {
+  overflow-x: hidden;
   @include scrollbars('.filter', 10px, $gray3, translate);
 
   .filter {

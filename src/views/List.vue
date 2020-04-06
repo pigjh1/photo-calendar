@@ -52,8 +52,8 @@ export default {
     },
     listClassName() {
       let className = '';
-      if (this.imgType) className = className + 'is-imgtype';
-      if (this.collapsed) className = className + 'is-collapsed';
+      if (this.imgType) className = className + ' is-imgtype';
+      if (this.collapsed) className = className + ' is-collapsed';
       return className;
     }
   },
