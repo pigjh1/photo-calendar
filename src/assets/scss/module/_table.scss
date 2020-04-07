@@ -4,6 +4,7 @@
 
 .table {
   width: 100%;
+  font-size: 1.3rem;
   table-layout: fixed;
   border-left: 1px solid $base-border-color;
   border-right: 1px solid $base-border-color;
@@ -15,7 +16,6 @@
     padding: $base-tb $base-lr;
     border-top: 1px solid $base-border-color;
     border-left: 1px solid $base-border-color;
-    text-align: center;
     @include break-word;
 
     &:first-child {
@@ -33,7 +33,7 @@
 
   // Set Colgorup Width
   &-cell {
-    @for $i from 1 through 10 {
+    @for $i from 1 through 15 {
       &-1of#{$i} {
         width: percentage(1/$i);
       }

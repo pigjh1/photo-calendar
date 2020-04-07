@@ -205,17 +205,27 @@
       .item {
         height: 36px !important;
         min-height: 36px !important;
+
+        &-txt {
+          font-size: 11px;
+        }
       }
     }
   }
 
   &--md {
+    font-size: 13px;
+
     .calendar-body {
       height: auto;
 
       .item {
         height: 60px !important;
         min-height: 60px !important;
+
+        &-txt {
+          font-size: 12px;
+        }
       }
     }
   }

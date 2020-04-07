@@ -9,21 +9,21 @@
     <hr>
 
     <h3>데이터 변경</h3>
-    <div class="row">
-      <div class="col-2">사용자</div>
-      <div class="col-10">
+    <div class="l-flex">
+      <div class="t">사용자</div>
+      <div class="cont">
         <input type="text" v-model="username">
       </div>
     </div>
-    <div class="row">
-      <div class="col-2">목록</div>
-      <div class="col-10">
+    <div class="l-flex">
+      <div class="t">목록</div>
+      <div class="cont">
         <SettingUserData />
       </div>
     </div>
-    <div class="row">
-      <div class="col-2">다관람</div>
-      <div class="col-10">
+    <div class="l-flex">
+      <div class="t">다관람</div>
+      <div class="cont">
         <input type="number" min="2" v-model="turningLeast"> 회 이상 본 작품을 메뉴에서 보여줍니다
       </div>
     </div>
@@ -31,33 +31,33 @@
     <hr>
 
     <h3>디자인 변경</h3>
-    <div class="row">
-      <div class="col-2">어두운 테마</div>
-      <div class="col-10">
+    <div class="l-flex">
+      <div class="t">어두운 테마</div>
+      <div class="cont">
         <SettingTheme />
       </div>
     </div>
-    <div class="row">
-      <div class="col-2">글꼴</div>
-      <div class="col-10">
+    <div class="l-flex">
+      <div class="t">글꼴</div>
+      <div class="cont">
         <SettingFont />
       </div>
     </div>
-    <div class="row">
-      <div class="col-2">캘린더 이미지</div>
-      <div class="col-10">
+    <div class="l-flex">
+      <div class="t">캘린더 이미지</div>
+      <div class="cont">
         <SettingPoster />
       </div>
     </div>
-    <div class="row">
-      <div class="col-2">대표 색상</div>
-      <div class="col-10">
+    <div class="l-flex">
+      <div class="t">대표 색상</div>
+      <div class="cont">
         <SettingColor />
       </div>
     </div>
-    <div class="row">
-      <div class="col-2">차트 색상</div>
-      <div class="col-10">
+    <div class="l-flex">
+      <div class="t">차트 색상</div>
+      <div class="cont">
         <SettingChartColor />
       </div>
     </div>

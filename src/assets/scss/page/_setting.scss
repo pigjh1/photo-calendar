@@ -7,6 +7,18 @@
   max-width: $w-wrap;
   padding: $gutter-sm;
 
+  .l-flex {
+    display: flex;
+    margin-bottom: 20px;
+
+    .t {
+      flex: 0 0 100px;
+    }
+    .cont {
+      flex: 1;
+    }
+  }
+
   .tit {
     text-align: center;
     img {

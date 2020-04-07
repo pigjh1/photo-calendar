@@ -2,8 +2,8 @@
   <div class="table-wrap">
     <table class="table">
       <colgroup>
-        <col class="table-cell-1of8">
-        <col class="table-cell-1of4">
+        <col class="table-cell-1of13">
+        <col class="table-cell-1of6">
         <col class="table-cell-1of10">
         <col>
         <col class="table-cell-1of8">

@@ -12,7 +12,6 @@
 @import 'layout/footer';
 
 @import 'module/vue-transition';
-@import 'module/grid';
 @import 'module/button';
 @import 'module/typography';
 @import 'module/form';
@@ -20,10 +19,10 @@
 @import 'module/form-toggle';
 @import 'module/table';
 @import 'module/calendar';
-@import 'module/box/nodata';
-@import 'module/box/textbox';
-@import 'module/box/listbox';
-@import 'module/box/wordcloud';
+@import 'module/nodata';
+@import 'module/textbox';
+@import 'module/listbox';
+@import 'module/wordcloud';
 
 @import 'page/home';
 @import 'page/userlist';
