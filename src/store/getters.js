@@ -33,7 +33,7 @@ export default {
 
     return data.sort((a, b) => {
       if (a.date === b.date) {
-        return a.time > b.time ? -1 : 1;
+        return a.time < b.time ? -1 : 1;
       }
     });
   },
