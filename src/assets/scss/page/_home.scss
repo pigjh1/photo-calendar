@@ -31,7 +31,7 @@
     justify-content: flex-start;
   }
 
-  @media (min-width: $mq-md) {
+  @media (min-width: $mq-sm) {
     &-type {
       display: block;
       position: absolute;
@@ -42,9 +42,8 @@
 
     &-year {
       >div {
-        flex-basis: percentage(1/4);
         flex: 1 1 auto;
-        width: 280px;
+        width: 200px;
         margin: 10px;
       }
     }
@@ -52,6 +51,14 @@
     &-cal {
       max-width: $w-medium;
       margin: 0 auto;
+    }
+  }
+
+  @media (min-width: $mq-md) {
+    &-year {
+      >div {
+        width: 280px;
+      }
     }
   }
 }

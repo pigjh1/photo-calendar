@@ -1,6 +1,6 @@
 <template>
   <div class="wordcloud">
-    <span v-for="(index, data) in item" :key="data" :class="wordClass(index)">{{ data }}</span>
+    <span v-for="(index, data) in itemList" :key="data" :class="wordClass(index)">{{ data }}</span>
   </div>
 </template>
 
@@ -15,57 +15,34 @@ export default {
     };
   },
   computed: {
-    item() {
-      return this.type === 'actor' ? this.actorAll : this.placeAll;
+    turningLeast() {
+      return this.$store.state.turning.least;
     },
-    actorAll() {
+    itemList() {
       const userdata = this.userdata;
-      let data = [];
+      let data = [], newdata = [];
 
       for (let i = 0; i < userdata.length; i++) {
-        let actor = userdata[i].actor;
+        let item = userdata[i].actor;
 
-        if (typeof actor !== 'undefined' && actor !== null && actor !== '') {
-          actor = actor.split('/');
+        switch (this.type) {
+        case 'place':
+          item = userdata[i].place;
+          break;
+        case 'office':
+          item = userdata[i].office;
+          break;
+        }
 
-          data = data.concat(actor);
+        if (typeof item !== 'undefined' && item !== null && item !== '') {
+          if (this.type === 'actor') {
+            item = item.split('/');
+          }
+
+          data = data.concat(item);
         }
       }
 
-      return this.dataProcessing(data);
-    },
-    placeAll() {
-      const userdata = this.userdata;
-      let data = [];
-
-      for (let i = 0; i < userdata.length; i++) {
-        const place = userdata[i].place;
-
-        if (typeof place !== 'undefined' && place !== null && place !== '') {
-          data = data.concat(place);
-        }
-      }
-      return this.dataProcessing(data);
-    }
-  },
-  methods: {
-    wordClass(val) {
-      let i = parseInt(val) * 0.4,
-        className = '';
-
-      i = Math.floor(i);
-
-      if (i > 0) {
-        className = `word-${i}`;
-        if (i > 7) {
-          className = 'word-big';
-        }
-      }
-
-      return className;
-    },
-    dataProcessing(data) {
-      let newdata = [];
       // 문자열 앞뒤공백 제거
       data.forEach(el => {
         el = el.replace(/^\s+|\s+$/g, '');
@@ -78,13 +55,31 @@ export default {
         return x;
       }, {});
 
-      // 2개 이하인 경우 제거
+      // 조건 이하인 경우 제거
       for (const key in newdata) {
-        if (newdata[key] < 2) {
+        if (newdata[key] < this.turningLeast) {
           delete newdata[key];
         }
       }
+
       return newdata;
+    }
+  },
+  methods: {
+    wordClass(val) {
+      let i = parseInt(val) * 0.3,
+        className = '';
+
+      i = Math.floor(i);
+
+      if (i > 0) {
+        className = `word-${i}`;
+        if (i > 7) {
+          className = 'word-big';
+        }
+      }
+
+      return className;
     }
   }
 };

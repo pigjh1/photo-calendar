@@ -16,7 +16,7 @@
   text-align: center;
   text-decoration: none;
   vertical-align: middle;
-  transition: all .2s ease-out;
+  transition: all $dur $ease;
   border-radius: $base-radius;
 
   & + & {

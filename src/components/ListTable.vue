@@ -4,10 +4,9 @@
       <colgroup>
         <col class="table-cell-1of13">
         <col class="table-cell-1of6">
-        <col class="table-cell-1of10">
+        <col class="table-cell-1of8">
         <col>
         <col class="table-cell-1of8">
-        <col class="table-cell-1of10">
       </colgroup>
       <thead>
         <tr>
@@ -16,7 +15,6 @@
           <th>관람</th>
           <th>출연</th>
           <th>장소</th>
-          <th>금액</th>
         </tr>
       </thead>
       <tbody>
@@ -26,7 +24,6 @@
           <td>{{ item.date }} {{ item.time }}</td>
           <td>{{ item.actor }}</td>
           <td>{{ item.place }}</td>
-          <td>{{ item.price | formatNumberComma }}</td>
         </tr>
       </tbody>
     </table>
@@ -34,10 +31,7 @@
 </template>
 
 <script>
-import formatNumberComma from '@/assets/js/formatNumberComma.js';
-
 export default {
-  filters: { formatNumberComma },
   computed: {
     filterItems() {
       return this.$store.getters.filterItems;

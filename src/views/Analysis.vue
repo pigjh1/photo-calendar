@@ -33,6 +33,9 @@
       <div class="item">
         <h3>선호 극장</h3>
         <Wordcloud type="place" />
+        <br><br><br>
+        <h3>선호 예매처</h3>
+        <Wordcloud type="office" />
       </div>
     </div>
   </div>

@@ -3,7 +3,6 @@
     <FilterItem />
 
     <div class="nodata" v-if="!filterItems.length">
-      <img src="@/assets/icon/smileys/expressions.svg" alt="" >
       데이터가 없습니다.
     </div>
 

@@ -201,7 +201,7 @@ export default {
           ticks: {
             fontFamily: font,
             userCallback: function(value) {
-              return value.toLocaleString(); // , 콤마처리
+              return value.toLocaleString();
             }
           }
         }],

@@ -1,7 +1,6 @@
 <template>
   <div class="turning">
     <div class="nodata" v-if="turninglistLen === 0">
-      <img src="@/assets/icon/smileys/savoring.svg" alt="" >
       {{ turningLeast }}번 이상 관람한 작품이 없습니다.
     </div>
 
@@ -41,11 +40,7 @@
               <span v-for="(index, data) in actorAll" :key="data">{{ data }}</span>
             </div>
             <div v-if="isDiffActor">
-              <span v-for="(index, data) in actorAll" :key="data">
-                <button @click="setAactor(data)">
-                  {{ data }} ({{ index }})
-                </button>
-              </span>
+              <span v-for="(index, data) in actorAll" :key="data">{{ data }} ({{ index }})</span>
             </div>
           </div>
 
@@ -63,21 +58,7 @@
         </div>
 
         <div class="turning-list" >
-          <transition-group tag="div" name="list" class="listbox">
-            <div class="item" v-for="item in filterItems" :key="item.id" :class="chkWatching(item.date)">
-              <router-link :to="`/view/${ item.id }`">
-                <span class="turn">#{{ item.turning }}</span>
-                <dl>
-                  <dt class="a11y">관람</dt>
-                  <dd>{{ item.date }} {{ item.time }}</dd>
-                  <dt class="a11y" v-if="item.actor && isDiffActor">출연</dt>
-                  <dd v-if="item.actor && isDiffActor">{{ item.actor }}</dd>
-                  <dt class="a11y" v-if="item.seat">좌석</dt>
-                  <dd v-if="item.seat">{{ item.seat }} {{ item.seatgrade }}</dd>
-                </dl>
-              </router-link>
-            </div>
-          </transition-group>
+          <ListBox listType="turning" />
         </div>
       </div>
     </div>
@@ -88,20 +69,17 @@
 import UtilDate from '@/assets/js/utilDate.js';
 import formatNumberComma from '@/assets/js/formatNumberComma.js';
 import Calendar from '@/components/Calendar';
+import ListBox from '@/components/ListBox';
 
 export default {
   components: {
-    Calendar
+    Calendar,
+    ListBox
   },
   filters: { formatNumberComma },
   beforeMount() {
     this.$store.commit('changeTurningTitle', Object.keys(this.turninglist)[0]);
     this.$store.commit('changeCaldate', this.turningItemsLast.date);
-  },
-  data() {
-    return {
-      selectedActor: ''
-    };
   },
   computed: {
     selectedItem: {
@@ -173,16 +151,6 @@ export default {
       return Object.fromEntries(
         Object.entries(data).sort((a, b) => b[1] - a[1])
       );
-    },
-    filterItems() {
-      let items = this.turningItems;
-      if (this.selectedActor) {
-        items = items.filter(obj => {
-          return obj.actor.includes(this.selectedActor);
-        });
-      }
-
-      return items;
     },
     calDate() {
       const date = this.turningItemsFirst.date,
@@ -270,17 +238,6 @@ export default {
     memoHtml() {
       const memo = this.turningItemsLast.memo;
       return memo ? memo.split('\n').join('<br />') : memo;
-    }
-  },
-  methods: {
-    setAactor(val) {
-      this.selectedActor = val;
-    },
-    turningChange() {
-      this.selectedActor = '';
-    },
-    chkWatching(val) {
-      return new Date(val) > new Date() ? 'item--watching' : '';
     }
   }
 };
