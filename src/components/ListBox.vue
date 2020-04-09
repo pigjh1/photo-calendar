@@ -3,8 +3,11 @@
     <div class="item" v-for="item in filterItems" :key="item.id" :class="chkWatching(item.date)">
       <router-link :to="`/view/${ item.id }`">
         <span class="turn" v-if="isTurning || item.turning > 1">#{{ item.turning }}</span>
-        <img src="@/assets/noimage.png" alt="" v-if="!isTurning && item.img === ''">
-        <img :src="item.img" :alt="item.title" v-if="!isTurning && item.img !== ''">
+
+        <div class="img" v-if="!isTurning">
+          <img src="@/assets/noimage.png" alt="" v-if="item.img === ''">
+          <img :src="item.img" alt="" v-if="item.img !== ''">
+        </div>
 
         <dl v-if="isTurning">
           <dt class="a11y">관람</dt>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="colorset">
     <div class="item" v-for="(item, index) in chartColor" :key="index" >
       <input type="radio" :id="'s-color' + index" :value="index" v-model="chartIndex" @change="changeChartColor(index)">
       <label :for="'s-color' + index">{{ index + 1}}</label>
@@ -34,20 +34,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped>
-.item {
-  margin-bottom: 10px;
-  label {
-    display: inline-block;
-    width: 20px;
-  }
-  span {
-    display: inline-block;
-    text-align: center;
-    width: 40px;
-    font-size: 10px;
-    padding: 4px 10px;
-  }
-}
-</style>

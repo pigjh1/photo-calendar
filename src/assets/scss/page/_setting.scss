@@ -42,16 +42,17 @@
 
   .colorset {
     button {
+      font-size: 0;
       background: $color1;
       color: $white;
-      width: 180px;
       padding: 10px 0;
       margin: 0 10px 10px 0;
       text-align: center;
       box-sizing: border-box;
       display: inline-block;
       border-radius: $base-radius;
-      font-size: 1.1rem;
+      width: 30px;
+      min-height: 30px;
 
       &.is-active {
         font-weight: bold;
@@ -59,84 +60,43 @@
         outline-offset: -4px;
       }
 
-      &:nth-child(1) {
-        background: $color1;
+      &:nth-child(1) { background: $color1; }
+      &:nth-child(2) { background: $color2; }
+      &:nth-child(3) { background: $color3; }
+      &:nth-child(4) { background: $color4; }
+      &:nth-child(5) { background: $color5; }
+      &:nth-child(6) { background: $color6; }
+      &:nth-child(7) { background: $color7; }
+      &:nth-child(8) { background: $color8; }
+      &:nth-child(9) { background: $color9; }
+      &:nth-child(10) { background: $color10; }
+      &:nth-child(11) { background: $color11; }
+      &:nth-child(12) { background: $color12; }
+      &:nth-child(13) { background: $color13; }
+      &:nth-child(14) { background: $color14; }
+      &:nth-child(15) { background: $color15; }
+      &:nth-child(16) { background: $color16; }
+      &:nth-child(17) { background: $color17; }
+      &:nth-child(18) { background: $color18; }
+      &:nth-child(19) { background: $color19; }
+      &:nth-child(20) { background: $color20; }
+    }
+
+    .item {
+      margin-bottom: 10px;
+
+      label {
+        display: inline-block;
+        width: 20px;
       }
 
-      &:nth-child(2) {
-        background: $color2;
-      }
-
-      &:nth-child(3) {
-        background: $color3;
-      }
-
-      &:nth-child(4) {
-        background: $color4;
-      }
-
-      &:nth-child(5) {
-        background: $color5;
-      }
-
-      &:nth-child(6) {
-        background: $color6;
-      }
-
-      &:nth-child(7) {
-        background: $color7;
-      }
-
-      &:nth-child(8) {
-        background: $color8;
-      }
-
-      &:nth-child(9) {
-        background: $color9;
-      }
-
-      &:nth-child(10) {
-        background: $color10;
-      }
-
-      &:nth-child(11) {
-        background: $color11;
-      }
-
-      &:nth-child(12) {
-        background: $color12;
-      }
-
-      &:nth-child(13) {
-        background: $color13;
-      }
-
-      &:nth-child(14) {
-        background: $color14;
-      }
-
-      &:nth-child(15) {
-        background: $color15;
-      }
-
-      &:nth-child(16) {
-        background: $color16;
-      }
-
-      &:nth-child(17) {
-        background: $color17;
-      }
-
-      &:nth-child(18) {
-        background: $color18;
-      }
-
-      &:nth-child(19) {
-        background: $color19;
-      }
-
-      &:nth-child(20) {
-        background: $color20;
+      span {
+        display: inline-block;
+        text-align: center;
+        vertical-align: middle;
+        font-size: 0;
+        width: 20px;
+        height: 20px;
       }
     }
   }
@@ -155,9 +115,39 @@
         flex: 1;
       }
     }
+
+    .colorset {
+      button {
+        width: 130px;
+        font-size: 1rem;
+      }
+
+      .item {
+        span {
+          width: 30px;
+          height: 30px;
+        }
+      }
+    }
   }
 
   @media (min-width: $mq-lg) {
     padding: $gutter-lg;
+
+    .colorset {
+      button {
+        width: 180px;
+        font-size: 1.1rem;
+      }
+
+      .item {
+        span {
+          width: 40px;
+          height: auto;
+          padding: 4px 10px;
+          font-size: 1rem;
+        }
+      }
+    }
   }
 }

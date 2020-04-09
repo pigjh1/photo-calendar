@@ -14,14 +14,14 @@
 
     button:last-child {
       position: absolute;
-      top: 12px;
-      right: 0;
+      top: 13px;
+      right: 5px;
     }
   }
 
   &-btn {
     margin: 2px;
-    padding: 2px 10px;
+    padding: 3px 10px;
     border-radius: 15px;
     background: $base-bg-color;
 
@@ -115,8 +115,8 @@
         top: 50%;
         width: 24px;
         height: 24px;
-        margin-top: -13px;
-        margin-left: -13px;
+        margin-top: -12px;
+        margin-left: -12px;
 
         span {
           position: absolute;
@@ -177,7 +177,7 @@
     }
 
     &--horizontal {
-      height: 280px;
+      height: 400px;
 
       .item-img {
         flex-direction: column;

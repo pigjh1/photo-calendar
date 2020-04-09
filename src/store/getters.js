@@ -175,7 +175,7 @@ export default {
       responsive: true,
       maintainAspectRatio: false,
       legend: {
-        position: 'right',
+        position: 'top',
         fontFamily: font,
         labels: {
           fontFamily: font
