@@ -4,40 +4,44 @@
 
 // font
 // -----------------------------------------------------------------------------
-@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400');
-@import url('https://fonts.googleapis.com/css?family=Nanum+Myeongjo:400');
-@import url('https://fonts.googleapis.com/css?family=Nanum+Pen+Script:400');
-@import url('https://fonts.googleapis.com/css?family=Cute+Font:400');
-@import url('https://fonts.googleapis.com/css?family=Poor+Story:400');
-@import url('https://fonts.googleapis.com/css?family=Hi+Melody:400');
-@import url('https://fonts.googleapis.com/css?family=Yeon+Sung:400');
-@import url('https://fonts.googleapis.com/css?family=Gamja+Flower:400');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
 
 #app.ff-nanum-gothic {
   font-family: 'Nanum Gothic';
 }
+
 #app.ff-nanum-myeongjo {
   font-family: 'Nanum Myeongjo';
 }
+
 #app.ff-nanum-pen-script {
   font-family: 'Nanum Pen Script';
   font-size: 1.8rem;
 }
+
+#app.ff-noto-sans-kr {
+  font-family: 'Noto Sans KR';
+}
+
 #app.ff-cute-font {
   font-family: 'Cute Font';
   font-size: 1.8rem;
 }
+
 #app.ff-poor-story {
   font-family: 'Poor Story';
   font-size: 1.8rem;
 }
+
 #app.ff-hi-melody {
   font-family: 'Hi Melody';
   font-size: 1.8rem;
 }
+
 #app.ff-yeon-sung {
   font-family: 'Yeon Sung';
 }
+
 #app.ff-gamja-flower {
   font-family: 'Gamja Flower';
   font-size: 1.8rem;
@@ -45,7 +49,6 @@
 
 // color Set
 // -----------------------------------------------------------------------------
-
 @mixin colorSet($color) {
   $color-root: $color;
 
@@ -69,9 +72,10 @@
     }
 
     &--primary {
-    color: $white;
+      color: $white;
       border-color: $color-root;
       background-color: $color-root;
+
       &:hover,
       &:focus {
         background-color: transparent;
@@ -95,6 +99,12 @@
   .textbox {
     background-image: linear-gradient(90deg, transparent 79px, $color-root 79px, $color-root 81px, transparent 81px),
       linear-gradient(rgba($gray4, 0.2) 1px, transparent 1px);
+  }
+
+  .ticket {
+    .tit {
+      color: $color-root;
+    }
   }
 }
 
@@ -150,5 +160,9 @@
   .userlist .filter,
   .listbox .item {
     border-color: $gray7;
+  }
+
+  .listbox .item {
+    background: $gray9;
   }
 }

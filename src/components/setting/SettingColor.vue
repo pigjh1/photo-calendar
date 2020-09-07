@@ -1,10 +1,12 @@
 <template>
-  <div class="colorset">
-    <button v-for="(item, index) in type" :key="index"
-      :class="{ 'is-active': index === color }"
-      @click="changePrimaryColor(index)">
-      {{ item.text }}
-    </button>
+  <div class="cont">
+    <div class="colorset">
+      <button v-for="(item, index) in type" :key="index"
+        :class="{ 'is-active': index === color }"
+        @click="changePrimaryColor(index)">
+        {{ item.text }}
+      </button>
+    </div>
   </div>
 </template>
 

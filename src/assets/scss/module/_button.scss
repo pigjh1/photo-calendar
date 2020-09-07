@@ -2,8 +2,6 @@
 // Button
 // -----------------------------------------------------------------------------
 
-// button component style
-// -----------------------------------------------------------------------------
 .btn {
   box-sizing: border-box;
   display: inline-block;
@@ -52,8 +50,8 @@
   }
 
   &--sm {
-    padding: 5px 12px;
-    font-size: 1.3rem;
+    padding: 5px 10px;
+    font-size: 1.2rem;
   }
 
   &--block {

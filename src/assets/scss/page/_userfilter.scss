@@ -1,0 +1,22 @@
+// -----------------------------------------------------------------------------
+// userfilter
+// -----------------------------------------------------------------------------
+
+.userfilter {
+  padding-top: $gutter-sm;
+
+  .btn {
+    margin-left: $gutter-sm;
+  }
+
+  .filter {
+    border-radius: $base-radius;
+    background: transparent;
+  }
+
+  @media (min-width: $mq-md) {
+    .filter {
+      padding: 20px;
+    }
+  }
+}

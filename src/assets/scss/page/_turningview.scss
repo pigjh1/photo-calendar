@@ -1,0 +1,139 @@
+// -----------------------------------------------------------------------------
+// turning
+// -----------------------------------------------------------------------------
+
+.turningview {
+  padding: $gutter-sm;
+  @include scrollbars('.turning-cal', 10px, $gray3, translate);
+
+  &-poster {
+    margin: 20px 20px 30px 0;
+    width: 120px;
+    float: left;
+
+    img {
+      border-radius: $base-radius;
+      box-shadow: $base-shadow;
+    }
+  }
+
+  &-desc {
+    .p {
+      padding-top: 30px;
+      @include break-word;
+    }
+
+    .borderbox {
+      clear: both;
+      margin-top: 20px;
+    }
+
+    .textbox {
+      display: none;
+    }
+  }
+
+  &-cal {
+    position: relative;
+    display: flex;
+    overflow-x: auto;
+    margin: 30px 0;
+    padding-top: 30px;
+
+    .opt {
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 10px;
+
+      span,
+      label {
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      .t {
+        font-size: 1.2rem;
+        margin-left: 10px;
+      }
+    }
+
+    .calendar {
+      width: 220px;
+      margin: 0 $gutter-sm 30px;
+    }
+  }
+
+  &-listbox {
+    .listbox {
+      justify-content: center;
+
+      .item {
+        width: 40%;
+        max-width: 40%;
+        padding: 0;
+      }
+
+      dl {
+        padding: 20px;
+      }
+    }
+  }
+
+  @media (min-width: $mq-md) {
+    padding: $gutter-md;
+
+    &-header {
+      display: flex;
+    }
+
+    &-poster {
+      float: none;
+      flex: 0 0 200px;
+    }
+
+    &-desc {
+      flex: 1;
+      margin: 20px;
+
+      .textbox {
+        display: block;
+      }
+    }
+  }
+
+  @media (min-width: $mq-lg) {
+    padding: $gutter-lg;
+
+    &-section {
+      display: flex;
+    }
+
+    &-more {
+      flex: 0 0 280px;
+    }
+
+    &-cal {
+      flex-wrap: wrap;
+      align-content: flex-start;
+      overflow-x: hidden;
+    }
+
+    &-listbox {
+      .listbox {
+        justify-content: flex-start;
+
+        .item {
+          width: 250px;
+          max-width: 250px;
+        }
+      }
+    }
+  }
+
+  @media (min-width: $mq-xlg) {
+    &-more {
+      flex: 0 0 520px;
+    }
+  }
+}

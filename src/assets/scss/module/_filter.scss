@@ -1,0 +1,37 @@
+// -----------------------------------------------------------------------------
+// filter
+// -----------------------------------------------------------------------------
+
+.filter {
+  background: $gray1;
+
+  .item {
+    padding: 10px 5px;
+    box-sizing: border-box;
+
+    .t {
+      display: inline-block;
+      vertical-align: top;
+      padding: 0 5px;
+      font-weight: bold;
+    }
+
+    .btn {
+      margin: 2px;
+    }
+
+    select,
+    input[type=text] {
+      margin: 2px;
+      width: 100%;
+    }
+
+    label {
+      margin-right: 10px;
+    }
+  }
+
+  &-toggle {
+    display: none;
+  }
+}

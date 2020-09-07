@@ -25,7 +25,7 @@ export default {
    * @returns {String}
    */
   rgbToHex(rgbType) {
-    const rgb = rgbType.replace(/[^%,.\d]/g, '').split(','),
+    const rgb = rgbType.replace(/[^%,.\d]/gi, '').split(','),
       toHex = function(string) {
         string = parseInt(string, 10).toString(16);
         string = (string.length === 1) ? '0' + string : string;

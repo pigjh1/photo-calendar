@@ -1,8 +1,8 @@
 <template>
   <div class="home">
     <button class="home-type btn btn--sm" @click="onClickType()">
-      <span v-if="yearType">월별보기</span>
-      <span v-if="!yearType">연도별보기</span>
+      <span v-if="yearType">월별</span>
+      <span v-if="!yearType">연도별</span>
     </button>
 
     <div class="home-btngroup" v-if="yearType">
@@ -21,8 +21,8 @@
     </div>
 
     <div class="home-year" v-if="yearType">
-      <div v-for="(value, index) in calDate" :key="index" >
-        <Calendar :start="calDate[index]" calType="img" calSize="md" />
+      <div v-for="(value, index) in calDate" :key="index">
+        <Calendar :start="formatDate(calDate[index])" calType="img" calSize="md" />
       </div>
     </div>
 
@@ -87,6 +87,9 @@ export default {
     },
     onClickYearNext() {
       this.nowYear += 1;
+    },
+    formatDate(value) {
+      return value.replace(/\./g, '-');
     }
   }
 };

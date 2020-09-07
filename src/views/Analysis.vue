@@ -1,6 +1,6 @@
 <template>
   <div class="analysis">
-    <h2>{{ username }}님의 통계</h2>
+    <h2>{{ username }}님의 관람 통계</h2>
 
     <Summary />
 
@@ -42,11 +42,11 @@
 </template>
 
 <script>
-import Summary from '@/components/Summary';
-import ChartVisits from '@/components/ChartVisits';
-import ChartAmount from '@/components/ChartAmount';
-import ChartViewingDay from '@/components/ChartViewingDay';
-import ChartCategory from '@/components/ChartCategory';
+import Summary from '@/components/SummaryAnalysis';
+import ChartVisits from '@/components/chart/ChartVisits';
+import ChartAmount from '@/components/chart/ChartAmount';
+import ChartViewingDay from '@/components/chart/ChartViewingDay';
+import ChartCategory from '@/components/chart/ChartCategory';
 import Wordcloud from '@/components/Wordcloud';
 
 export default {

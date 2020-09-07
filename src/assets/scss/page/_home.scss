@@ -6,7 +6,10 @@
   position: relative;
 
   &-type {
-    display: none;
+    position: absolute;
+    top: 13px;
+    left: 5px;
+    z-index: 20;
   }
 
   &-btngroup {
@@ -29,23 +32,22 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
+    margin-top: -15px;
+
+    >div {
+      width: percentage(1/2);
+      flex-basis: percentage(1/2);
+      flex: 1 1 auto;
+      padding: 10px;
+      box-sizing: border-box;
+    }
   }
 
   @media (min-width: $mq-sm) {
-    &-type {
-      display: block;
-      position: absolute;
-      left: 10px;
-      top: 10px;
-      z-index: 20;
-    }
-
     &-year {
       >div {
-        flex-basis: percentage(1/4);
-        flex: 1 1 auto;
-        width: 200px;
-        margin: 10px;
+        width: percentage(1/3);
+        flex-basis: percentage(1/3);
       }
     }
 
@@ -58,8 +60,17 @@
   @media (min-width: $mq-md) {
     &-year {
       >div {
+        width: percentage(1/4);
         flex-basis: percentage(1/4);
-        width: 280px;
+      }
+    }
+  }
+
+  @media (min-width: $mq-lg) {
+    &-year {
+      >div {
+        width: percentage(1/4);
+        flex-basis: percentage(1/6);
       }
     }
   }

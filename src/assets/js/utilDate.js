@@ -249,10 +249,10 @@ export default {
    * @returns {String} YYYY-MM-DD
    */
   getDateFormat(year, month, day) {
-    const m = parseInt(month) < 10 ? '0' + month : month,
-      d = parseInt(day) < 10 ? '0' + day : day;
+    const m = parseInt(month) < 10 ? '0' + parseInt(month) : month,
+      d = parseInt(day) < 10 ? '0' + parseInt(day) : day;
 
-    return `${year}-${m}-${d}`;
+    return `${year}.${m}.${d}`;
   },
 
   /**

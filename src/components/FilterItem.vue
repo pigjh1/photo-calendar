@@ -1,5 +1,5 @@
 <template>
-  <aside class="filter">
+  <div class="filter">
     <div class="item">
       <span class="t">테이블 타입</span>
       <label for="table" class="toggle">
@@ -8,10 +8,13 @@
       </label>
     </div>
     <div class="item">
-      <span class="t">정렬</span>
-      <select v-model="sortType">
-        <option v-for="item in sorts" :value="item.value" :key="item.value">{{ item.text }}</option>
-      </select>
+      <span class="t">검색</span>
+      <label class="a11y">제목 검색</label>
+      <input type="text" v-model="searchTitle" placeholder="제목 검색">
+      <label class="a11y">출연자 검색</label>
+      <input type="text" v-model="searchActor" placeholder="출연자 검색">
+      <label class="a11y">장소 검색</label>
+      <input type="text" v-model="searchPlace" placeholder="장소 검색">
     </div>
     <div class="item" v-for="(active, menu, index) in menus" :key="menu">
       <span class="t" v-if="index === 0">분류</span>
@@ -25,13 +28,10 @@
       </div>
     </div>
     <div class="item">
-      <span class="t">검색</span>
-      <label class="a11y">제목 검색</label>
-      <input type="text" v-model="searchTitle" placeholder="제목 검색">
-      <label class="a11y">출연자 검색</label>
-      <input type="text" v-model="searchActor" placeholder="출연자 검색">
-      <label class="a11y">장소 검색</label>
-      <input type="text" v-model="searchPlace" placeholder="장소 검색">
+      <span class="t">정렬</span>
+      <select v-model="sortType">
+        <option v-for="item in sorts" :value="item.value" :key="item.value">{{ item.text }}</option>
+      </select>
     </div>
     <div class="item">
       <input type="checkbox" id="c1" v-model="imgType">
@@ -45,7 +45,7 @@
     <button class="filter-toggle" @click="changeCollapsed">
       <img src="@/assets/icon/left-arrow.svg" alt="">
     </button>
-  </aside>
+  </div>
 </template>
 
 <script>
@@ -60,12 +60,12 @@ export default {
     };
   },
   beforeMount() {
-    this.userItems.forEach(({ cate, datayear }, index) => {
+    this.userItems.forEach(({ cate, dateyear }, index) => {
       cate.split('/').forEach(el => {
         el = el.replace(/^\s+|\s+$/g, '');
         this.$set(this.pageFilters.category, el, false);
       });
-      this.$set(this.pageFilters.year, datayear, false);
+      this.$set(this.pageFilters.year, dateyear, false);
     });
 
     this.$store.commit('setupFilters', this.pageFilters);

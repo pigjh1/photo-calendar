@@ -3,7 +3,7 @@
     <h1 class="a11y">Photo Calendar</h1>
     <Header />
     <main class="main">
-      <transition name="view">
+      <transition name="fade">
         <router-view />
       </transition>
     </main>
@@ -36,7 +36,7 @@ export default {
       return 'cset-' + (this.$store.state.design.primaryColor + 1);
     },
     fontClass() {
-      return 'ff-' + this.$store.state.design.fontFamily.toLowerCase().replace(/ /gi, '-');
+      return 'ff-' + this.$store.state.design.fontFamily.toLowerCase().replace(/ /g, '-');
     },
     className() {
       return this.colorClass + ' ' + this.fontClass;
@@ -51,20 +51,9 @@ export default {
       const turning = this.turningCate;
 
       return this.sortItems.map((obj) => {
-        const newObj = {};
+        const newObj = Object.assign({}, obj);
 
-        newObj.id = obj.id;
-        newObj.img = obj.img;
-        newObj.cate = obj.cate;
-        newObj.title = obj.title;
-        newObj.date = obj.date;
-        newObj.time = obj.time;
-        newObj.actor = obj.actor;
-        newObj.place = obj.place;
-        newObj.price = obj.price;
-        newObj.office = obj.office;
-        newObj.datayear = obj.date.replace('-', '').substr(0, 4);
-        newObj.memo = obj.memo;
+        newObj.dateyear = obj.date.substr(0, 4);
 
         for (const key in this.turningCate) {
           if (key === obj.title) {

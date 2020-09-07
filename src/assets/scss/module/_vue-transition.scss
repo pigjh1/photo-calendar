@@ -2,17 +2,33 @@
 // Vue Transition
 // -----------------------------------------------------------------------------
 
-.list {
-  &-move {
-    transition: all 0.4 ease-in-out 0.2;
-  }
-
-  &-enter-active {
-    transition: all 0.4 ease-out;
+.fade {
+  &-enter-active,
+  &-leave-active {
+    transition: opacity .5s ease;
   }
 
   &-leave-active {
-    transition: all 0.4 ease-in;
+    position: absolute;
+  }
+
+  &-enter,
+  &-leave-active {
+    opacity: 0;
+  }
+}
+
+.list {
+  &-move {
+    transition: all 0.4s ease-in-out 0.2s;
+  }
+
+  &-enter-active {
+    transition: all 0.4s ease-out;
+  }
+
+  &-leave-active {
+    transition: all 0.4s ease-in;
     position: absolute;
     z-index: 0;
   }
@@ -24,21 +40,5 @@
 
   &-enter {
     transform: scale(0.5);
-  }
-}
-
-.view {
-  &-enter-active,
-  &-leave-active {
-    transition: opacity 0.4;
-  }
-
-  &-leave-active {
-    position: absolute;
-  }
-
-  &-enter,
-  &-leave-to {
-    opacity: 0;
   }
 }

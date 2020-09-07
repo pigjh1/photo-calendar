@@ -7,6 +7,25 @@
 }
 
 .main {
+  line-height: 1.6;
   padding-top: $header-height;
-  min-height: calc(100vh - #{$header-height});
+  min-height: calc(100vh - #{$header-height} - 70px);
+
+  @media (min-width: $mq-md) {
+    min-height: calc(100vh - #{$header-height});
+  }
+}
+
+.l-wrap {
+  margin: 0 auto;
+  max-width: $w-wrap;
+  padding: $gutter-sm;
+
+  @media (min-width: $mq-md) {
+    padding: $gutter-md;
+  }
+
+  @media (min-width: $mq-lg) {
+    padding: $gutter-lg;
+  }
 }

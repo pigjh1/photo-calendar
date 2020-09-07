@@ -2,10 +2,11 @@
 // Variable
 // -----------------------------------------------------------------------------
 
-// breakpoints
+// breakpoint
 $mq-sm: 560px;
 $mq-md: 768px;
 $mq-lg: 960px;
+$mq-xlg: 1200px;
 
 // grid
 // -----------------------------------------------------------------------------
@@ -18,30 +19,22 @@ $gutter-lg: 50px;
 // -----------------------------------------------------------------------------
 $w-small: 360px;
 $w-medium: 768px;
-$w-wrap: 1180px;
+$w-wrap: 1080px;
 
 $offset-sm: 20px;
 $offset-md: 64px;
 $offset-lg: 130px;
 
-$header-height: 50px; // header 높이
+$header-height: 40px; // header 높이
 
 $base-tb: 12px;
 $base-lr: 15px;
 $base-radius: 5px;
 
-// fonts
+// font
 // -----------------------------------------------------------------------------
-
-// 'Malgun Gothic', '맑은 고딕',
-// '돋움', dotum
-$font-main: 'Nanum Gothic', '나눔 고딕', 'Malgun Gothic', '맑은 고딕', '돋움', dotum, sans-serif;
+$font-main: 'Malgun Gothic', '맑은 고딕', '돋움', dotum, sans-serif;
 $font-sub: 'Open Sans', serif;
-$en: $font-sub;
-
-$font-icon: 'icon';
-$icons: ();
-
 
 // color
 // -----------------------------------------------------------------------------
@@ -97,8 +90,9 @@ $color-primary: $color1;
 $base-bg-color: rgba($gray3, 0.2);
 $base-border-color: $gray2;
 
+$base-shadow: 3px 3px 20px 0px rgba($black, 0.2);
 
-// 애니메이션
+// animation
 // -----------------------------------------------------------------------------
 $dur: .4s;
 $ease: cubic-bezier(0.645, 0.045, 0.355, 1.000);

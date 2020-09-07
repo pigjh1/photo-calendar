@@ -3,10 +3,6 @@
 // -----------------------------------------------------------------------------
 
 .setting {
-  margin: 0 auto;
-  max-width: $w-wrap;
-  padding: $gutter-sm;
-
   input[type=number] {
     width: 60px;
   }
@@ -17,7 +13,6 @@
   }
 
   .l-flex {
-
     .t,
     .cont {
       margin-bottom: 15px;
@@ -29,6 +24,12 @@
 
     img {
       width: 80px;
+    }
+  }
+
+  .cont {
+    .item+.item {
+      margin-left: 20px;
     }
   }
 
@@ -85,6 +86,7 @@
     .item {
       margin-bottom: 10px;
 
+
       label {
         display: inline-block;
         width: 20px;
@@ -99,11 +101,13 @@
         height: 20px;
       }
     }
+
+    .item+.item {
+      margin-left: 0;
+    }
   }
 
   @media (min-width: $mq-md) {
-    padding: $gutter-md;
-
     .l-flex {
       display: flex;
 
@@ -132,8 +136,6 @@
   }
 
   @media (min-width: $mq-lg) {
-    padding: $gutter-lg;
-
     .colorset {
       button {
         width: 180px;

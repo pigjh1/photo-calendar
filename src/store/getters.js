@@ -3,68 +3,55 @@ import UtilColor from '@/assets/js/utilColor.js';
 export default {
   // List
   // -----------------------------------------------------------------------------
-  turningCate: state => {
-    const userdata = state.userdata,
-      newdata = [];
-    let data = [], obj = {};
-
-    for (let i = 0; i < userdata.length; i++) {
-      const title = userdata[i].title;
-
-      data = data.concat(title);
-    }
-
-    data.forEach(el => {
-      el = el.replace(/^\s+|\s+$/g, '');
-      newdata.push(el);
-    });
-
-    obj = newdata.sort().reduce((x, y) => {
-      x[y] = ++x[y] || 1;
-      return x;
-    }, {});
-
-    return obj;
-  },
-
   sortItems: state => {
-    const userdata = state.userdata,
-      data = userdata.sort((a, b) => a.date > b.date ? -1 : 1);
-
-    return data.sort((a, b) => {
+    return state.userData.sort((a, b) => {
+      return a.date > b.date ? -1 : 1;
+    }).sort((a, b) => {
       if (a.date === b.date) {
-        return a.time < b.time ? -1 : 1;
+        return a.time > b.time ? 1 : -1;
       }
     });
   },
 
   filterItems: state => {
-    const activeCategory = state.filtering.filters.category,
+    const activeTitle = state.filtering.search.title,
+      activeActor = state.filtering.search.actor,
+      activePlace = state.filtering.search.place,
+      activeCategory = state.filtering.filters.category,
       activeYaer = state.filtering.filters.year,
       category = Object.keys(activeCategory).filter(c => activeCategory[c]),
       year = Object.keys(activeYaer).filter(c => activeYaer[c]);
     let items = state.userItems;
 
-    // 정렬
-    items = items.sort((a, b) => {
-      switch (state.filtering.sortType) {
-      case 'title':
-        return a.title > b.title ? 1 : -1;
-      case 'place':
-        return a.place > b.place ? 1 : -1;
-      case 'price':
-        if (b.price) {
-          return b.price - a.price;
-        } else {
-          return -1;
-        }
-      default:
-        return a.date > b.date ? -1 : 1;
+    // filter
+    items = items.filter(({
+      title,
+      actor,
+      place,
+      cate,
+      dateyear,
+      date
+    }) => {
+      if (activeTitle) {
+        if (!~title.toLowerCase().indexOf(activeTitle.toLowerCase())) return false;
       }
-    });
 
-    // 분류
-    items = items.filter(({ cate, datayear }) => {
+      if (activeActor) {
+        if (typeof actor !== 'undefined' && actor !== null && actor !== '') {
+          if (!~actor.toLowerCase().indexOf(activeActor.toLowerCase())) return false;
+        } else {
+          return false;
+        }
+      }
+
+      if (activePlace) {
+        if (typeof place !== 'undefined' && place !== null && place !== '') {
+          if (!~place.toLowerCase().indexOf(activePlace.toLowerCase())) return false;
+        } else {
+          return false;
+        }
+      }
+
       if (category.length) {
         if (cate.includes('/')) {
           let st = true;
@@ -78,41 +65,33 @@ export default {
           if (!~category.indexOf(cate)) return false;
         }
       }
+
+      if (state.listType.watching) {
+        if (new Date(date) < state.today) return false;
+      }
+
       return (
-        !year.length || year.every(cat => ~datayear.indexOf(cat))
+        !year.length || year.every(a => ~dateyear.indexOf(a))
       );
     });
 
-    // 검색어
-    if (state.filtering.search.title) {
-      items = items.filter(obj => {
-        return obj.title.includes(state.filtering.search.title);
-      });
-    }
-
-    if (state.filtering.search.actor) {
-      items = items.filter(obj => {
-        const item = obj.actor;
-
-        if (typeof item !== 'undefined' && item !== null && item !== '') {
-          return item.includes(state.filtering.search.actor);
+    // sort
+    items = items.sort((a, b) => {
+      switch (state.filtering.sortType) {
+      case 'title':
+        return a.title > b.title ? 1 : -1;
+      case 'place':
+        return a.place > b.place ? 1 : -1;
+      case 'price':
+        if (b.price) {
+          return b.price - a.price;
         } else {
-          return false;
+          return 1;
         }
-      });
-    }
-
-    if (state.filtering.search.place) {
-      items = items.filter(obj => {
-        const item = obj.place;
-
-        if (typeof item !== 'undefined' && item !== null && item !== '') {
-          return item.includes(state.filtering.search.place);
-        } else {
-          return false;
-        }
-      });
-    }
+      default:
+        return a.date > b.date ? -1 : 1;
+      }
+    });
 
     // 이미지 타입 : 제목 중복 제거
     if (state.listType.img) {
@@ -124,14 +103,28 @@ export default {
       }, []);
     }
 
-    // 관람 예정작만 보기
-    if (state.listType.watching) {
-      items = items.filter(obj => {
-        return new Date(obj.date) >= state.today;
-      });
-    }
-
     return items;
+  },
+
+  turningCate: state => {
+    const items = state.userData,
+      newdata = [];
+    let data = [],
+      obj = {};
+
+    data = items.map(({ title }) => title.replace(/^\s+|\s+$/g, ''));
+
+    data.forEach(el => {
+      el = el.replace(/^\s+|\s+$/g, '');
+      newdata.push(el);
+    });
+
+    obj = newdata.reduce((x, y) => {
+      x[y] = ++x[y] || 1;
+      return x;
+    }, {});
+
+    return obj;
   },
 
   turningItems: state => {
@@ -144,6 +137,20 @@ export default {
     }
 
     return items;
+  },
+
+  // Analysis
+  // -----------------------------------------------------------------------------
+  userItemsRange: state => {
+    const items = state.userItems,
+      rangeFrom = state.analysis.rangeFrom.replace(/-/g, ''),
+      rangeTo = state.analysis.rangeTo.replace(/-/g, '');
+
+    return items.filter(obj => {
+      const date = obj.date.replace(/\./g, '');
+
+      return date >= rangeFrom && date <= rangeTo;
+    });
   },
 
   // Setting

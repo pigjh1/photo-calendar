@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="cont">
     <label for="mode" class="toggle">
       <input type="checkbox" id="mode" v-model="darkmode">
       <span class="toggle-slider"></span>

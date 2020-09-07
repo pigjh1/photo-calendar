@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="cont">
     <input type="file" @change="readFile" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
-    <button type="button" name="button" @click="changeUserdata()" class="btn btn--em"><span>불러오기</span></button>
+    <button type="button" name="button" @click="changeUserData()" class="btn btn--em"><span>불러오기</span></button>
     <p><a href="/sample.xlsx" download="sample.xlsx" class="btn btn--primary btn--sm">엑셀 샘플 파일 다운로드</a></p>
   </div>
 </template>
@@ -28,20 +28,9 @@ export default {
       const turning = this.turningCate;
 
       return this.sortItems.map((obj) => {
-        const newObj = {};
+        const newObj = Object.assign({}, obj);
 
-        newObj.id = obj.id;
-        newObj.img = obj.img;
-        newObj.cate = obj.cate;
-        newObj.title = obj.title;
-        newObj.date = obj.date;
-        newObj.time = obj.time;
-        newObj.actor = obj.actor;
-        newObj.place = obj.place;
-        newObj.price = obj.price;
-        newObj.office = obj.office;
-        newObj.datayear = obj.date.replace('-', '').substr(0, 4);
-        newObj.memo = obj.memo;
+        newObj.dateyear = obj.date.substr(0, 4);
 
         for (const key in this.turningCate) {
           if (key === obj.title) {
@@ -114,8 +103,8 @@ export default {
 
       reader.readAsArrayBuffer(file);
     },
-    changeUserdata() {
-      this.$store.commit('changeUserdata', this.userData);
+    changeUserData() {
+      this.$store.commit('changeUserData', this.userData);
       this.$store.commit('resetFilters');
     },
     getFormatDate(date) {

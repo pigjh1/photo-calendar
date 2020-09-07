@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "deploy": "firebase deploy"
   },
   "dependencies": {
     "chart.js": "^2.9.3",
@@ -13,6 +14,7 @@
     "vue": "^2.6.11",
     "vue-chartjs": "^3.5.0",
     "vue-router": "^3.1.5",
+    "vue2-touch-events": "^2.2.1",
     "vuex": "^3.1.2",
     "xlsx": "^0.15.5"
   },

@@ -20,13 +20,16 @@
   }
 
   &-btn {
+    display: block;
+    width: 28px;
+    height: 28px;
     margin: 2px;
-    padding: 3px 10px;
-    border-radius: 15px;
+    border-radius: 50%;
+    box-sizing: border-box;
     background: $base-bg-color;
 
     img {
-      width: 15px;
+      width: 10px;
       vertical-align: middle;
     }
   }
@@ -38,7 +41,7 @@
 
   &-week {
     box-sizing: border-box;
-    padding: 8px 0;
+    padding: 6px 0;
     border-top: 1px solid $base-border-color;
     border-bottom: 1px solid $base-border-color;
 
@@ -48,6 +51,7 @@
       text-align: center;
       text-transform: uppercase;
       color: $gray5;
+      font-size: 80%;
     }
   }
 
@@ -63,7 +67,7 @@
       overflow: hidden;
       box-sizing: border-box;
       width: percentage(1/7);
-      min-height: 80px;
+      min-height: 75px;
       max-height: percentage(1/6);
       text-align: center;
 
@@ -177,7 +181,7 @@
     }
 
     &--horizontal {
-      height: 400px;
+      height: 350px;
 
       .item-img {
         flex-direction: column;
@@ -220,8 +224,8 @@
       height: auto;
 
       .item {
-        height: 60px !important;
-        min-height: 60px !important;
+        height: 42px !important;
+        min-height: 42px !important;
 
         &-txt {
           font-size: 12px;
@@ -237,6 +241,15 @@
       .item {
         height: 150px;
         max-height: none;
+      }
+    }
+
+    &--md {
+      .calendar-body {
+        .item {
+          height: 62px !important;
+          min-height: 62px !important;
+        }
       }
     }
   }

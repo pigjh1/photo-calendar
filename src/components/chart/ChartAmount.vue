@@ -6,7 +6,6 @@ export default {
   extends: Line,
   data() {
     return {
-      userdata: this.$store.state.userdata,
       gradient: []
     };
   },
@@ -21,6 +20,9 @@ export default {
     );
   },
   computed: {
+    userItemsRange() {
+      return this.$store.getters.userItemsRange;
+    },
     chartOptions() {
       return this.$store.getters.chartOptions1;
     },
@@ -28,20 +30,12 @@ export default {
       return this.$store.getters.chartColor1;
     },
     datas() {
-      const userdata = this.userdata;
-      let data = [];
-
-      for (let i = 0; i < userdata.length; i++) {
-        const date = userdata[i].date.substr(0, 4);
-        data = data.concat(date);
-      }
-
-      data = data.reduce((x, y) => {
+      return this.userItemsRange.map(({ date }) => {
+        return date.substr(0, 4);
+      }).reduce((x, y) => {
         x[y] = ++x[y] || 1;
         return x;
       }, {});
-
-      return data;
     },
     datasets() {
       const data = this.datas,
@@ -53,7 +47,8 @@ export default {
         newdata[idx] = {
           label: `${key}년`,
           data: this.mAmount(key),
-          backgroundColor: this.gradient[colorIdx]
+          backgroundColor: this.gradient[colorIdx],
+          hidden: !(idx === dataLen - 1)
         };
         idx++;
         colorIdx = dataLen > 5 ? colorIdx + 1 : colorIdx + 2;
@@ -65,7 +60,7 @@ export default {
   },
   methods: {
     mAmount(year) {
-      const userdata = this.userdata,
+      const items = this.userItemsRange,
         data = [];
 
       for (let i = 0; i < 12; i++) {
@@ -75,10 +70,10 @@ export default {
 
         let result = 0;
 
-        for (let k = 0; k < userdata.length; k++) {
-          const year = userdata[k].date.replace('-', '').substr(0, 4),
-            month = userdata[k].date.replace('-', '').substr(4, 2),
-            price = parseInt(userdata[k].price);
+        for (let k = 0; k < items.length; k++) {
+          const year = items[k].date.substr(0, 4),
+            month = items[k].date.substr(5, 2),
+            price = parseInt(items[k].price);
 
           if (!isNaN(price) && year === diffYear && month === diffMonth) {
             result = result + price;

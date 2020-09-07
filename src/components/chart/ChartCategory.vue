@@ -3,11 +3,6 @@ import { PolarArea } from 'vue-chartjs';
 
 export default {
   extends: PolarArea,
-  data() {
-    return {
-      userdata: this.$store.state.userdata
-    };
-  },
   mounted() {
     this.renderChart(
       {
@@ -23,6 +18,9 @@ export default {
     );
   },
   computed: {
+    userItemsRange() {
+      return this.$store.getters.userItemsRange;
+    },
     chartOptions() {
       return this.$store.getters.chartOptions2;
     },
@@ -31,7 +29,7 @@ export default {
     },
     labels() {
       let arr = [];
-      this.userdata.forEach(({ cate }) => {
+      this.userItemsRange.forEach(({ cate }) => {
         cate.split('/').forEach(el => {
           el = el.replace(/^\s+|\s+$/g, '');
           arr.push(el);
@@ -44,21 +42,20 @@ export default {
       return arr;
     },
     datasets() {
-      const userdata = this.userdata,
+      const items = this.userItemsRange,
         data = [];
 
-      for (let i = 0; i < this.labels.length; i++) {
+      this.labels.forEach((el, i) => {
         let result = 0;
 
-        for (let k = 0; k < userdata.length; k++) {
-          if (userdata[k].cate.includes(this.labels[i])) {
+        items.forEach((el, k) => {
+          if (items[k].cate.includes(this.labels[i])) {
             result++;
           }
-        }
+        });
 
         data[i] = result;
-      }
-
+      });
       return data;
     }
   }

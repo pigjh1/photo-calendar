@@ -4,7 +4,13 @@ export default {
 
   // List > Data Setup
   setupItem: (state, payload) => {
-    state.userItems = payload;
+    state.userItems = payload.sort((a, b) => {
+      return a.date > b.date ? -1 : 1;
+    }).sort((a, b) => {
+      if (a.date === b.date) {
+        return a.time > b.time ? 1 : -1;
+      }
+    });
   },
   setupFilters: (state, payload) => {
     if (Object.values(state.filtering.filters.category).length === 0) {
@@ -70,13 +76,24 @@ export default {
   changeCaldate: (state, payload) => {
     state.turning.caldate = payload;
   },
-  changeTurningBlackmode: (state, payload) => {
-    state.turning.blackmode = payload;
+  changeTurningOrderByDate: (state, payload) => {
+    state.turning.orderByDate = payload;
+  },
+  changeTurningBlackMode: (state, payload) => {
+    state.turning.blackMode = payload;
+  },
+
+  // Analysis
+  // -----------------------------------------------------------------------------
+  changeAnalysisRangeFrom: (state, payload) => {
+    state.analysis.rangeFrom = payload;
+  },
+  changeAnalysisRangeTo: (state, payload) => {
+    state.analysis.rangeTo = payload;
   },
 
   // Setting
   // -----------------------------------------------------------------------------
-
   changeYearType: (state, payload) => {
     state.yearType = payload;
   },
@@ -85,9 +102,9 @@ export default {
   changeUserName: (state, payload) => {
     state.username = payload;
   },
-  changeUserdata: (state, payload) => {
+  changeUserData: (state, payload) => {
     if (typeof payload !== 'undefined' && payload !== null && payload !== '') {
-      state.userdata = payload;
+      state.userData = payload;
       alert('데이터가 변경되었습니다.');
     }
   },

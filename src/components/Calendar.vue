@@ -30,24 +30,25 @@
     </div>
 
     <div class="calendar-week">
-      <span v-for="(weekName, index) in weekNames" v-bind:key="index">
-      {{ weekName }}
-      </span>
+      <span v-for="(weekName, index) in weekNames" v-bind:key="index">{{ weekName }}</span>
     </div>
 
-    <div class="calendar-body" :class="posterTypeClass">
+    <div class="calendar-body"
+      v-touch:swipe.left="swipePrev"
+      v-touch:swipe.right="swipeNext"
+      :class="posterTypeClass">
       <div v-for="(day, index) in calendarMatrix" :key="index" class="item" :style="isFirst(day)">
         <span class="item-txt" :class="{ 'is-today': isToday(day) }">{{ day }}</span>
 
         <div class="item-img" v-if="calType === 'img'">
-          <router-link :to="`/view/${ item.id }`" v-for="(item, index) in userdataDay(day)" :key="index">
-            <img src="@/assets/noimage.png" alt="" v-if="item.img === ''">
-            <img :src="item.img" :alt="item.title" v-if="item.img !== ''">
+          <router-link :to="`/view/${ item.id }`" v-for="(item, index) in userItemsDay(day)" :key="index">
+            <img src="@/assets/noimage.png" alt="" v-if="!item.img">
+            <img :src="item.img" alt="" v-if="item.img">
           </router-link>
         </div>
 
         <div class="item-dot" v-if="calType === 'dot'">
-          <span v-for="(item, index) in userdataDay(day)" :key="index"></span>
+          <span v-for="(item, index) in userItemsDay(day)" :key="index"></span>
         </div>
       </div>
     </div>
@@ -96,26 +97,17 @@ export default {
     currentDay() {
       return new Date(this.start).getDate();
     },
-    sortItems() {
-      return this.$store.getters.sortItems;
+    userItems() {
+      return this.$store.state.userItems;
     },
     turningItems() {
       return this.$store.getters.turningItems;
     },
-    userItems() {
-      const data = this.sortItems,
-        diffMonth = parseInt(this.currentMonth) < 10 ? '0' + this.currentMonth : this.currentMonth,
-        diffCurrent = `${this.currentYear}-${diffMonth}`;
-
-      return data.filter(post => {
-        return post.date.substr(0, 7).includes(diffCurrent);
-      });
-    },
     turningItemsLen() {
       const data = this.turningItems,
-        diffdMonth = parseInt(this.currentMonth) < 10 ? '0' + this.currentMonth : this.currentMonth,
+        diffMonth = parseInt(this.currentMonth) < 10 ? '0' + this.currentMonth : this.currentMonth,
         arr = data.filter(obj => {
-          return obj.date.includes(`${this.currentYear}-${diffdMonth}`);
+          return obj.date.includes(`${this.currentYear}.${diffMonth}`);
         });
 
       return arr.length;
@@ -128,7 +120,7 @@ export default {
       return this.calSize ? `calendar--${this.calSize}` : '';
     },
     isShow() {
-      const type = this.$store.state.turning.blackmode;
+      const type = this.$store.state.turning.blackMode;
       if (this.calType === 'img') return true;
       return type ? this.turningItemsLen > 0 : true;
     }
@@ -163,8 +155,18 @@ export default {
         this.nowMonth += 1;
       }
     },
-    userdataDay(day) {
-      const data = this.calType === 'img' ? this.sortItems : this.turningItems,
+    swipePrev() {
+      if (!this.calSize) {
+        this.onClickMonthPrev(this.nowMonth);
+      }
+    },
+    swipeNext() {
+      if (!this.calSize) {
+        this.onClickMonthNext(this.nowMonth);
+      }
+    },
+    userItemsDay(day) {
+      const data = this.calType === 'img' ? this.userItems : this.turningItems,
         year = (this.calStatic) ? this.nowYear : this.currentYear,
         month = (this.calStatic) ? this.nowMonth : this.currentMonth;
 

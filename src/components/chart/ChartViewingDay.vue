@@ -3,11 +3,6 @@ import { Doughnut } from 'vue-chartjs';
 
 export default {
   extends: Doughnut,
-  data() {
-    return {
-      userdata: this.$store.state.userdata
-    };
-  },
   mounted() {
     this.renderChart(
       {
@@ -23,6 +18,9 @@ export default {
     );
   },
   computed: {
+    userItemsRange() {
+      return this.$store.getters.userItemsRange;
+    },
     chartOptions() {
       return this.$store.getters.chartOptions2;
     },
@@ -30,19 +28,19 @@ export default {
       return this.$store.getters.chartColor2;
     },
     viewingDay() {
-      const userdata = this.userdata,
+      const items = this.userItemsRange,
         data = [];
 
       for (let i = 0; i < 7; i++) {
         let result = 0;
 
-        for (let k = 0; k < userdata.length; k++) {
-          const diffDay = new Date(userdata[k].date).getDay();
+        items.forEach((el, k) => {
+          const diffDay = new Date(items[k].date.replace(/\./g, '-')).getDay();
 
           if (i === diffDay) {
             result++;
           }
-        }
+        });
 
         // 일요일은 0
         if (i === 0) {

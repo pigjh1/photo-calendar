@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <span class="item" v-for="(item, index) in type" :key="index" >
+  <div class="cont">
+    <span class="item" v-for="(item, index) in type" :key="index">
       <input type="radio" name="s-poster"
         :id="'s-poster' + index" :value="item.value"
         v-model="posterType"
@@ -41,9 +41,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped>
-.item {
-  margin-right: 20px;
-}
-</style>

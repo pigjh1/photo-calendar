@@ -1,6 +1,9 @@
 <template>
   <div class="userlist" :class="listClassName">
-    <FilterItem />
+    <aside v-if="filterinline">
+      <FilterItem />
+    </aside>
+    <router-link to="/filter" class="btn btn--sm btn__filter" v-if="!filterinline">검색필터</router-link>
 
     <div class="nodata" v-if="!filterItems.length">
       데이터가 없습니다.
@@ -26,6 +29,7 @@ export default {
   },
   data() {
     return {
+      filterinline: true,
       window: { width: 0, height: 0 }
     };
   },
@@ -61,7 +65,7 @@ export default {
       this.window.width = window.innerWidth;
       this.window.height = window.innerHeight;
 
-      this.$store.commit('changeCollapsed', this.window.width < 769);
+      this.filterinline = this.window.width > 769;
     }
   }
 };

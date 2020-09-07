@@ -1,6 +1,14 @@
 <template>
   <div class="wordcloud">
-    <span v-for="(index, data) in itemList" :key="data" :class="wordClass(index)">{{ data }}</span>
+    <span v-for="(index, data) in itemList" :key="data">
+      <router-link :to="`/actor/${ data }`" v-if="isActor">
+        <span :class="wordClass(index)">{{ data }}</span>
+      </router-link>
+      <router-link :to="`/place/${ data }`" v-if="isPlace">
+        <span :class="wordClass(index)">{{ data }}</span>
+      </router-link>
+      <span :class="wordClass(index)" v-if="!isActor && !isPlace">{{ data }}</span>
+    </span>
   </div>
 </template>
 
@@ -9,47 +17,50 @@ export default {
   props: {
     type: String
   },
-  data() {
-    return {
-      userdata: this.$store.state.userdata
-    };
-  },
   computed: {
+    isActor() {
+      return this.type === 'actor';
+    },
+    isPlace() {
+      return this.type === 'place';
+    },
+    userItemsRange() {
+      return this.$store.getters.userItemsRange;
+    },
     turningLeast() {
       return this.$store.state.turning.least;
     },
     itemList() {
-      const userdata = this.userdata;
       let data = [], newdata = [];
 
-      for (let i = 0; i < userdata.length; i++) {
-        let item = userdata[i].actor;
+      data = this.userItemsRange.map(({ actor, place, office }) => {
+        let item = actor;
 
         switch (this.type) {
         case 'place':
-          item = userdata[i].place;
+          item = place;
           break;
         case 'office':
-          item = userdata[i].office;
+          item = office;
           break;
         }
 
         if (typeof item !== 'undefined' && item !== null && item !== '') {
-          if (this.type === 'actor') {
-            item = item.split('/');
-          }
-
-          data = data.concat(item);
+          return item;
+        } else {
+          return '';
         }
+      });
+
+      if (this.isActor) {
+        data = data.join('/').split('/');
       }
 
-      // 문자열 앞뒤공백 제거
       data.forEach(el => {
         el = el.replace(/^\s+|\s+$/g, '');
         newdata.push(el);
       });
 
-      // 정렬, 중복값 확인
       newdata = newdata.sort().reduce((x, y) => {
         x[y] = ++x[y] || 1;
         return x;
@@ -67,7 +78,7 @@ export default {
   },
   methods: {
     wordClass(val) {
-      let i = parseInt(val) * 0.3,
+      let i = parseInt(val) * 0.4,
         className = '';
 
       i = Math.floor(i);

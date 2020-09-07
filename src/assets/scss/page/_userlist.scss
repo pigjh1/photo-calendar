@@ -1,113 +1,89 @@
 // -----------------------------------------------------------------------------
-// List
+// userlist
 // -----------------------------------------------------------------------------
 
 .userlist {
+  position: relative;
   overflow-x: hidden;
+  padding-top: $gutter-sm;
   @include scrollbars('.filter', 10px, $gray3, translate);
+
+  .btn__filter {
+    position: absolute;
+    top: 15px;
+    right: $gutter-sm;
+  }
 
   .filter {
     position: fixed;
-    height: calc(100vh - #{$header-height});
+    top: $header-height;
     left: 0;
     right: 0;
-    overflow-y: scroll;
-    background: $gray1;
     z-index: 10;
-
-    .item {
-      padding: 10px 5px;
-      box-sizing: border-box;
-
-      .t {
-        display: inline-block;
-        vertical-align: top;
-        padding: 0 5px;
-        font-weight: bold;
-      }
-
-      .btn {
-        margin: 2px;
-      }
-
-      select,
-      input[type=text] {
-        margin: 2px;
-        width: 100%;
-      }
-    }
-
-    &-toggle {
-      position: fixed;
-      display: block;
-      top: $header-height;
-      right: 0;
-
-      img {
-        padding: 15px 20px;
-        height: 20px;
-      }
-    }
+    overflow-y: scroll;
   }
 
   .list {
-    padding-top: $header-height + 20px;
+    padding-top: $gutter-sm * 2;
+  }
 
-    .table {
-      min-width: $w-medium;
+  .table {
+    min-width: $w-medium;
 
-      &-wrap {
-        overflow-x: scroll;
-      }
+    &-wrap {
+      overflow-x: scroll;
     }
   }
 
-  &.is-collapsed {
-    .filter {
-      height: $header-height;
-      overflow: hidden;
-
-      .item {
-        display: none;
-
-        &:first-child {
-          display: block;
+  @media (max-width: $mq-md) {
+    .table {
+      col, th, td {
+        &:nth-child(1),
+        &:nth-child(5) {
+          display: none;
         }
       }
     }
   }
 
   @media (min-width: $mq-md) {
+    .list {
+      margin-left: 240px;
+      padding: $gutter-md;
+    }
+
     .filter {
       width: 240px;
       background: $base-bg-color;
       padding: $gutter-md;
       box-sizing: border-box;
+      bottom: 0;
 
       &-toggle {
+        position: fixed;
+        display: block;
         left: 0;
         top: auto;
         bottom: 0;
         width: 240px;
         z-index: 100;
         text-align: right;
-      }
-    }
 
-    .list {
-      margin-left: 240px;
-      padding: $gutter-md;
+        img {
+          padding: 15px 20px;
+          height: 20px;
+        }
+      }
     }
 
     &.is-collapsed {
       .filter {
         width: 0;
         height: calc(100vh - #{$header-height});
+        overflow: hidden;
 
         .item {
-          &:first-child {
-            display: none;
-          }
+          display: none;
         }
 
         .filter-toggle {

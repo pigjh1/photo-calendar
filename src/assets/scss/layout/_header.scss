@@ -7,24 +7,23 @@
   top: 0;
   left: 0;
   right: 0;
-  padding: 0 $offset-sm;
   color: $gray2;
   text-align: center;
   display: flex;
-  font-size: 1.8rem;
   justify-content: space-between;
   height: $header-height;
-  background-color: $white;
+  line-height: $header-height;
+  background-color: $color-primary;
   box-sizing: border-box;
   z-index: 100;
-  background-color: $color-primary;
 
   a {
-    padding: 10px;
+    padding: 0 15px;
   }
 
   img {
-    width: 25px;
-    vertical-align: middle;
+    width: 21px;
+    padding-top: 10px;
+    vertical-align: top;
   }
 }

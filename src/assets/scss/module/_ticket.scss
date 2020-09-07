@@ -1,0 +1,128 @@
+// -----------------------------------------------------------------------------
+// ticket
+// -----------------------------------------------------------------------------
+
+.ticket {
+  width: 100%;
+  max-width: 600px;
+  margin: 3em auto;
+  display: flex;
+  height: 14em;
+  background: linear-gradient(to bottom, $gray8 0%, $gray8 26%, $gray1 26%, $gray1 100%);
+  border-radius: 8px;
+
+  &-left {
+    position: relative;
+    padding: 1em;
+    width: percentage(1/4);
+  }
+
+  &-right {
+    position: relative;
+    width: percentage(3/4);
+    padding: 0.8em 1em;
+    border-left: .18em dashed $white;
+
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      display: block;
+      width: .9em;
+      height: .9em;
+      background: $white;
+      border-radius: 50%;
+      left: -.5em;
+    }
+
+    &:before {
+      top: -.4em;
+    }
+
+    &:after {
+      bottom: -.4em;
+    }
+  }
+
+  .seatgrade {
+    text-align: center;
+    color: $white;
+    position: absolute;
+    left: 0;
+    right: 0;
+  }
+
+  .tit {
+    text-align: center;
+    text-transform: uppercase;
+    margin: 4em 0 0 0;
+    line-height: 1.2;
+    color: $color-primary;
+    font-size: 0.9em;
+    letter-spacing: -0.05em;
+  }
+
+  .seat {
+    font-size: 1.3em;
+    color: $white;
+    margin-top: 0;
+    min-height: 25px;
+  }
+
+  dl {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 25px;
+  }
+
+  dt {
+    font-weight: bold;
+    width: 50px;
+    font-size: .7em;
+    color: #a2aeae;
+    font-weight: normal;
+    margin-top: 3px;
+  }
+
+  dd {
+    width: calc(100% - 50px);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-weight: normal;
+    font-size: .9em;
+    color: $gray6;
+  }
+
+  .barcode {
+    width: 0;
+    height: 2em;
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    margin-left: -40px;
+    box-shadow: 1px 0 0 1px $gray9,
+      5px 0 0 1px $gray9,
+      10px 0 0 1px $gray9,
+      11px 0 0 1px $gray9,
+      15px 0 0 1px $gray9,
+      18px 0 0 1px $gray9,
+      22px 0 0 1px $gray9,
+      23px 0 0 1px $gray9,
+      26px 0 0 1px $gray9,
+      30px 0 0 1px $gray9,
+      35px 0 0 1px $gray9,
+      37px 0 0 1px $gray9,
+      41px 0 0 1px $gray9,
+      44px 0 0 1px $gray9,
+      47px 0 0 1px $gray9,
+      51px 0 0 1px $gray9,
+      56px 0 0 1px $gray9,
+      59px 0 0 1px $gray9,
+      64px 0 0 1px $gray9,
+      68px 0 0 1px $gray9,
+      72px 0 0 1px $gray9,
+      74px 0 0 1px $gray9,
+      77px 0 0 1px $gray9,
+      81px 0 0 1px $gray9;
+  }
+}
