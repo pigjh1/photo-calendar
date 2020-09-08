@@ -8,7 +8,7 @@ export default {
       return a.date > b.date ? -1 : 1;
     }).sort((a, b) => {
       if (a.date === b.date) {
-        return a.time > b.time ? 1 : -1;
+        return a.time > b.time ? -1 : 1;
       }
     });
   },
@@ -22,6 +22,28 @@ export default {
       category = Object.keys(activeCategory).filter(c => activeCategory[c]),
       year = Object.keys(activeYaer).filter(c => activeYaer[c]);
     let items = state.userItems;
+
+    // sort
+    items = items.sort((a, b) => {
+      switch (state.filtering.sortType) {
+      case 'title':
+        return a.title > b.title ? 1 : -1;
+      case 'place':
+        return a.place > b.place ? 1 : -1;
+      case 'price':
+        if (b.price) {
+          return b.price - a.price;
+        } else {
+          return 1;
+        }
+      default:
+        return a.date > b.date ? -1 : 1;
+      }
+    }).sort((a, b) => {
+      if (a.date === b.date) {
+        return a.time > b.time ? -1 : 1;
+      }
+    });
 
     // filter
     items = items.filter(({
@@ -75,24 +97,6 @@ export default {
       );
     });
 
-    // sort
-    items = items.sort((a, b) => {
-      switch (state.filtering.sortType) {
-      case 'title':
-        return a.title > b.title ? 1 : -1;
-      case 'place':
-        return a.place > b.place ? 1 : -1;
-      case 'price':
-        if (b.price) {
-          return b.price - a.price;
-        } else {
-          return 1;
-        }
-      default:
-        return a.date > b.date ? -1 : 1;
-      }
-    });
-
     // 이미지 타입 : 제목 중복 제거
     if (state.listType.img) {
       items = items.reduce((prev, now) => {
@@ -107,24 +111,15 @@ export default {
   },
 
   turningCate: state => {
-    const items = state.userData,
-      newdata = [];
-    let data = [],
-      obj = {};
+    const items = state.userData;
 
-    data = items.map(({ title }) => title.replace(/^\s+|\s+$/g, ''));
-
-    data.forEach(el => {
-      el = el.replace(/^\s+|\s+$/g, '');
-      newdata.push(el);
-    });
-
-    obj = newdata.reduce((x, y) => {
-      x[y] = ++x[y] || 1;
-      return x;
-    }, {});
-
-    return obj;
+    return items.map(({
+      title
+    }) => title.replace(/^\s+|\s+$/g, ''))
+      .reduce((x, y) => {
+        x[y] = ++x[y] || 1;
+        return x;
+      }, {});
   },
 
   turningItems: state => {

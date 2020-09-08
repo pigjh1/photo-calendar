@@ -34,7 +34,7 @@ export default {
     },
     priceAll() {
       return this.userItems.map(({ price }) => {
-        return typeof price !== 'undefined' && price !== null && price !== '' ? price : 0;
+        return typeof price !== 'undefined' && price !== null && price !== '' && price !== '-' ? price : 0;
       });
     },
     totalTitle() {

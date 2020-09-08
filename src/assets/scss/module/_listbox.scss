@@ -12,15 +12,11 @@
     flex: 1 1 auto;
     width: 150px;
     border: 1px solid $base-border-color;
-    margin: $gutter-sm;
-    padding: $offset-sm;
+    margin: 12px;
+    padding: 10px;
     box-sizing: border-box;
     border-radius: $base-radius;
     background: $white;
-
-    dl {
-      font-size: 0.9rem;
-    }
 
     dt {
       font-weight: bold;
@@ -83,9 +79,27 @@
     }
 
     .img {
-      width: 50px;
-      object-fit: cover;
-      margin: 0 auto 10px;
+      width: 100%;
+      margin-bottom: 10px;
+      text-align: center;
+      img {
+        width: 60px;
+      }
+    }
+
+    .castingboard {
+      flex-basis: 100%;
+      width: 100%;
+      margin-bottom: $offset-sm;
+      text-align: center;
+
+      img {
+        width: 100%;
+
+        &.noimg {
+          width: 100px;
+        }
+      }
     }
 
     &--watching {
@@ -140,18 +154,19 @@
   @media (min-width: $mq-md) {
     .item {
       width: 320px;
+      margin: 15px;
+      padding: 20px;
 
       .img {
-        width: 80px;
         margin: 0 $offset-sm 0 0;
+
+        img {
+          width: 80px;
+        }
 
         &+dl {
           width: calc(100% - 100px);
         }
-      }
-
-      dl {
-        font-size: 1.5rem;
       }
     }
   }

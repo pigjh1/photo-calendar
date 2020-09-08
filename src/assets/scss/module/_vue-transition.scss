@@ -5,11 +5,7 @@
 .fade {
   &-enter-active,
   &-leave-active {
-    transition: opacity .5s ease;
-  }
-
-  &-leave-active {
-    position: absolute;
+    transition: opacity .4s ease;
   }
 
   &-enter,
@@ -20,15 +16,15 @@
 
 .list {
   &-move {
-    transition: all 0.4s ease-in-out 0.2s;
+    transition: all .4s ease-in-out .2s;
   }
 
   &-enter-active {
-    transition: all 0.4s ease-out;
+    transition: all .4s ease-out;
   }
 
   &-leave-active {
-    transition: all 0.4s ease-in;
+    transition: all .4s ease-in;
     position: absolute;
     z-index: 0;
   }

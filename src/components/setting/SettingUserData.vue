@@ -52,8 +52,8 @@ export default {
 
         if (i < 2) return; // 제목줄인 2개 제외
 
-        dataArr.forEach((kk, index) => {
-          let a = kk;
+        dataArr.forEach((k, index) => {
+          let a = k;
           if (index === 4) {
             a = this.getFormatDate(a);
           } else if (index === 5) {

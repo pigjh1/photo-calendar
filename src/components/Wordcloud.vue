@@ -31,9 +31,10 @@ export default {
       return this.$store.state.turning.least;
     },
     itemList() {
+      const items = this.userItemsRange;
       let data = [], newdata = [];
 
-      data = this.userItemsRange.map(({ actor, place, office }) => {
+      data = items.map(({ actor, place, office }) => {
         let item = actor;
 
         switch (this.type) {
